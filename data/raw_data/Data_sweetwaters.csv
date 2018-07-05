@@ -1,0 +1,469 @@
+date;site;species;subject_site;age;cup_distance;task_experience;board_size;test_situation;session;block;trial;condition;hiding_location;pick;secondary_pick;correct;researcher;comment
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;1;long;1;2;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;2;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;3;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;4;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;5;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;1;6;long;1;2;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;7;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;8;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;9;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;10;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;11;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;2;12;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;13;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;14;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;15;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;16;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;17;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;1;3;18;medium;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;19;medium;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;20;medium;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;21;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;22;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;23;medium;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;1;24;medium;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;25;long;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;26;long;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;27;long;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;28;long;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;29;long;1;3;;0;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;2;30;long;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;31;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;32;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;33;short;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;34;short;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;35;short;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;niyonkuru_swe;28;20;yes;80;single;2;3;36;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;1;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;2;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;3;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;4;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;5;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;1;6;long;2;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;7;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;8;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;9;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;10;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;11;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;2;12;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;13;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;14;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;15;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;16;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;17;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;1;3;18;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;19;short;2;3;;0;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;20;short;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;21;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;22;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;23;short;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;1;24;short;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;25;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;26;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;27;medium;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;28;medium;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;29;medium;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;2;30;medium;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;31;long;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;32;long;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;33;long;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;34;long;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;35;long;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;uruhara_swe;29;20;yes;80;single;2;3;36;long;2;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;1;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;2;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;3;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;4;medium;1;2;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;5;medium;2;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;1;6;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;7;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;8;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;9;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;10;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;11;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;2;12;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;13;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;14;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;15;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;16;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;17;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;1;3;18;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;19;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;20;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;21;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;22;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;23;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;1;24;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;25;long;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;26;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;27;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;28;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;29;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;2;30;long;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;31;medium;1;2;;0;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;32;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;33;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;34;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;35;medium;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;kisa_swe;25;20;yes;80;single;2;3;36;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;1;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;2;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;3;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;4;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;5;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;1;6;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;7;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;8;long;2;3;;0;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;9;long;1;2;;0;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;10;long;3;3;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;11;long;1;3;;0;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;2;12;long;2;2;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;13;short;1;1;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;14;short;2;2;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;15;short;2;2;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;16;short;1;1;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;17;short;3;3;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;1;3;18;short;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;19;short;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;20;short;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;21;short;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;22;short;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;23;short;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;1;24;short;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;25;medium;2;3;;0;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;26;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;27;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;28;medium;1;2;;0;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;29;medium;2;2;;1;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;2;30;medium;1;1;;1;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;31;long;3;3;;1;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;32;long;1;1;;1;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;33;long;2;3;;0;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;34;long;2;2;;1;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;35;long;1;3;;0;esther_lou;session 2 in 2 days
+20180423;sweetwaters;chimpanzees;akela_swe;30;20;yes;80;single;2;3;36;long;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;1;short;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;2;short;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;3;short;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;4;short;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;5;short;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;1;6;short;1;2;;0;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;7;long;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;8;long;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;9;long;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;10;long;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;11;long;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;2;12;long;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;13;medium;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;14;medium;1;1;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;15;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;16;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;17;medium;2;2;;1;esther_lou;session 2 in 2 days
+20180420;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;1;3;18;medium;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;19;long;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;20;long;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;21;long;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;22;long;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;23;long;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;1;24;long;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;25;short;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;26;short;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;27;short;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;28;short;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;29;short;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;2;30;short;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;31;medium;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;32;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;33;medium;3;3;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;34;medium;1;1;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;35;medium;2;2;;1;esther_lou;session 2 in 2 days
+20180422;sweetwaters;chimpanzees;amizero_swe;29;20;yes;80;single;2;3;36;medium;1;1;;1;esther_lou;session 2 in 2 days
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;1;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;2;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;3;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;4;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;5;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;1;6;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;7;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;8;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;9;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;10;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;11;medium;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;2;12;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;13;long;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;14;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;15;long;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;16;long;3;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;17;long;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;1;3;18;long;2;3;;0;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;19;long;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;20;long;3;2;;0;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;21;long;1;2;;0;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;22;long;1;2;;0;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;23;long;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;1;24;long;3;3;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;25;medium;3;3;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;26;medium;1;1;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;27;medium;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;28;medium;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;29;medium;1;1;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;2;30;medium;3;2;;0;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;31;short;1;1;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;32;short;1;1;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;33;short;3;3;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;34;short;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;35;short;2;2;;1;esther_lou;
+20180424;sweetwaters;chimpanzees;dufa_swe;27;20;yes;80;single;2;3;36;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;1;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;2;long;1;3;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;3;long;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;4;long;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;5;long;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;1;6;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;7;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;8;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;9;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;10;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;11;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;2;12;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;13;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;14;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;15;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;16;medium;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;17;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;1;3;18;medium;1;1;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;19;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;20;medium;1;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;21;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;22;medium;1;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;23;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;1;24;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;25;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;26;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;27;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;28;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;29;long;1;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;2;30;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;31;short;1;2;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;32;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;33;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;34;short;1;3;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;35;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;chipie_swe;27;20;yes;80;single;2;3;36;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;1;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;2;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;3;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;4;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;5;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;1;6;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;7;long;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;8;long;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;9;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;10;long;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;11;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;2;12;long;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;13;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;14;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;15;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;16;short;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;17;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;1;3;18;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;19;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;20;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;21;short;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;22;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;23;short;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;1;24;short;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;25;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;26;long;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;27;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;28;long;3;2;;0;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;29;long;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;2;30;long;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;31;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;32;medium;1;1;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;33;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;34;medium;3;3;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;35;medium;2;2;;1;esther_lou;
+20180418;sweetwaters;chimpanzees;bahati_swe;25;20;yes;80;single;2;3;36;medium;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;1;long;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;2;long;2;1;;0;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;3;long;2;2;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;4;long;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;5;long;3;3;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;1;6;long;3;1;;0;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;7;medium;2;2;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;8;medium;1;2;;0;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;9;medium;3;3;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;10;medium;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;11;medium;2;2;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;2;12;medium;3;3;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;13;short;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;14;short;1;1;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;15;short;3;3;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;16;short;2;2;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;17;short;2;2;;1;esther_lou;
+20180419;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;1;3;18;short;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;19;medium;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;20;medium;1;1;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;21;medium;1;3;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;22;medium;2;1;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;23;medium;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;1;24;medium;2;2;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;25;short;1;1;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;26;short;2;2;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;27;short;2;2;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;28;short;1;1;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;29;short;3;2;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;2;30;short;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;31;long;2;3;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;32;long;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;33;long;3;3;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;34;long;1;2;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;35;long;2;2;;1;esther_lou;
+20180420;sweetwaters;chimpanzees;tess_swe;26;20;yes;80;single;2;3;36;long;1;2;;0;esther_lou;
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;1;short;3;3;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;2;short;2;2;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;3;short;1;2;;0;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;4;short;3;3;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;5;short;1;1;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;1;6;short;2;2;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;7;long;1;1;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;8;long;2;2;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;9;long;3;3;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;10;long;2;2;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;11;long;3;3;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;2;12;long;1;1;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;13;medium;2;2;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;14;medium;3;3;;1;esther_lou;session 1 in 2 days
+20180420;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;15;medium;1;1;;1;esther_lou;session 1 in 2 days
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;16;medium;1;3;;0;esther_lou;session 1 in 2 days
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;17;medium;2;2;;1;esther_lou;session 1 in 2 days
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;1;3;18;medium;3;3;;1;esther_lou;session 1 in 2 days
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;19;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;20;long;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;21;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;22;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;23;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;1;24;long;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;25;medium;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;26;medium;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;27;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;28;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;29;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;2;30;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;31;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;32;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;33;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;34;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;35;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;joy_swe;13;20;yes;80;single;2;3;36;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;1;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;2;short;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;3;short;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;4;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;5;short;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;1;6;short;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;7;medium;1;1;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;8;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;9;medium;2;2;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;10;medium;1;2;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;11;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;2;12;medium;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;13;long;2;3;;0;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;14;long;3;3;;1;esther_lou;
+20180416;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;15;long;3;3;;1;esther_lou;
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;16;long;1;2;;0;esther_lou;
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;17;long;2;1;;0;esther_lou;
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;1;3;18;long;1;2;;0;esther_lou;
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;19;long;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;20;long;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;21;long;1;;;0;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;22;long;1;1;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;23;long;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;1;24;long;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;25;short;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;26;short;1;1;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;27;short;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;28;short;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;29;short;1;;;0;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;2;30;short;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;31;medium;1;;;0;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;32;medium;1;1;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;33;medium;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;34;medium;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;35;medium;2;2;;1;esther_lou;session 2 with apples (all others:bananas)
+20180507;sweetwaters;chimpanzees;jane_swe;14;20;yes;80;single;2;3;36;medium;3;3;;1;esther_lou;session 2 with apples (all others:bananas)
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;1;long;2;1;;0;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;2;long;3;2;;0;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;3;long;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;4;long;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;5;long;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;1;6;long;3;1;;0;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;7;short;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;8;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;9;short;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;10;short;2;2;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;11;short;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;2;12;short;3;3;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;13;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;14;medium;1;1;;1;esther_lou;
+20180422;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;15;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;16;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;17;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;1;3;18;medium;3;2;;0;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;19;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;20;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;21;medium;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;22;medium;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;23;medium;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;1;24;medium;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;25;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;26;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;27;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;28;short;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;29;short;3;3;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;2;30;short;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;31;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;32;long;3;2;;0;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;33;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;34;long;1;1;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;35;long;2;2;;1;esther_lou;
+20180423;sweetwaters;chimpanzees;roy_swe;11;20;yes;80;single;2;3;36;long;3;2;;0;esther_lou;
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;1;short;1;2;;0;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;2;short;2;2;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;3;short;3;2;;0;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;4;short;2;2;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;5;short;3;3;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;1;6;short;1;1;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;7;medium;2;2;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;8;medium;3;3;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;9;medium;3;3;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;10;medium;1;1;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;11;medium;2;3;;0;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;2;12;medium;1;1;;1;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;13;long;3;2;;0;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;14;long;1;2;;0;esther_lou;very young chimp (born 2013)
+20180425;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;15;long;2;2;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;16;long;2;2;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;17;long;1;3;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;1;3;18;long;3;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;19;long;2;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;20;long;3;3;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;21;long;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;22;long;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;23;long;2;2;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;1;24;long;3;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;25;short;3;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;26;short;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;27;short;2;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;28;short;2;2;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;29;short;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;2;30;short;3;3;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;31;medium;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;32;medium;1;1;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;33;medium;3;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;34;medium;2;1;;0;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;35;medium;2;2;;1;esther_lou;very young chimp (born 2013)
+20180426;sweetwaters;chimpanzees;manno_swe;5;20;no;80;single;2;3;36;medium;3;2;;0;esther_lou;very young chimp (born 2013)

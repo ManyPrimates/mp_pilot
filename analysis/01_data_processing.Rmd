@@ -1,0 +1,297 @@
+---
+title: "ManyPrimates_Pilot_Data_Processing"
+author: "Manuel Bohn"
+date: "4 7 2018"
+output: html_document
+---
+
+```{r sample}
+# sample file
+sample <- read.csv(file="../data/raw_data/coding_sample.csv", sep = ";")
+```
+
+```{r kristiansand}
+
+kris_raw <- read.csv(file="../data/raw_data/AlbaMotes_datakristiansand_ManyPrimates.csv", sep = ",")
+# check column names
+names(sample) %in%  names(kris_raw)
+# check condition names
+unique(sample$condition) %in%  unique(kris_raw$condition)
+
+# check species
+unique(kris_raw$species)
+# check subject
+unique(kris_raw$subject_site)
+# check age
+unique(kris_raw$age)
+# check cup distance
+unique(kris_raw$cup_distance)
+# check task experience
+unique(kris_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(kris_raw$board_size)
+# check test situation
+unique(kris_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(kris_raw$session)
+# check block
+unique(kris_raw$block)
+# check trial
+unique(kris_raw$trial)
+# check pick
+unique(kris_raw$pick)
+# check hiding locations
+unique(kris_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(kris_raw$correct)
+
+
+# change data file
+kris <- kris_raw %>%
+  mutate(test_situation = as.factor(ifelse(test_situation == "solitary","single","group")),
+         species = recode_factor(species,"black faced spider monkeys" = "black_faced_spider_monkey","ring tailed lemur" = "ring_tailed_lemur"))%>%
+  filter(!is.na(pick))
+```
+
+```{r kumamoto}
+
+kuma_raw <- read_excel("../data/raw_data/ManyPrimates Pilot Coding -kano.xlsx", 2)
+# check column names
+names(kuma_raw) == names(sample)
+# check condition names
+unique(sample$condition) == unique(kuma$condition)
+
+# check species
+unique(kuma_raw$species)
+# check subject
+unique(kuma_raw$subject_site)
+# check age
+unique(kuma_raw$age)
+# check cup distance
+unique(kuma_raw$cup_distance)
+# check task experience
+unique(kuma_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(kuma_raw$board_size)
+# check test situation
+unique(kuma_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(kuma_raw$session)
+# check block
+unique(kuma_raw$block)
+# check trial
+unique(kuma_raw$trial)
+# check pick
+unique(kuma_raw$pick)
+# check hiding locations
+unique(kuma_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(kuma_raw$correct)
+
+# change data file
+kuma <- kuma_raw %>%
+  select(-`Second Coder`) %>%
+  mutate(condition = ifelse (condition == "0s","short",ifelse (condition == "15s","medium" ,"long")))%>%
+  filter(!is.na(pick))
+```
+
+```{r edinburgh capuchins}
+
+edin_cap_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_CapuchinsEdi_Voelter.xlsx", 1)
+# check column names
+names(sample) %in%  names(edin_cap_raw)
+# check condition names
+unique(sample$condition) %in%  unique(edin_cap_raw$condition)
+
+# check species
+unique(edin_cap_raw$species)
+# check subject
+unique(edin_cap_raw$subject_site)
+# check age
+unique(edin_cap_raw$age)
+# check cup distance
+unique(edin_cap_raw$cup_distance)
+# check task experience
+unique(edin_cap_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(edin_cap_raw$board_size)
+# check test situation
+unique(edin_cap_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(edin_cap_raw$session)
+# check block
+unique(edin_cap_raw$block)
+# check trial
+unique(edin_cap_raw$trial)
+# check pick
+unique(edin_cap_raw$pick)
+# check hiding locations
+unique(edin_cap_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(edin_cap_raw$correct)
+
+# change data file
+edin_cap <- edin_cap_raw %>%
+  mutate(researcher = "voelter")%>%
+  filter( session %in% c(1:100), !is.na(pick))%>%
+  mutate(session = as.numeric(session))
+```
+
+```{r sweetwaters chimps 1}
+ 
+swee_1_raw <- read.csv(file="../data/raw_data/Data_sweetwaters.csv", sep = ";")
+# check column names
+names(sample) %in%  names(edin_cap_raw)
+# check condition names
+unique(sample$condition) %in%  unique(swee_1_raw$condition)
+
+# check species
+unique(swee_1_raw$species)
+# check subject
+unique(swee_1_raw$subject_site)
+# check age
+unique(swee_1_raw$age)
+# check cup distance
+unique(swee_1_raw$cup_distance)
+# check task experience
+unique(swee_1_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(swee_1_raw$board_size)
+# check test situation
+unique(swee_1_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(swee_1_raw$session)
+# check block
+unique(swee_1_raw$block)
+# check trial
+unique(swee_1_raw$trial)
+# check pick
+unique(swee_1_raw$pick)
+# check hiding locations
+unique(swee_1_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(swee_1_raw$correct)
+
+# change data file
+swee_1 <- swee_1_raw %>%
+  mutate(researcher = "haux",
+         species = "chimpanzee")%>%
+  filter(!is.na(pick))
+```
+
+```{r dpz lemurs}
+
+dpz_lem_raw <- read_excel("../data/raw_data/data_ruffed_ringtailed_lemurs_C_Fichtel.xlsx", 1)
+# check column names
+names(sample) %in%  names(dpz_lem_raw)
+# check condition names
+unique(sample$condition) %in%  unique(dpz_lem_raw$condition)
+
+# check species
+unique(dpz_lem_raw$species)
+# check subject
+unique(dpz_lem_raw$subject_site)
+# check age
+unique(dpz_lem_raw$age)
+# check cup distance
+unique(dpz_lem_raw$cup_distance)
+# check task experience
+unique(dpz_lem_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(dpz_lem_raw$board_size)
+# check test situation
+unique(dpz_lem_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(dpz_lem_raw$session)
+# check block
+unique(dpz_lem_raw$block)
+# check trial
+unique(dpz_lem_raw$trial)
+# check pick
+unique(dpz_lem_raw$pick)
+# check hiding locations
+unique(dpz_lem_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(dpz_lem_raw$correct)
+
+# change data file
+dpz_lem <- dpz_lem_raw %>%
+  mutate(condition = ifelse (condition == "0s","short",ifelse (condition == "15s","medium" ,"long")),
+         species = recode_factor(species,"black-ad white ruffed lemur" = "black_and_white_ruffedlemur","ring-tailed lemurs" = "ring_tailed_lemur"),
+         cup_distance = gsub(" cm","",cup_distance),
+         cup_distance = as.numeric(cup_distance),
+         board_size = substr(board_size,1,2),
+         board_size = as.numeric(board_size),
+         date = gsub("-","",date),
+         date = as.numeric(date))%>%
+  filter(!is.na(pick))
+```
+
+```{r lincoln park zoo}
+
+linc_raw <- read_excel("../data/raw_data/LPZ 3 cups data June 2018 Hopper Egelkamp Ross.xlsx", 1)
+# check column names
+names(sample) %in%  names(linc_raw)
+# check condition names
+unique(sample$condition) %in%  unique(linc_raw$condition)
+
+# check species
+unique(linc_raw$species)
+# check subject
+unique(linc_raw$subject_site)
+# check age
+unique(linc_raw$age)
+# check cup distance
+unique(linc_raw$cup_distance)
+# check task experience
+unique(linc_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(linc_raw$board_size)
+# check test situation
+unique(linc_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(linc_raw$session)
+# check block
+unique(linc_raw$block)
+# check trial
+unique(linc_raw$trial)
+# check pick
+unique(linc_raw$pick)
+# check hiding locations
+unique(linc_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(linc_raw$correct)
+
+# change data file
+linc <- linc_raw %>%
+  mutate(species = recode_factor(species,"Gorilla" = "gorilla"))%>%
+  filter(!is.na(pick))
+```
+
+```{r merge data files}
+raw_data <-bind_rows(
+  kuma,
+  kris,
+  edin_cap,
+  swee_1,
+  dpz_lem,
+  linc
+)%>%
+  mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))
+```
+
+```{r quality checks}
+raw_data%>%
+  summarise(n = length(unique(subject_site)))
+
+raw_data%>%
+  group_by(species)%>%
+  summarise(n = length(unique(subject_site)))
+```
+
+```{r write data file}
+write.csv(raw_data, file="../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+```
+
+
+
