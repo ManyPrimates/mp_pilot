@@ -217,7 +217,7 @@ unique(dpz_lem_raw$correct)
 # change data file
 dpz_lem <- dpz_lem_raw %>%
   mutate(condition = ifelse (condition == "0s","short",ifelse (condition == "15s","medium" ,"long")),
-         species = recode_factor(species,"black-ad white ruffed lemur" = "black_and_white_ruffedlemur","ring-tailed lemurs" = "ring_tailed_lemur"),
+         species = recode_factor(species,"black-ad white ruffed lemur" = "black_and_white_ruffed_lemur","ring-tailed lemurs" = "ring_tailed_lemur"),
          cup_distance = gsub(" cm","",cup_distance),
          cup_distance = as.numeric(cup_distance),
          board_size = substr(board_size,1,2),
@@ -278,6 +278,20 @@ raw_data <-bind_rows(
   linc
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))
+
+## adding life expectancy
+
+raw_data %<>% 
+  mutate(life_expectancy = if_else(species == "chimpanzee", 53,
+                                   if_else(species == "ring_tailed_lemur", 27,
+                                           if_else(species == "bonobo", 40,
+                                                   if_else(species == "gorilla", 50,
+                                                           if_else(species == "black_and_white_ruffed_lemur", 19,
+                                                                   if_else(species == "brown_capuchin_monkey", 40,
+                                                                           40)))))),
+         norm_age = age/life_expectancy) %>%
+  group_by(species)%>%
+  mutate(norm_age = scale(norm_age,center = TRUE, scale = TRUE))
 ```
 
 ```{r quality checks}

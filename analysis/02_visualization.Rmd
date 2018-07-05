@@ -22,7 +22,6 @@ mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_dat
 ```
 
 ```{r overview by species, echo = FALSE}
-
 plot_individual <- mp_data %>%
    group_by(species,condition,subject_site) %>%
    summarise(correct = mean(correct))
@@ -42,5 +41,22 @@ ggplot() +
   theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
   scale_colour_solarized(name="delay")+
   coord_flip()
+```
+
+```{r plotting age, echo = FALSE}
+
+plot_age <- mp_data %>%
+   group_by(subject_site,norm_age,species,condition) %>%
+   summarise(correct = mean(correct))
+
+
+ggplot(plot_age, 
+       aes(x = norm_age, y = correct))+
+  geom_point(aes(colour=species))+
+  geom_smooth(method = "lm", se = F , level = 0.95)+
+  guides(fill=FALSE)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  facet_grid( ~ condition)+
+  theme_few()
 ```
 
