@@ -133,7 +133,7 @@ unique(edin_cap_raw$correct)
 # change data file
 edin_cap <- edin_cap_raw %>%
   mutate(researcher = "voelter")%>%
-  filter( session %in% c(1:100), !is.na(pick))%>%
+  filter(!is.na(pick))%>%
   mutate(session = as.numeric(session))
 ```
 
@@ -304,6 +304,20 @@ raw_data%>%
 raw_data%>%
   group_by(species)%>%
   summarise(n = length(unique(subject_site)))
+
+# are there subjects with same trial number multiple times?
+raw_data%>%
+  group_by(trial,subject_site)%>%
+  summarise(n = length(unique(subject_site)))%>%
+  filter(n > 1)
+
+# are there subjects with same session number multiple times?
+raw_data%>%
+  group_by(session,subject_site)%>%
+  summarise(n = length(unique(subject_site)))%>%
+  filter(n > 1)
+
+
 ```
 
 ```{r write data file}

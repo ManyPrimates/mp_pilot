@@ -33,14 +33,17 @@ First an overview of the data, plotted by species and condition. Small, transpar
 ```{r overview by species}
 plot_individual <- mp_data %>%
    group_by(species,condition,subject_site) %>%
-   summarise(correct = mean(correct))
+   summarise(correct = mean(correct),
+             nr_trials = max(trial))
 
 plot_group <- plot_individual %>%
    multi_boot_standard(col = "correct")
 
+x = plot_individual$nr_trials 
+
 ggplot() +
-  geom_jitter(data = plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
-  geom_pointrange(data = plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_jitter(data = plot_individual, aes(x = condition, y = correct, col = condition, size = nr_trials), width = .3,height = .015, alpha = .2)+
+  geom_pointrange(data = plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = 1.5)+
   geom_hline(yintercept = 1/3, lty=2)+
   labs(x="",y="proportion dorrect")+
   facet_grid(species ~ . ,switch = "y") +
