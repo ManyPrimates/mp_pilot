@@ -278,24 +278,27 @@ raw_data <-bind_rows(
   linc
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))
+```
 
-## adding life expectancy
+```{r add life expectancy}
+## adding life expectancy and normalizing it
 
 raw_data %<>% 
-  mutate(life_expectancy = if_else(species == "chimpanzee", 53,
-                                   if_else(species == "ring_tailed_lemur", 27,
-                                           if_else(species == "bonobo", 40,
-                                                   if_else(species == "gorilla", 50,
-                                                           if_else(species == "black_and_white_ruffed_lemur", 19,
-                                                                   if_else(species == "brown_capuchin_monkey", 40,
-                                                                           40)))))),
-         norm_age = age/life_expectancy) %>%
+  mutate(life_expectancy = case_when(species == "chimpanzee" ~ 53,
+                                     species == "ring_tailed_lemur" ~ 27,
+                                     species == "bonobo"~ 40,
+                                     species == "gorilla"~ 50,
+                                     species == "black_and_white_ruffed_lemur"~ 19,
+                                     species == "brown_capuchin_monkey" ~ 40,
+                                     species == "black_faced_spider_monkey" ~ 40),
+  norm_age = age/life_expectancy) %>%
   group_by(species)%>%
   mutate(norm_age = scale(norm_age,center = TRUE, scale = TRUE))
 ```
 
 ```{r quality checks}
 raw_data%>%
+  ungroup()%>%
   summarise(n = length(unique(subject_site)))
 
 raw_data%>%

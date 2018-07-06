@@ -6,9 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
 library(tidyverse)
+library(ggthemes)
 library(langcog)
 
 # langcog package is installed by running
@@ -17,11 +18,19 @@ library(langcog)
 
 ```
 
+# Intro
+
+These are some preliminary visualizations of the data.
+
 ```{r loading data, include = FALSE}
 mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
 ```
 
-```{r overview by species, echo = FALSE}
+# Overview by species
+
+First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Solid dots is the group mean for that condition. Error bars are 95% confidence intervals.
+
+```{r overview by species}
 plot_individual <- mp_data %>%
    group_by(species,condition,subject_site) %>%
    summarise(correct = mean(correct))
@@ -43,8 +52,81 @@ ggplot() +
   coord_flip()
 ```
 
-```{r plotting age, echo = FALSE}
+# Plots by site
 
+Here we select the species for which we have data from multiple sites. This is a very preliminary way of checking whether there is a lot of variation between sites. Plotting conventions are the same as above.
+
+First we check for which species we have data from more than one site:
+```{r plots by site}
+# plotting data by site for species for which we have data from more than one lab
+
+# check for which species this applies
+
+mp_data%>%
+  group_by(species)%>%
+  summarise(sites = length(unique(site)))%>%
+  knitr::kable()
+```
+
+## Chimpanzees
+
+```{r plots by site chimps}
+# starting with chimps
+
+chimp_plot_individual <- mp_data %>%
+  filter(species == "chimpanzee")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+chimp_plot_group <- chimp_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = chimp_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
+  geom_pointrange(data = chimp_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion dorrect")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+## Ring-tailed lemurs
+
+```{r plots by site ring-tailed-lemurs}
+rtlemur_plot_individual <- mp_data %>%
+  filter(species == "ring_tailed_lemur")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+rtlemur_plot_group <- rtlemur_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = rtlemur_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
+  geom_pointrange(data = rtlemur_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion dorrect")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+# Age
+
+Here we plot age against correct choice separate for each condition. Regression line is smoothed conditional mean with 95% CI.
+
+```{r plotting age}
 plot_age <- mp_data %>%
    group_by(subject_site,norm_age,species,condition) %>%
    summarise(correct = mean(correct))
@@ -53,10 +135,9 @@ plot_age <- mp_data %>%
 ggplot(plot_age, 
        aes(x = norm_age, y = correct))+
   geom_point(aes(colour=species))+
-  geom_smooth(method = "lm", se = F , level = 0.95)+
+  geom_smooth(method = "lm", se = T , level = 0.95)+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
-  facet_grid( ~ condition)+
+  facet_grid( condition ~ . )+
   theme_few()
 ```
-
