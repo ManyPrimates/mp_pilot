@@ -334,13 +334,13 @@ raw_data <-bind_rows(
 ## adding life expectancy and normalizing it
 
 raw_data <- raw_data %>% 
-  mutate(life_expectancy = case_when(species == "chimpanzee" ~ 53,
-                                     species == "ring_tailed_lemur" ~ 27,
-                                     species == "bonobo"~ 40,
-                                     species == "gorilla"~ 50,
-                                     species == "black_and_white_ruffed_lemur"~ 19,
-                                     species == "brown_capuchin_monkey" ~ 40,
-                                     species == "black_faced_spider_monkey" ~ 40),
+  mutate(life_expectancy = case_when(species == "chimpanzee" ~ 59.4,
+                                     species == "ring_tailed_lemur" ~ 37.3,
+                                     species == "bonobo"~ 55,
+                                     species == "gorilla"~ 60.1,
+                                     species == "black_and_white_ruffed_lemur"~ 39.4,
+                                     species == "brown_capuchin_monkey" ~ 46,
+                                     species == "black_faced_spider_monkey" ~ 46),
   norm_age = age/life_expectancy)
 ```
 
