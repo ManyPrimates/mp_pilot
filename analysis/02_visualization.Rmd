@@ -180,9 +180,10 @@ plot_age <- mp_data %>%
 ggplot(plot_age, 
        aes(x = norm_age, y = correct))+
   geom_point(aes(colour=species))+
-  geom_smooth(method = "lm", se = T , level = 0.95)+
+  geom_smooth(method = "lm", se = F , level = 0.95)+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
-  facet_grid( condition ~ . )+
+  facet_grid( condition ~ species )+
   theme_few()
 ```
+

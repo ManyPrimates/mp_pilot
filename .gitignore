@@ -3,5 +3,10 @@ README.html
 
 
 
+*.Rproj
 
+*.Rhistory
 
+*RData
+
+.Rproj.user

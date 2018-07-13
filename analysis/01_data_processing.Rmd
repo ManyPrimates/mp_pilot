@@ -4,6 +4,12 @@ author: "Manuel Bohn"
 date: "4 7 2018"
 output: html_document
 ---
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
 
 ```{r sample}
 # sample file
@@ -59,7 +65,7 @@ kuma_raw <- read_excel("../data/raw_data/ManyPrimates Pilot Coding -kano.xlsx", 
 # check column names
 names(kuma_raw) == names(sample)
 # check condition names
-unique(sample$condition) == unique(kuma$condition)
+unique(sample$condition) == unique(kuma_raw$condition)
 
 # check species
 unique(kuma_raw$species)
@@ -179,6 +185,49 @@ swee_1 <- swee_1_raw %>%
   filter(!is.na(pick))
 ```
 
+```{r sweetwaters chimps 2}
+swee_2_raw <- read_excel("../data/raw_data/manyprimatespilot_sweetwaters_group2.xlsx", 1)
+# check column names
+names(sample) %in%  names(swee_2_raw)
+# check condition names
+unique(sample$condition) %in%  unique(swee_2_raw$condition)
+
+# check species
+unique(swee_2_raw$species)
+# check subject
+unique(swee_2_raw$subject_site)
+# check age
+unique(swee_2_raw$age)
+# check cup distance
+unique(swee_2_raw$cup_distance)
+# check task experience
+unique(swee_2_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(swee_2_raw$board_size)
+# check test situation
+unique(swee_2_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(swee_2_raw$session)
+# check block
+unique(swee_2_raw$block)
+# check trial
+unique(swee_2_raw$trial)
+# check pick
+unique(swee_2_raw$pick)
+# check hiding locations
+unique(swee_2_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(swee_2_raw$correct)
+
+# change data file
+swee_2 <- swee_2_raw %>%
+  mutate(species = "chimpanzee",
+         secondary_pick = as.character(secondary_pick))%>%
+  filter(!is.na(pick))
+```
+
+
+
 ```{r dpz lemurs}
 
 dpz_lem_raw <- read_excel("../data/raw_data/data_ruffed_ringtailed_lemurs_C_Fichtel.xlsx", 1)
@@ -274,6 +323,7 @@ raw_data <-bind_rows(
   kris,
   edin_cap,
   swee_1,
+  swee_2,
   dpz_lem,
   linc
 )%>%
@@ -283,7 +333,7 @@ raw_data <-bind_rows(
 ```{r add life expectancy}
 ## adding life expectancy and normalizing it
 
-raw_data %<>% 
+raw_data <- raw_data %>% 
   mutate(life_expectancy = case_when(species == "chimpanzee" ~ 53,
                                      species == "ring_tailed_lemur" ~ 27,
                                      species == "bonobo"~ 40,
@@ -291,9 +341,7 @@ raw_data %<>%
                                      species == "black_and_white_ruffed_lemur"~ 19,
                                      species == "brown_capuchin_monkey" ~ 40,
                                      species == "black_faced_spider_monkey" ~ 40),
-  norm_age = age/life_expectancy) %>%
-  group_by(species)%>%
-  mutate(norm_age = scale(norm_age,center = TRUE, scale = TRUE))
+  norm_age = age/life_expectancy)
 ```
 
 ```{r quality checks}
