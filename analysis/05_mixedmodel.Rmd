@@ -1,0 +1,59 @@
+---
+title: "ManyPrimates pilot mixed modeling"
+author: "Drew Altschul"
+date: "13 July 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lme4)
+library(readr)
+
+```
+
+## Data import
+
+Preparing code for pre-registered mixed modeling. 
+
+```{r loading data, include = FALSE}
+setwd('M:/SourceTree/ManyPrimates_pilot/analysis/') # only needed for DMA's setup - should be deleted eventually
+mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+
+mp_data$hiding_location = as.factor(mp_data$hiding_location)
+
+mp_data = mp_data[mp_data$species != "black_faced_spider_monkey",] # only one data point so far, therefore this is not worth including to explode the number of random effects
+  
+```
+
+
+
+## Mixed modeling with all relevant varaibles predicting accuracy
+
+From the preregistration, the mixed model was specified thusly:
+
+> correct ~ delay * age + 
+task_experience + cup_distance + board_size + trial +
+         (1 + delay + trial | site/subject/block/hiding_location ) + 
+        (1 + task_experience + cup_distance + board_size + trial + delay | species)
+
+
+In the dataframe, 
+condition = delay,
+subject_site = site,
+and norm_age should be used for age.
+
+``` {r mixed modeling, error=TRUE}
+
+mm.1 <- glmer(correct ~ condition * norm_age + 
+               task_experience + cup_distance + board_size + trial +
+               (1 + condition + trial | site/subject_site/block/hiding_location ) +         
+               (1 + task_experience + cup_distance + board_size + trial + condition | species)
+             , data = mp_data
+             , family = binomial
+)
+
+
+```
+
