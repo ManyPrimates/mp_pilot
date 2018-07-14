@@ -341,7 +341,8 @@ raw_data <- raw_data %>%
                                      species == "black_and_white_ruffed_lemur"~ 39.4,
                                      species == "brown_capuchin_monkey" ~ 46,
                                      species == "black_faced_spider_monkey" ~ 46),
-  norm_age = age/life_expectancy)
+  norm_age = scale(age/life_expectancy, scale = TRUE, center = TRUE))
+  
 ```
 
 ```{r quality checks}
