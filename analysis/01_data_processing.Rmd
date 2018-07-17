@@ -317,7 +317,7 @@ linc <- linc_raw %>%
   filter(!is.na(pick))
 ```
 
-```{r lincoln park zoo}
+```{r dpz long tailed macaques}
 
 dpz_mac_raw <- read_excel("../data/raw_data/ManyPrimates_data dpz_long-tailed macaques.xlsx", 1)
 # check column names
@@ -360,18 +360,61 @@ dpz_mac <- dpz_mac_raw %>%
   filter(!is.na(pick))
 ```
 
+```{r edinburgh squirel monkeys}
+
+edin_squ_raw <- read_excel("../data/raw_data/ManyPrimates Pilot Coding_Squirrel monkeys_EW_17.7.18.xlsx", 1)
+# check column names
+names(sample) %in%  names(edin_squ_raw)
+# check condition names
+unique(sample$condition) %in%  unique(edin_squ_raw$condition)
+
+# check species
+unique(edin_squ_raw$species)
+# check subject
+unique(edin_squ_raw$subject_site)
+# check age
+unique(edin_squ_raw$age)
+# check cup distance
+unique(edin_squ_raw$cup_distance)
+# check task experience
+unique(edin_squ_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(edin_squ_raw$board_size)
+# check test situation
+unique(edin_squ_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(edin_squ_raw$session)
+# check block
+unique(edin_squ_raw$block)
+# check trial
+unique(edin_squ_raw$trial)
+# check pick
+unique(edin_squ_raw$pick)
+# check hiding locations
+unique(edin_squ_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(edin_squ_raw$correct)
+
+# change data file
+edin_squ <- edin_squ_raw %>%
+  filter(!is.na(pick))
+```
+
+
 ```{r merge data files}
 raw_data <-bind_rows(
   kuma,
   kris,
   edin_cap,
+  edin_squ,
   swee_1,
   swee_2,
   dpz_lem,
   dpz_mac,
   linc
 )%>%
-  mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))
+  mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
+              select(-comment)
 ```
 
 ```{r add life expectancy}
@@ -385,7 +428,8 @@ raw_data <- raw_data %>%
                                      species == "black_and_white_ruffed_lemur"~ 39.4,
                                      species == "brown_capuchin_monkey" ~ 46,
                                      species == "black_faced_spider_monkey" ~ 46,
-                                     species == "long_tailed_macaque" ~ 39),
+                                     species == "long_tailed_macaque" ~ 39,
+                                     species == "squirrel_monkey"~ 30.2),
   norm_age = scale(age/life_expectancy, scale = TRUE, center = TRUE))
   
 ```

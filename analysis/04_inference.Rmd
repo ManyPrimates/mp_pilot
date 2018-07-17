@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
 library(tidyverse)
+library(lsr)
 
 ```
 
@@ -40,8 +41,9 @@ mp_data %>%
          mean = mean(unlist(correct)),
   #       df = t.test(unlist(correct), mu = 1/3)$parameter, # redundant info in combination with n
          t = t.test(unlist(correct), mu = 1/3)$statistic,
-         p = t.test(unlist(correct), mu = 1/3)$p.value) %>%
-  select(species ,condition,n,mean,t,p)%>%
+         p = t.test(unlist(correct), mu = 1/3)$p.value,
+  d = cohensD(unlist(correct), mu = 1/3)) %>%
+  select(species ,condition,n,mean,t,p,d)%>%
   knitr::kable(digits = 2)
 ```
 
