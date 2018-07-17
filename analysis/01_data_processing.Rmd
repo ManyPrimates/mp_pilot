@@ -399,6 +399,7 @@ raw_data%>%
   group_by(species)%>%
   summarise(n = length(unique(subject_site)))
 
+
 # are there subjects with same trial number multiple times?
 raw_data%>%
   group_by(trial,subject_site)%>%

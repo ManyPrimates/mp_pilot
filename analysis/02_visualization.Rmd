@@ -87,7 +87,7 @@ ggplot() +
   geom_jitter(data = chimp_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
   geom_pointrange(data = chimp_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion dorrect")+
+  labs(x="",y="proportion correct")+
   facet_grid(site ~ . ,switch = "y") +
   theme_few() + 
   ylim(-0.05,1.05)+
@@ -113,7 +113,7 @@ ggplot() +
   geom_jitter(data = rtlemur_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
   geom_pointrange(data = rtlemur_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion dorrect")+
+  labs(x="",y="proportion correct")+
   facet_grid(site ~ . ,switch = "y") +
   theme_few() + 
   ylim(-0.05,1.05)+
@@ -128,19 +128,20 @@ ggplot() +
 
 Here we split each species by task experience. Check if we have species with sufficient memebers having different levels of task experience.
 
-```{r plots by site}
+```{r plots by task experience}
 # check for which species this applies
 
 mp_data%>%
   group_by(species, task_experience)%>%
-  summarise(n = length(unique(subject_site)))
+  summarise(n = length(unique(subject_site)))%>%
+  knitr::kable()
 ```
 
 ## Chimpanzees
 
 So far, this only applies to chimps. However, task experience co-varies with site.
 
-```{r plots by site chimps}
+```{r plots by task experience chimps}
 # starting with chimps
 
 chimp_task_plot_individual <- mp_data %>%
@@ -155,7 +156,7 @@ ggplot() +
   geom_jitter(data = chimp_task_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
   geom_pointrange(data = chimp_task_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion dorrect")+
+  labs(x="",y="proportion correct")+
   facet_grid(task_experience ~ . ,switch = "y") +
   theme_few() + 
   ylim(-0.05,1.05)+
