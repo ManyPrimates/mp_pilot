@@ -317,6 +317,49 @@ linc <- linc_raw %>%
   filter(!is.na(pick))
 ```
 
+```{r lincoln park zoo}
+
+dpz_mac_raw <- read_excel("../data/raw_data/ManyPrimates_data dpz_long-tailed macaques.xlsx", 1)
+# check column names
+names(sample) %in%  names(dpz_mac_raw)
+# check condition names
+unique(sample$condition) %in%  unique(dpz_mac_raw$condition)
+
+# check species
+unique(dpz_mac_raw$species)
+# check subject
+unique(dpz_mac_raw$subject_site)
+# check age
+unique(dpz_mac_raw$age)
+# check cup distance
+unique(dpz_mac_raw$cup_distance)
+# check task experience
+unique(dpz_mac_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(dpz_mac_raw$board_size)
+# check test situation
+unique(dpz_mac_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(dpz_mac_raw$session)
+# check block
+unique(dpz_mac_raw$block)
+# check trial
+unique(dpz_mac_raw$trial)
+# check pick
+unique(dpz_mac_raw$pick)
+# check hiding locations
+unique(dpz_mac_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(dpz_mac_raw$correct)
+
+# change data file
+dpz_mac <- dpz_mac_raw %>%
+  mutate(species = recode_factor(species,"long-tailed macaque" = "long_tailed_macaque"),
+         correct = as.numeric(correct),
+         secondary_pick = as.character(secondary_pick))%>%
+  filter(!is.na(pick))
+```
+
 ```{r merge data files}
 raw_data <-bind_rows(
   kuma,
@@ -325,6 +368,7 @@ raw_data <-bind_rows(
   swee_1,
   swee_2,
   dpz_lem,
+  dpz_mac,
   linc
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))
@@ -340,7 +384,8 @@ raw_data <- raw_data %>%
                                      species == "gorilla"~ 60.1,
                                      species == "black_and_white_ruffed_lemur"~ 39.4,
                                      species == "brown_capuchin_monkey" ~ 46,
-                                     species == "black_faced_spider_monkey" ~ 46),
+                                     species == "black_faced_spider_monkey" ~ 46,
+                                     species == "long_tailed_macaque" ~ 39),
   norm_age = scale(age/life_expectancy, scale = TRUE, center = TRUE))
   
 ```
