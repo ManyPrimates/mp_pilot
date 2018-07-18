@@ -32,9 +32,20 @@ First an overview of the data, plotted by species and condition. Small, transpar
 
 ```{r overview by species}
 plot_individual <- mp_data %>%
-   group_by(species,condition,subject_site) %>%
-   summarise(correct = mean(correct),
+  mutate(phylo = case_when(species == "chimpanzee" ~ 9,
+                                     species == "ring_tailed_lemur" ~ 1,
+                                     species == "bonobo"~ 10,
+                                     species == "gorilla"~ 11,
+                                     species == "black_and_white_ruffed_lemur"~ 2,
+                                     species == "brown_capuchin_monkey" ~ 3,
+                                     species == "black_faced_spider_monkey" ~ 4,
+                                     species == "long_tailed_macaque" ~ 6,
+                                     species == "squirrel_monkey"~ 5),
+         species = reorder(species,phylo))%>%
+  group_by(species,condition,subject_site) %>%
+  summarise(correct = mean(correct),
              nr_trials = max(trial))
+
 
 plot_group <- plot_individual %>%
    multi_boot_standard(col = "correct")
