@@ -135,6 +135,60 @@ ggplot() +
 
 ```
 
+
+## Brown Capuchins
+
+```{r plots by site capuchins}
+cap_plot_individual <- mp_data %>%
+  filter(species == "brown_capuchin_monkey")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+cap_plot_group <- cap_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = cap_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
+  geom_pointrange(data = cap_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+## Bonobos
+
+```{r plots by site bonobo}
+bon_plot_individual <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+bon_plot_group <- bon_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = bon_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
+  geom_pointrange(data = bon_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+
 # Task-experience
 
 Here we split each species by task experience. Check if we have species with sufficient memebers having different levels of task experience.
@@ -150,7 +204,7 @@ mp_data%>%
 
 ## Chimpanzees
 
-So far, this only applies to chimps. However, task experience co-varies with site.
+So far, this only applies to chimps and bonobos. However, task experience co-varies with site.
 
 ```{r plots by task experience chimps}
 # starting with chimps
@@ -195,7 +249,8 @@ ggplot(plot_age,
   geom_smooth(method = "lm", se = F , level = 0.95)+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
-  facet_grid( condition ~ species )+
+  #facet_grid( condition ~ species )+
+  facet_grid( condition ~ . )+
   theme_few()
 ```
 

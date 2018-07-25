@@ -401,6 +401,147 @@ edin_squ <- edin_squ_raw %>%
 ```
 
 
+```{r LRC capuchins}
+
+lrc_cap_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_LRC_ACCI.xlsx", 6)
+# check column names
+names(sample) %in%  names(lrc_cap_raw)
+# check condition names
+unique(sample$condition) %in%  unique(lrc_cap_raw$condition)
+
+# check species
+unique(lrc_cap_raw$species)
+ # check subject
+unique(lrc_cap_raw$subject_site)
+# check age
+unique(lrc_cap_raw$age)
+# check cup distance
+unique(lrc_cap_raw$cup_distance)
+# check task experience
+unique(lrc_cap_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(lrc_cap_raw$board_size)
+# check test situation
+unique(lrc_cap_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(lrc_cap_raw$session)
+# check block
+unique(lrc_cap_raw$block)
+# check trial
+unique(lrc_cap_raw$trial)
+# check pick
+unique(lrc_cap_raw$pick)
+# check hiding locations
+unique(lrc_cap_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(lrc_cap_raw$correct)
+
+# change data file
+lrc_cap <- lrc_cap_raw %>%
+  mutate(species = "brown_capuchin_monkey",
+         age = ifelse(age == "Unknown (~40)", "40", age),
+         cup_distance = gsub("cm","",cup_distance),
+         board_size = 56)%>%
+  filter(!is.na(pick))%>%
+  mutate(session = as.numeric(session),
+         cup_distance = as.numeric(cup_distance),
+         age = as.numeric(age))
+```
+
+
+```{r ACCI bonobos}
+
+acci_bono_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_LRC_ACCI.xlsx", 7)
+# check column names
+names(sample) %in%  names(acci_bono_raw)
+# check condition names
+unique(sample$condition) %in%  unique(acci_bono_raw$condition)
+
+# check species
+unique(acci_bono_raw$species)
+ # check subject
+unique(acci_bono_raw$subject_site)
+# check age
+unique(acci_bono_raw$age)
+# check cup distance
+unique(acci_bono_raw$cup_distance)
+# check task experience
+unique(acci_bono_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(acci_bono_raw$board_size)
+# check test situation
+unique(acci_bono_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(acci_bono_raw$session)
+# check block
+unique(acci_bono_raw$block)
+# check trial
+unique(acci_bono_raw$trial)
+# check pick
+unique(acci_bono_raw$pick)
+# check hiding locations
+unique(acci_bono_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(acci_bono_raw$correct)
+
+# change data file
+acci_bono<- acci_bono_raw %>%
+  mutate(board_size = 50.8)%>%
+  filter(!is.na(pick))%>%
+  mutate(session = as.numeric(session),
+         cup_distance = as.numeric(cup_distance),
+         age = as.numeric(age))
+```
+
+
+```{r edin chimps}
+
+edin_chimps_raw <- read_excel("../data/raw_data/ManyPrimates Pilot Coding_edin_chimps_prel.xlsx", 1)
+# check column names
+names(sample) %in%  names(edin_chimps_raw)
+# check condition names
+unique(sample$condition) %in%  unique(edin_chimps_raw$condition)
+
+# check species
+unique(edin_chimps_raw$species)
+ # check subject
+unique(edin_chimps_raw$subject_site)
+# check age
+unique(edin_chimps_raw$age)
+# check cup distance
+unique(edin_chimps_raw$cup_distance)
+# check task experience
+unique(edin_chimps_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(edin_chimps_raw$board_size)
+# check test situation
+unique(edin_chimps_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(edin_chimps_raw$session)
+# check block
+unique(edin_chimps_raw$block)
+# check trial
+unique(edin_chimps_raw$trial)
+# check pick
+unique(edin_chimps_raw$pick)
+# check hiding locations
+unique(edin_chimps_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(edin_chimps_raw$correct)
+
+# change data file
+edin_chimps<- edin_chimps_raw %>%
+  filter(!is.na(pick))%>%
+  mutate(session = as.numeric(session),
+         cup_distance = 12,
+         board_size = 70,
+         age = as.numeric(age),
+         correct = ifelse(hiding_location == pick, 1,0),
+         researcher = "call")
+```
+
+
+
 ```{r merge data files}
 raw_data <-bind_rows(
   kuma,
@@ -411,7 +552,10 @@ raw_data <-bind_rows(
   swee_2,
   dpz_lem,
   dpz_mac,
-  linc
+  lrc_cap,
+  linc,
+  acci_bono,
+  edin_chimps
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
               select(-comment)
