@@ -33,14 +33,17 @@ First an overview of the data, plotted by species and condition. Small, transpar
 ```{r overview by species}
 plot_individual <- mp_data %>%
   mutate(phylo = case_when(species == "chimpanzee" ~ 9,
-                                     species == "ring_tailed_lemur" ~ 1,
-                                     species == "bonobo"~ 10,
-                                     species == "gorilla"~ 11,
-                                     species == "black_and_white_ruffed_lemur"~ 2,
-                                     species == "brown_capuchin_monkey" ~ 3,
-                                     species == "black_faced_spider_monkey" ~ 4,
-                                     species == "long_tailed_macaque" ~ 6,
-                                     species == "squirrel_monkey"~ 5),
+                           species == "ring_tailed_lemur" ~ 1,
+                           species == "orangutan"~ 12,
+                           species == "bonobo"~ 10,
+                           species == "gorilla"~ 11,
+                           species == "black_and_white_ruffed_lemur"~ 2,
+                           species == "brown_capuchin_monkey" ~ 3,
+                           species == "black_faced_spider_monkey" ~ 4,
+                           species == "long_tailed_macaque" ~ 6,
+                           species == "barbary_macaque" ~ 7,
+                           species == "rhesus_macaque" ~ 8,
+                           species == "squirrel_monkey"~ 5),
          species = reorder(species,phylo))%>%
   group_by(species,condition,subject_site) %>%
   summarise(correct = mean(correct),
@@ -202,24 +205,28 @@ mp_data%>%
   knitr::kable()
 ```
 
-## Chimpanzees
 
 So far, this only applies to chimps and bonobos. However, task experience co-varies with site.
+
+## Chimpanzees
 
 ```{r plots by task experience chimps}
 # starting with chimps
 
 chimp_task_plot_individual <- mp_data %>%
   filter(species == "chimpanzee")%>%
-  group_by(task_experience,condition,subject_site) %>%
+  group_by(site, task_experience,condition,subject_site) %>%
   summarise(correct = mean(correct))
 
-chimp_task_plot_group <- chimp_task_plot_individual %>%
+chimp_task_plot_group <- mp_data %>%
+  filter(species == "chimpanzee")%>%
+  group_by(task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))%>%
    multi_boot_standard(col = "correct")
 
 ggplot() +
-  geom_jitter(data = chimp_task_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .5)+
-  geom_pointrange(data = chimp_task_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_jitter(data = chimp_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .7)+
+  geom_pointrange(data = chimp_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
   labs(x="",y="proportion correct")+
   facet_grid(task_experience ~ . ,switch = "y") +
@@ -227,7 +234,36 @@ ggplot() +
   ylim(-0.05,1.05)+
   guides(alpha = F)+
   theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_solarized(name="delay")+
+  scale_colour_hue(name="site")+
+  coord_flip()
+
+```
+
+## Bonobos
+
+```{r plots by task experience chimps}
+bonobo_task_plot_individual <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(site, task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+bonobo_task_plot_group <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))%>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = bonobo_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .7)+
+  geom_pointrange(data = bonobo_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(task_experience ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_hue(name="site")+
   coord_flip()
 
 ```
@@ -235,7 +271,7 @@ ggplot() +
 
 # Age
 
-Here we plot age against correct choice separate for each condition. Regression line is smoothed conditional mean with 95% CI.
+Here we plot age against correct choice separate for each condition and species. Regression line is smoothed conditional mean.
 
 ```{r plotting age}
 plot_age <- mp_data %>%
@@ -246,7 +282,7 @@ plot_age <- mp_data %>%
 ggplot(plot_age, 
        aes(x = norm_age, y = correct))+
   geom_point(aes(colour=species))+
-  geom_smooth(method = "lm", se = F , level = 0.95)+
+  geom_smooth(method = "loess", se = F , level = 0.95)+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
   #facet_grid( condition ~ species )+
@@ -256,15 +292,15 @@ ggplot(plot_age,
 
 
 ```{r plotting board size}
-plot_age <- mp_data %>%
+plot_board <- mp_data %>%
    group_by(subject_site,board_size,species,condition) %>%
    summarise(correct = mean(correct))
 
 
-ggplot(plot_age, 
+ggplot(plot_board, 
        aes(x = board_size, y = correct))+
   geom_point(aes(colour=species))+
-  geom_smooth(method = "lm", se = F , level = 0.95)+
+  geom_smooth(method = "loess", se = F , level = 0.95)+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
   theme_few()

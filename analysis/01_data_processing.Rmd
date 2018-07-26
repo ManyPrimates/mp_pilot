@@ -542,6 +542,98 @@ edin_chimps<- edin_chimps_raw %>%
 
 
 
+```{r leipzig orangs and chimps}
+
+lpz_orang_chimps_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_Lpz_Mkyhv_data.xlsx", 5)
+# check column names
+names(sample) %in%  names(lpz_orang_chimps_raw)
+# check condition names
+unique(sample$condition) %in%  unique(lpz_orang_chimps_raw$condition)
+
+# check species
+unique(lpz_orang_chimps_raw$species)
+ # check subject
+unique(lpz_orang_chimps_raw$subject_site)
+# check age
+unique(lpz_orang_chimps_raw$age)
+# check cup distance
+unique(lpz_orang_chimps_raw$cup_distance)
+# check task experience
+unique(lpz_orang_chimps_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(lpz_orang_chimps_raw$board_size)
+# check test situation
+unique(lpz_orang_chimps_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(lpz_orang_chimps_raw$session)
+# check block
+unique(lpz_orang_chimps_raw$block)
+# check trial
+unique(lpz_orang_chimps_raw$trial)
+# check pick
+unique(lpz_orang_chimps_raw$pick)
+# check hiding locations
+unique(lpz_orang_chimps_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(lpz_orang_chimps_raw$correct)
+
+# change data file
+lpz_orang_chimps<- lpz_orang_chimps_raw %>%
+  filter(!is.na(pick))%>%
+  mutate(session = as.numeric(session))
+```
+
+
+
+```{r monkey haven}
+
+mkyhv_mcqs_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_Lpz_Mkyhv_data.xlsx", 8 )
+# check column names
+names(sample) %in%  names(mkyhv_mcqs_raw)
+# check condition names
+unique(sample$condition) %in%  unique(mkyhv_mcqs_raw$condition)
+
+# check species
+unique(mkyhv_mcqs_raw$species)
+ # check subject
+unique(mkyhv_mcqs_raw$subject_site)
+# check age
+unique(mkyhv_mcqs_raw$age)
+# check cup distance
+unique(mkyhv_mcqs_raw$cup_distance)
+# check task experience
+unique(mkyhv_mcqs_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(mkyhv_mcqs_raw$board_size)
+# check test situation
+unique(mkyhv_mcqs_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(mkyhv_mcqs_raw$session)
+# check block
+unique(mkyhv_mcqs_raw$block)
+# check trial
+unique(mkyhv_mcqs_raw$trial)
+# check pick
+unique(mkyhv_mcqs_raw$pick)
+# check hiding locations
+unique(mkyhv_mcqs_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(mkyhv_mcqs_raw$correct)
+
+# change data file
+mkyhv_mcqs<- mkyhv_mcqs_raw %>%
+  mutate(session = as.numeric(session),
+         pick = as.numeric(pick),
+         correct = as.numeric(correct),
+         species = gsub(" ","_",species),
+         test_situation = ifelse(test_situation == "double", "group",test_situation),
+         secondary_pick = as.character(secondary_pick))%>%
+filter(!is.na(pick))
+
+```
+
+
+
 ```{r merge data files}
 raw_data <-bind_rows(
   kuma,
@@ -555,10 +647,12 @@ raw_data <-bind_rows(
   lrc_cap,
   linc,
   acci_bono,
-  edin_chimps
+  edin_chimps,
+  lpz_orang_chimps,
+  mkyhv_mcqs
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
-              select(-comment)
+              select(-comment,-X__1)
 ```
 
 ```{r add life expectancy}
@@ -573,7 +667,10 @@ raw_data <- raw_data %>%
                                      species == "brown_capuchin_monkey" ~ 46,
                                      species == "black_faced_spider_monkey" ~ 46,
                                      species == "long_tailed_macaque" ~ 39,
-                                     species == "squirrel_monkey"~ 30.2),
+                                     species == "squirrel_monkey"~ 30.2,
+                                     species == "orangutan"~ 59,
+                                     species == "barbary_macaque"~ 29.1,
+                                     species == "rhesus_macaque"~ 40),
   norm_age = scale(age/life_expectancy, scale = TRUE, center = TRUE))
   
 ```
@@ -584,7 +681,7 @@ raw_data%>%
   summarise(n = length(unique(subject_site)))
 
 raw_data%>%
-  group_by(species)%>%
+  group_by(site,species)%>%
   summarise(n = length(unique(subject_site)))
 
 
