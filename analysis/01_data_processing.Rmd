@@ -313,7 +313,8 @@ unique(linc_raw$correct)
 
 # change data file
 linc <- linc_raw %>%
-  mutate(species = recode_factor(species,"Gorilla" = "gorilla"))%>%
+  mutate(species = recode_factor(species,"Gorilla" = "gorilla"),
+         board_size = 61.5)%>%
   filter(!is.na(pick))
 ```
 
@@ -684,6 +685,7 @@ raw_data%>%
   group_by(site,species)%>%
   summarise(n = length(unique(subject_site)))
 
+length(unique(raw_data$site))
 
 # are there subjects with same trial number multiple times?
 raw_data%>%
