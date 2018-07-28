@@ -140,7 +140,9 @@ unique(edin_cap_raw$correct)
 edin_cap <- edin_cap_raw %>%
   mutate(researcher = "voelter")%>%
   filter(!is.na(pick))%>%
-  mutate(session = as.numeric(session))
+  mutate(session = as.numeric(session))%>%
+  group_by(subject_site)%>%
+  mutate(trial = 1:length(pick)) # to make trial a continous variable)
 ```
 
 ```{r sweetwaters chimps 1}
@@ -492,6 +494,7 @@ acci_bono<- acci_bono_raw %>%
   mutate(session = as.numeric(session),
          cup_distance = as.numeric(cup_distance),
          age = as.numeric(age))
+
 ```
 
 
@@ -534,11 +537,13 @@ unique(edin_chimps_raw$correct)
 edin_chimps<- edin_chimps_raw %>%
   filter(!is.na(pick))%>%
   mutate(session = as.numeric(session),
-         cup_distance = 12,
-         board_size = 70,
+         cup_distance = 18.5,
+         board_size = 64,
          age = as.numeric(age),
          correct = ifelse(hiding_location == pick, 1,0),
-         researcher = "call")
+         researcher = "call")%>%
+  group_by(subject_site)%>%
+  mutate(trial = 1:length(pick)) # to make trial a continous variable)
 ```
 
 
@@ -581,7 +586,9 @@ unique(lpz_orang_chimps_raw$correct)
 # change data file
 lpz_orang_chimps<- lpz_orang_chimps_raw %>%
   filter(!is.na(pick))%>%
-  mutate(session = as.numeric(session))
+  mutate(session = as.numeric(session))%>%
+  group_by(subject_site)%>%
+  mutate(trial = 1:length(pick)) # to make trial a continous variable)
 ```
 
 
@@ -689,16 +696,9 @@ length(unique(raw_data$site))
 
 # are there subjects with same trial number multiple times?
 raw_data%>%
-  group_by(trial,subject_site)%>%
-  summarise(n = length(unique(subject_site)))%>%
+  group_by(site,species,subject_site, trial)%>%
+  summarise(n = length(trial))%>%
   filter(n > 1)
-
-# are there subjects with same session number multiple times?
-raw_data%>%
-  group_by(session,subject_site)%>%
-  summarise(n = length(unique(subject_site)))%>%
-  filter(n > 1)
-
 
 ```
 

@@ -518,15 +518,15 @@
 "517",20180411,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",1,3,7,"long","2",3,"-",0,"voelter",46,-0.920109245033713
 "518",20180411,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",1,3,8,"long","3",3,"-",1,"voelter",46,-0.920109245033713
 "519",20180411,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",1,3,9,"long","1",1,"-",1,"voelter",46,-0.920109245033713
-"520",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,1,"medium","2",2,"3",1,"voelter",46,-0.920109245033713
-"521",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,2,"medium","3",3,"-",1,"voelter",46,-0.920109245033713
-"522",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,3,"medium","1",2,"-",0,"voelter",46,-0.920109245033713
-"523",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,4,"short","3",3,"-",1,"voelter",46,-0.920109245033713
-"524",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,5,"short","2",2,"-",1,"voelter",46,-0.920109245033713
-"525",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,6,"short","1",2,"-",0,"voelter",46,-0.920109245033713
-"526",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,7,"long","2",2,"-",1,"voelter",46,-0.920109245033713
-"527",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,8,"long","1",2,"-",0,"voelter",46,-0.920109245033713
-"528",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,9,"long","3",3,"-",1,"voelter",46,-0.920109245033713
+"520",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,10,"medium","2",2,"3",1,"voelter",46,-0.920109245033713
+"521",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,11,"medium","3",3,"-",1,"voelter",46,-0.920109245033713
+"522",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,1,12,"medium","1",2,"-",0,"voelter",46,-0.920109245033713
+"523",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,13,"short","3",3,"-",1,"voelter",46,-0.920109245033713
+"524",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,14,"short","2",2,"-",1,"voelter",46,-0.920109245033713
+"525",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,2,15,"short","1",2,"-",0,"voelter",46,-0.920109245033713
+"526",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,16,"long","2",2,"-",1,"voelter",46,-0.920109245033713
+"527",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,17,"long","1",2,"-",0,"voelter",46,-0.920109245033713
+"528",20180412,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",2,3,18,"long","3",3,"-",1,"voelter",46,-0.920109245033713
 "529",20180413,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",3,1,19,"short","2",2,"-",1,"voelter",46,-0.920109245033713
 "530",20180413,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",3,1,20,"short","1",1,"-",1,"voelter",46,-0.920109245033713
 "531",20180413,"edinburgh","brown_capuchin_monkey","torres_edi",7,11,"yes",60,"single",3,1,21,"short","3",3,"-",1,"voelter",46,-0.920109245033713
@@ -5058,383 +5058,383 @@
 "5057",20180713,"ACCI","bonobo","Elikya_ACCI",21,20,"yes",50.8,"single",2,7,16,"short","3",1,"2.0",0,"Amanda Epping/ Molly Flessert",55,0.34166714944079
 "5058",20180713,"ACCI","bonobo","Elikya_ACCI",21,20,"yes",50.8,"single",2,7,17,"short","2",2,NA,1,"Amanda Epping/ Molly Flessert",55,0.34166714944079
 "5059",20180713,"ACCI","bonobo","Elikya_ACCI",21,20,"yes",50.8,"single",2,7,18,"short","1",1,NA,1,"Amanda Epping/ Molly Flessert",55,0.34166714944079
-"5060",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,1,1,"medium","1",1,"-",1,"call",59.4,2.22126113083176
-"5061",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,2.22126113083176
-"5062",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,1,3,"medium","2",2,NA,1,"call",59.4,2.22126113083176
-"5063",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,2,4,"short","1",1,NA,1,"call",59.4,2.22126113083176
-"5064",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,2,5,"short","2",2,NA,1,"call",59.4,2.22126113083176
-"5065",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,2,6,"short","3",3,NA,1,"call",59.4,2.22126113083176
-"5066",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,3,7,"long","2",2,NA,1,"call",59.4,2.22126113083176
-"5067",20180602,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",1,3,8,"long","1",1,NA,1,"call",59.4,2.22126113083176
-"5068",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,1,1,"long","3",3,NA,1,"call",59.4,1.6662629079801
-"5069",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,1,2,"long","1",2,NA,0,"call",59.4,1.6662629079801
-"5070",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,1,3,"long","2",2,NA,1,"call",59.4,1.6662629079801
-"5071",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,2,4,"medium","2",2,NA,1,"call",59.4,1.6662629079801
-"5072",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,2,5,"medium","3",3,NA,1,"call",59.4,1.6662629079801
-"5073",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,2,6,"medium","1",1,NA,1,"call",59.4,1.6662629079801
-"5074",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,3,7,"short","3",3,NA,1,"call",59.4,1.6662629079801
-"5075",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,3,8,"short","1",1,NA,1,"call",59.4,1.6662629079801
-"5076",20180602,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",1,3,9,"short","2",2,NA,1,"call",59.4,1.6662629079801
-"5077",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,1,1,"short","2",2,NA,1,"call",59.4,-1.38622731770406
-"5078",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,1,2,"short","3",3,NA,1,"call",59.4,-1.38622731770406
-"5079",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,1,3,"short","1",1,NA,1,"call",59.4,-1.38622731770406
-"5080",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,2,4,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
-"5081",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,2,5,"medium","1",3,NA,0,"call",59.4,-1.38622731770406
-"5082",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,2,6,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
-"5083",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,3,7,"long","2",2,NA,1,"call",59.4,-1.38622731770406
-"5084",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,3,8,"long","1",1,NA,1,"call",59.4,-1.38622731770406
-"5085",20180602,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",1,3,9,"long","3",3,NA,1,"call",59.4,-1.38622731770406
-"5086",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,1,3,"medium","2",3,NA,0,"call",59.4,0.556266462276767
-"5087",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,2,4,"long","3",2,NA,0,"call",59.4,0.556266462276767
-"5088",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,2,5,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5089",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,2,6,"long","2",1,NA,0,"call",59.4,0.556266462276767
-"5090",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,3,7,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5091",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,3,8,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5092",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",1,3,9,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5093",20180602,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,1,1,"long","2",2,NA,1,"call",59.4,0.00126823942510181
-"5094",20180602,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,1,2,"long","1",2,NA,0,"call",59.4,0.00126823942510181
-"5095",20180602,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,1,3,"long","3",2,NA,0,"call",59.4,0.00126823942510181
-"5096",20180602,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,2,4,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
-"5097",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,2,5,"medium","2",1,NA,0,"call",59.4,0.00126823942510181
-"5098",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,2,6,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
-"5099",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,3,7,"short","2",2,NA,1,"call",59.4,0.00126823942510181
-"5100",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,3,8,"short","3",3,NA,1,"call",59.4,0.00126823942510181
-"5101",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",1,3,9,"short","1",1,NA,1,"call",59.4,0.00126823942510181
-"5102",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,1,1,"medium","2",2,NA,1,"call",59.4,0.648766166085378
-"5103",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,1,2,"medium","1",1,NA,1,"call",59.4,0.648766166085378
-"5104",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,1,3,"medium","3",3,NA,1,"call",59.4,0.648766166085378
-"5105",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,2,4,"short","2",2,NA,1,"call",59.4,0.648766166085378
-"5106",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,2,5,"short","3",2,NA,0,"call",59.4,0.648766166085378
-"5107",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,2,6,"short","1",1,NA,1,"call",59.4,0.648766166085378
-"5108",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",1,3,7,"long","2",2,NA,1,"call",59.4,0.648766166085378
-"5109",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,1,1,"long","2",2,NA,1,"call",59.4,0.278767350850935
-"5110",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,1,2,"long","1",1,NA,1,"call",59.4,0.278767350850935
-"5111",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,1,3,"long","3",1,NA,0,"call",59.4,0.278767350850935
-"5112",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,2,4,"short","3",1,NA,0,"call",59.4,0.278767350850935
-"5113",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,2,5,"short","1",1,NA,1,"call",59.4,0.278767350850935
-"5114",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,2,6,"short","2",2,NA,1,"call",59.4,0.278767350850935
-"5115",20180616,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,3,7,"medium","1",1,NA,1,"call",59.4,0.278767350850935
-"5116",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,3,8,"medium","3",2,NA,0,"call",59.4,0.278767350850935
-"5117",20180602,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",1,3,9,"medium","2",1,NA,0,"call",59.4,0.278767350850935
-"5118",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,1,1,"short","3",3,NA,1,"call",59.4,1.6662629079801
-"5119",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,1,2,"short","1",1,NA,1,"call",59.4,1.6662629079801
-"5120",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,1,3,"short","2",2,NA,1,"call",59.4,1.6662629079801
-"5121",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,2,4,"long","3",2,NA,0,"call",59.4,1.6662629079801
-"5122",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,2,5,"long","2",2,NA,1,"call",59.4,1.6662629079801
-"5123",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,2,6,"long","1",1,NA,1,"call",59.4,1.6662629079801
-"5124",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,3,7,"medium","2",2,NA,1,"call",59.4,1.6662629079801
-"5125",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,3,8,"medium","3",3,NA,1,"call",59.4,1.6662629079801
-"5126",20180608,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",2,3,9,"medium","1",1,NA,1,"call",59.4,1.6662629079801
-"5127",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,1,1,"short","2",2,NA,1,"call",59.4,2.22126113083176
-"5128",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,1,2,"short","3",2,NA,0,"call",59.4,2.22126113083176
-"5129",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,1,3,"short","1",2,NA,0,"call",59.4,2.22126113083176
-"5130",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,2,4,"medium","1",1,NA,1,"call",59.4,2.22126113083176
-"5131",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,2,5,"medium","3",2,NA,0,"call",59.4,2.22126113083176
-"5132",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,2,6,"medium","2",2,NA,1,"call",59.4,2.22126113083176
-"5133",20180608,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,3,7,"long","1",1,NA,1,"call",59.4,2.22126113083176
-"5134",20180616,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,3,8,"long","2",2,NA,1,"call",59.4,2.22126113083176
-"5135",20180616,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",2,3,9,"long","3",2,NA,0,"call",59.4,2.22126113083176
-"5136",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,1,1,"medium","2",1,NA,0,"call",59.4,2.12876142702315
-"5137",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,2.12876142702315
-"5138",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,1,3,"medium","1",2,NA,0,"call",59.4,2.12876142702315
-"5139",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,2,4,"long","1",1,NA,1,"call",59.4,2.12876142702315
-"5140",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,2,5,"long","3",1,NA,0,"call",59.4,2.12876142702315
-"5141",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,2,6,"long","2",2,NA,1,"call",59.4,2.12876142702315
-"5142",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,3,7,"short","2",2,NA,1,"call",59.4,2.12876142702315
-"5143",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,3,8,"short","1",1,NA,1,"call",59.4,2.12876142702315
-"5144",20180608,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",1,3,9,"short","3",3,NA,1,"call",59.4,2.12876142702315
-"5145",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,1,1,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5146",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,1,2,"long","2",1,NA,0,"call",59.4,0.556266462276767
-"5147",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,1,3,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5148",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,2,4,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5149",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,2,5,"short","1",2,NA,0,"call",59.4,0.556266462276767
-"5150",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,2,6,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5151",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,3,7,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5152",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,3,8,"medium","3",3,NA,1,"call",59.4,0.556266462276767
-"5153",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",1,3,9,"medium","2",1,NA,0,"call",59.4,0.556266462276767
-"5154",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,1,1,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5155",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,1,2,"short","2",1,NA,0,"call",59.4,0.556266462276767
-"5156",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,1,3,"short","3",1,NA,0,"call",59.4,0.556266462276767
-"5157",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,2,4,"long","3",1,NA,0,"call",59.4,0.556266462276767
-"5158",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,2,5,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5159",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,2,6,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5160",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,3,7,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5161",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,3,8,"medium","3",1,NA,0,"call",59.4,0.556266462276767
-"5162",20180616,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",2,3,9,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5163",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,1,1,"long","1",1,NA,1,"call",59.4,1.6662629079801
-"5164",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,1,2,"long","3",3,NA,1,"call",59.4,1.6662629079801
-"5165",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,1,3,"long","2",2,NA,1,"call",59.4,1.6662629079801
-"5166",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,2,4,"short","2",2,NA,1,"call",59.4,1.6662629079801
-"5167",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,2,5,"short","1",1,NA,1,"call",59.4,1.6662629079801
-"5168",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,2,6,"short","3",3,NA,1,"call",59.4,1.6662629079801
-"5169",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,3,7,"medium","1",1,NA,1,"call",59.4,1.6662629079801
-"5170",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,3,8,"medium","2",2,NA,1,"call",59.4,1.6662629079801
-"5171",20180616,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",3,3,9,"medium","3",3,NA,1,"call",59.4,1.6662629079801
-"5172",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,1,1,"short","2",2,NA,1,"call",59.4,-1.38622731770406
-"5173",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,1,2,"short","3",3,NA,1,"call",59.4,-1.38622731770406
-"5174",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,1,3,"short","1",1,NA,1,"call",59.4,-1.38622731770406
-"5175",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,2,4,"long","3",3,NA,1,"call",59.4,-1.38622731770406
-"5176",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,2,5,"long","1",3,NA,0,"call",59.4,-1.38622731770406
-"5177",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,2,6,"long","2",1,NA,0,"call",59.4,-1.38622731770406
-"5178",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,3,7,"medium","1",1,NA,1,"call",59.4,-1.38622731770406
-"5179",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,3,8,"medium","3",2,NA,0,"call",59.4,-1.38622731770406
-"5180",20180616,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",2,3,9,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
-"5181",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,1,1,"medium","2",1,NA,0,"call",59.4,1.75876261178871
-"5182",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,1.75876261178871
-"5183",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,1,3,"medium","1",1,NA,1,"call",59.4,1.75876261178871
-"5184",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,2,4,"long","3",3,NA,1,"call",59.4,1.75876261178871
-"5185",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,2,5,"long","2",2,NA,1,"call",59.4,1.75876261178871
-"5186",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,2,6,"long","1",1,NA,1,"call",59.4,1.75876261178871
-"5187",20180616,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,3,7,"short","2",1,NA,0,"call",59.4,1.75876261178871
-"5188",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,3,8,"short","3",1,NA,0,"call",59.4,1.75876261178871
-"5189",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",1,3,9,"short","1",1,NA,1,"call",59.4,1.75876261178871
-"5190",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,1,"short","2",2,NA,1,"call",59.4,0.648766166085378
-"5191",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,2,"short","1",1,NA,1,"call",59.4,0.648766166085378
-"5192",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,3,"short","3",3,NA,1,"call",59.4,0.648766166085378
-"5193",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,4,"medium","2",2,NA,1,"call",59.4,0.648766166085378
-"5194",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,5,"medium","3",1,NA,0,"call",59.4,0.648766166085378
-"5195",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,6,"medium","1",1,NA,1,"call",59.4,0.648766166085378
-"5196",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,7,"long","2",2,NA,1,"call",59.4,0.648766166085378
-"5197",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,8,"long","3",2,NA,0,"call",59.4,0.648766166085378
-"5198",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,9,"long","1",1,NA,1,"call",59.4,0.648766166085378
-"5199",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,1,1,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5200",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,1,2,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5201",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,1,3,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5202",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,2,4,"medium","3",3,NA,1,"call",59.4,0.556266462276767
-"5203",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,2,5,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5204",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,2,6,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5205",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,3,7,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5206",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,3,8,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5207",20180620,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",2,3,9,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5208",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,1,1,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
-"5209",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,1,2,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
-"5210",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,1,3,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
-"5211",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,2,4,"short","3",2,NA,0,"call",59.4,0.00126823942510181
-"5212",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,2,5,"short","1",1,NA,1,"call",59.4,0.00126823942510181
-"5213",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,2,6,"short","2",2,NA,1,"call",59.4,0.00126823942510181
-"5214",20180616,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,3,7,"long","1",1,NA,1,"call",59.4,0.00126823942510181
-"5215",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,3,8,"long","2",2,NA,1,"call",59.4,0.00126823942510181
-"5216",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",2,3,9,"long","3",2,NA,0,"call",59.4,0.00126823942510181
-"5217",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,1,1,"medium","3",3,NA,1,"call",59.4,0.556266462276767
-"5218",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,1,2,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5219",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,1,3,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5220",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,2,4,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5221",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,2,5,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5222",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,2,6,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5223",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,3,7,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5224",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,3,8,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5225",20180620,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",1,3,9,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5226",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,1,1,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5227",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,1,2,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5228",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,1,3,"long","3",2,NA,0,"call",59.4,0.556266462276767
-"5229",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,2,4,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5230",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,2,5,"short","3",2,NA,0,"call",59.4,0.556266462276767
-"5231",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,2,6,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5232",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,3,7,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5233",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,3,8,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5234",20180623,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",2,3,9,"medium","3",2,NA,0,"call",59.4,0.556266462276767
-"5235",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,1,1,"medium","3",3,NA,1,"call",59.4,1.6662629079801
-"5236",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,1,2,"medium","2",2,NA,1,"call",59.4,1.6662629079801
-"5237",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,1,3,"medium","1",1,NA,1,"call",59.4,1.6662629079801
-"5238",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,2,4,"short","3",3,NA,1,"call",59.4,1.6662629079801
-"5239",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,2,5,"short","1",2,NA,0,"call",59.4,1.6662629079801
-"5240",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,2,6,"short","2",2,NA,1,"call",59.4,1.6662629079801
-"5241",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,3,7,"long","3",2,NA,0,"call",59.4,1.6662629079801
-"5242",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,3,8,"long","2",2,NA,1,"call",59.4,1.6662629079801
-"5243",20180623,"edinburgh","chimpanzee","Sophie_edi",37,12,"no",70,"group",4,3,9,"long","1",1,NA,1,"call",59.4,1.6662629079801
-"5244",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,1,1,"short","2",2,NA,1,"call",59.4,-1.38622731770406
-"5245",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,1,2,"short","1",1,NA,1,"call",59.4,-1.38622731770406
-"5246",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,1,3,"short","3",3,NA,1,"call",59.4,-1.38622731770406
-"5247",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,2,4,"long","3",3,NA,1,"call",59.4,-1.38622731770406
-"5248",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,2,5,"long","1",2,NA,0,"call",59.4,-1.38622731770406
-"5249",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,2,6,"long","2",1,NA,0,"call",59.4,-1.38622731770406
-"5250",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,3,7,"medium","1",1,NA,1,"call",59.4,-1.38622731770406
-"5251",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,3,8,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
-"5252",20180623,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",3,3,9,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
-"5253",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,1,1,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5254",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,1,2,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5255",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,1,3,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5256",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,2,4,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5257",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,2,5,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5258",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,2,6,"medium","3",2,NA,0,"call",59.4,0.556266462276767
-"5259",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,3,7,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5260",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,3,8,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5261",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",3,3,9,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5262",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,1,1,"long","2",2,NA,1,"call",59.4,1.75876261178871
-"5263",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,1,2,"long","3",2,NA,0,"call",59.4,1.75876261178871
-"5264",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,1,3,"long","1",2,NA,0,"call",59.4,1.75876261178871
-"5265",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,2,4,"medium","3",3,NA,1,"call",59.4,1.75876261178871
-"5266",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,2,5,"medium","2",2,NA,1,"call",59.4,1.75876261178871
-"5267",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,2,6,"medium","1",1,NA,1,"call",59.4,1.75876261178871
-"5268",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,3,7,"short","3",3,NA,1,"call",59.4,1.75876261178871
-"5269",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,3,8,"short","1",1,NA,1,"call",59.4,1.75876261178871
-"5270",20180623,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",2,3,9,"short","2",2,NA,1,"call",59.4,1.75876261178871
-"5271",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,1,1,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5272",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,1,2,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5273",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,1,3,"medium","3",1,NA,0,"call",59.4,0.556266462276767
-"5274",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,2,4,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5275",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,2,5,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5276",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,2,6,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5277",20180623,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,3,7,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5278",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,3,8,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5279",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",3,3,9,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5280",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,1,1,"short","2",2,NA,1,"call",59.4,0.00126823942510181
-"5281",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,1,2,"short","3",3,NA,1,"call",59.4,0.00126823942510181
-"5282",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,1,3,"short","1",1,NA,1,"call",59.4,0.00126823942510181
-"5283",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,2,4,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
-"5284",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,2,5,"medium","1",1,NA,1,"call",59.4,0.00126823942510181
-"5285",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,2,6,"medium","3",2,NA,0,"call",59.4,0.00126823942510181
-"5286",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,3,7,"long","2",2,NA,1,"call",59.4,0.00126823942510181
-"5287",20180623,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,3,8,"long","1",1,NA,1,"call",59.4,0.00126823942510181
-"5288",20180707,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",3,3,9,"long","3",3,NA,1,"call",59.4,0.00126823942510181
-"5289",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,1,1,"long","1",1,NA,1,"call",59.4,-1.38622731770406
-"5290",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,1,2,"long","3",3,NA,1,"call",59.4,-1.38622731770406
-"5291",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,1,3,"long","2",2,NA,1,"call",59.4,-1.38622731770406
-"5292",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,2,4,"medium","1",2,NA,0,"call",59.4,-1.38622731770406
-"5293",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,2,5,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
-"5294",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,2,6,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
-"5295",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,3,7,"short","1",1,NA,1,"call",59.4,-1.38622731770406
-"5296",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,3,8,"short","3",3,NA,1,"call",59.4,-1.38622731770406
-"5297",20180707,"edinburgh","chimpanzee","Velu_edi",4,12,"no",70,"group",4,3,9,"short","2",2,NA,1,"call",59.4,-1.38622731770406
-"5298",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,1,1,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5299",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,1,2,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5300",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,1,3,"long","3",2,NA,0,"call",59.4,0.556266462276767
-"5301",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,2,4,"medium","3",3,NA,1,"call",59.4,0.556266462276767
-"5302",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,2,5,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5303",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,2,6,"medium","1",2,NA,0,"call",59.4,0.556266462276767
-"5304",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,3,7,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5305",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,3,8,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5306",20180707,"edinburgh","chimpanzee","Paul_edi",25,12,"no",70,"group",4,3,9,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5307",20180707,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,1,1,"medium","2",2,NA,1,"call",59.4,0.278767350850935
-"5308",20180707,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,1,2,"medium","1",1,NA,1,"call",59.4,0.278767350850935
-"5309",20180707,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,1,3,"medium","3",2,NA,0,"call",59.4,0.278767350850935
-"5310",20180707,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,2,4,"short","2",2,NA,1,"call",59.4,0.278767350850935
-"5311",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,2,5,"short","3",2,NA,0,"call",59.4,0.278767350850935
-"5312",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,2,6,"short","1",1,NA,1,"call",59.4,0.278767350850935
-"5313",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,3,7,"long","2",2,NA,1,"call",59.4,0.278767350850935
-"5314",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,3,8,"long","3",2,NA,0,"call",59.4,0.278767350850935
-"5315",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",2,3,9,"long","1",3,NA,0,"call",59.4,0.278767350850935
-"5316",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,1,1,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5317",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,1,2,"long","1",2,NA,0,"call",59.4,0.556266462276767
-"5318",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,1,3,"long","3",2,NA,0,"call",59.4,0.556266462276767
-"5319",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,2,4,"short","3",2,NA,0,"call",59.4,0.556266462276767
-"5320",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,2,5,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5321",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,2,6,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5322",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,3,7,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5323",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,3,8,"medium","3",2,NA,0,"call",59.4,0.556266462276767
-"5324",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,12,"no",70,"group",4,3,9,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5325",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,1,1,"short","3",3,NA,1,"call",59.4,3.23875787272648
-"5326",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,1,2,"short","1",1,NA,1,"call",59.4,3.23875787272648
-"5327",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,1,3,"short","2",2,NA,1,"call",59.4,3.23875787272648
-"5328",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,2,4,"long","3",3,NA,1,"call",59.4,3.23875787272648
-"5329",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,2,5,"long","2",2,NA,1,"call",59.4,3.23875787272648
-"5330",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,2,6,"long","1",1,NA,1,"call",59.4,3.23875787272648
-"5331",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,3,7,"medium","2",2,NA,1,"call",59.4,3.23875787272648
-"5332",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,3,8,"medium","3",2,NA,0,"call",59.4,3.23875787272648
-"5333",20180708,"edinburgh","chimpanzee","Cindy_edi",54,12,"no",70,"group",1,3,9,"medium","1",1,NA,1,"call",59.4,3.23875787272648
-"5334",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,1,1,"short","2",2,NA,1,"call",59.4,2.12876142702315
-"5335",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,1,2,"short","3",3,NA,1,"call",59.4,2.12876142702315
-"5336",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,1,3,"short","1",1,NA,1,"call",59.4,2.12876142702315
-"5337",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,2,4,"medium","1",1,NA,1,"call",59.4,2.12876142702315
-"5338",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,2,5,"medium","3",3,NA,1,"call",59.4,2.12876142702315
-"5339",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,2,6,"medium","2",1,NA,0,"call",59.4,2.12876142702315
-"5340",20180708,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,3,7,"long","1",2,NA,0,"call",59.4,2.12876142702315
-"5341",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,3,8,"long","2",2,NA,1,"call",59.4,2.12876142702315
-"5342",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",2,3,9,"long","3",2,NA,0,"call",59.4,2.12876142702315
-"5343",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,1,1,"medium","2",2,NA,1,"call",59.4,1.75876261178871
-"5344",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,1,2,"medium","3",2,NA,0,"call",59.4,1.75876261178871
-"5345",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,1,3,"medium","1",2,NA,0,"call",59.4,1.75876261178871
-"5346",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,2,4,"long","1",1,NA,1,"call",59.4,1.75876261178871
-"5347",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,2,5,"long","3",2,NA,0,"call",59.4,1.75876261178871
-"5348",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,2,6,"long","2",2,NA,1,"call",59.4,1.75876261178871
-"5349",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,3,7,"short","2",2,NA,1,"call",59.4,1.75876261178871
-"5350",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,3,8,"short","1",2,NA,0,"call",59.4,1.75876261178871
-"5351",20180707,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",3,3,9,"short","3",2,NA,0,"call",59.4,1.75876261178871
-"5352",20180707,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,1,1,"long","3",3,NA,1,"call",59.4,0.556266462276767
-"5353",20180707,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,1,2,"long","2",2,NA,1,"call",59.4,0.556266462276767
-"5354",20180707,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,1,3,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5355",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,2,4,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5356",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,2,5,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5357",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,2,6,"short","2",1,NA,0,"call",59.4,0.556266462276767
-"5358",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,3,7,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5359",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,3,8,"medium","3",2,NA,0,"call",59.4,0.556266462276767
-"5360",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",3,3,9,"medium","2",2,NA,1,"call",59.4,0.556266462276767
-"5361",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,1,1,"short","1",1,NA,1,"call",59.4,2.22126113083176
-"5362",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,1,2,"short","2",2,NA,1,"call",59.4,2.22126113083176
-"5363",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,1,3,"short","3",2,NA,0,"call",59.4,2.22126113083176
-"5364",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,2,4,"long","3",3,NA,1,"call",59.4,2.22126113083176
-"5365",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,2,5,"long","1",1,NA,1,"call",59.4,2.22126113083176
-"5366",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,2,6,"long","2",2,NA,1,"call",59.4,2.22126113083176
-"5367",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,3,7,"medium","2",2,NA,1,"call",59.4,2.22126113083176
-"5368",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,3,8,"medium","3",3,NA,1,"call",59.4,2.22126113083176
-"5369",20180707,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",3,3,9,"medium","1",1,NA,1,"call",59.4,2.22126113083176
-"5370",20180710,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,1,1,"long","1",1,NA,1,"call",59.4,1.75876261178871
-"5371",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,1,2,"long","3",2,NA,0,"call",59.4,1.75876261178871
-"5372",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,1,3,"long","2",2,NA,1,"call",59.4,1.75876261178871
-"5373",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,2,4,"short","2",1,NA,0,"call",59.4,1.75876261178871
-"5374",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,2,5,"short","1",1,NA,1,"call",59.4,1.75876261178871
-"5375",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,2,6,"short","3",1,NA,0,"call",59.4,1.75876261178871
-"5376",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,3,7,"medium","1",1,NA,1,"call",59.4,1.75876261178871
-"5377",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,3,8,"medium","2",2,NA,1,"call",59.4,1.75876261178871
-"5378",20180722,"edinburgh","chimpanzee","Eva_edi",38,12,"no",70,"group",4,3,9,"medium","3",1,NA,0,"call",59.4,1.75876261178871
-"5379",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,1,1,"short","2",2,NA,1,"call",59.4,0.278767350850935
-"5380",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,1,2,"short","3",2,NA,0,"call",59.4,0.278767350850935
-"5381",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,1,3,"short","1",1,NA,1,"call",59.4,0.278767350850935
-"5382",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,2,4,"long","3",1,NA,0,"call",59.4,0.278767350850935
-"5383",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,2,5,"long","1",1,NA,1,"call",59.4,0.278767350850935
-"5384",20180710,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,2,6,"long","2",2,NA,1,"call",59.4,0.278767350850935
-"5385",20180722,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,3,7,"medium","1",1,NA,1,"call",59.4,0.278767350850935
-"5386",20180722,"edinburgh","chimpanzee","Edith_edi",22,12,"no",70,"group",3,3,8,"medium","2",2,NA,1,"call",59.4,0.278767350850935
-"5387",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,1,1,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
-"5388",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,1,2,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
-"5389",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,1,3,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
-"5390",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,2,4,"long","3",3,NA,1,"call",59.4,0.00126823942510181
-"5391",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,2,5,"long","2",2,NA,1,"call",59.4,0.00126823942510181
-"5392",20180718,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,2,6,"long","1",1,NA,1,"call",59.4,0.00126823942510181
-"5393",20180722,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,3,7,"short","2",2,NA,1,"call",59.4,0.00126823942510181
-"5394",20180722,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,3,8,"short","3",3,NA,1,"call",59.4,0.00126823942510181
-"5395",20180722,"edinburgh","chimpanzee","Liberius_edi",19,12,"no",70,"group",4,3,9,"short","1",1,NA,1,"call",59.4,0.00126823942510181
-"5396",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,1,1,"long","3",3,NA,1,"call",59.4,2.12876142702315
-"5397",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,1,2,"long","1",1,NA,1,"call",59.4,2.12876142702315
-"5398",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,1,3,"long","2",1,NA,0,"call",59.4,2.12876142702315
-"5399",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,2,4,"medium","3",3,NA,1,"call",59.4,2.12876142702315
-"5400",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,2,5,"medium","2",2,NA,1,"call",59.4,2.12876142702315
-"5401",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,2,6,"medium","1",2,NA,0,"call",59.4,2.12876142702315
-"5402",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,3,7,"short","3",3,NA,1,"call",59.4,2.12876142702315
-"5403",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,3,8,"short","1",1,NA,1,"call",59.4,2.12876142702315
-"5404",20180710,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",3,3,9,"short","2",2,NA,1,"call",59.4,2.12876142702315
-"5405",20180722,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",4,1,1,"medium","2",2,NA,1,"call",59.4,2.12876142702315
-"5406",20180722,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",4,1,2,"medium","1",2,NA,0,"call",59.4,2.12876142702315
-"5407",20180722,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",4,1,3,"medium","3",3,NA,1,"call",59.4,2.12876142702315
-"5408",20180722,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",4,2,4,"short","3",3,NA,1,"call",59.4,2.12876142702315
-"5409",20180722,"edinburgh","chimpanzee","Louis_edi",42,12,"no",70,"group",4,2,5,"short","1",1,NA,1,"call",59.4,2.12876142702315
-"5410",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,1,1,"medium","3",3,NA,1,"call",59.4,2.22126113083176
-"5411",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,1,2,"medium","2",2,NA,1,"call",59.4,2.22126113083176
-"5412",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,1,3,"medium","1",1,NA,1,"call",59.4,2.22126113083176
-"5413",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,2,4,"short","3",1,NA,0,"call",59.4,2.22126113083176
-"5414",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,2,5,"short","1",1,NA,1,"call",59.4,2.22126113083176
-"5415",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,2,6,"short","2",2,NA,1,"call",59.4,2.22126113083176
-"5416",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,3,7,"long","3",2,NA,0,"call",59.4,2.22126113083176
-"5417",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,3,8,"long","2",2,NA,1,"call",59.4,2.22126113083176
-"5418",20180722,"edinburgh","chimpanzee","David_edi",43,12,"no",70,"group",4,3,9,"long","1",1,NA,1,"call",59.4,2.22126113083176
-"5419",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,1,"short","3",3,NA,1,"call",59.4,0.648766166085378
-"5420",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,2,"short","1",1,NA,1,"call",59.4,0.648766166085378
-"5421",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,1,3,"short","2",2,NA,1,"call",59.4,0.648766166085378
-"5422",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,4,"medium","2",2,NA,1,"call",59.4,0.648766166085378
-"5423",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,5,"medium","1",1,NA,1,"call",59.4,0.648766166085378
-"5424",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,2,6,"medium","3",3,NA,1,"call",59.4,0.648766166085378
-"5425",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,7,"long","1",1,NA,1,"call",59.4,0.648766166085378
-"5426",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,8,"long","3",3,NA,1,"call",59.4,0.648766166085378
-"5427",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,12,"no",70,"group",2,3,9,"long","2",2,NA,1,"call",59.4,0.648766166085378
-"5428",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,1,1,"medium","1",1,NA,1,"call",59.4,0.556266462276767
-"5429",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,1,2,"medium","2",1,NA,0,"call",59.4,0.556266462276767
-"5430",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,1,3,"medium","3",3,NA,1,"call",59.4,0.556266462276767
-"5431",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,2,4,"short","3",3,NA,1,"call",59.4,0.556266462276767
-"5432",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,2,5,"short","1",1,NA,1,"call",59.4,0.556266462276767
-"5433",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,2,6,"short","2",2,NA,1,"call",59.4,0.556266462276767
-"5434",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,3,7,"long","1",1,NA,1,"call",59.4,0.556266462276767
-"5435",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,3,8,"long","3",1,NA,0,"call",59.4,0.556266462276767
-"5436",20180722,"edinburgh","chimpanzee","Rene_edi",25,12,"no",70,"group",4,3,9,"long","2",1,NA,0,"call",59.4,0.556266462276767
+"5060",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,1,1,"medium","1",1,"-",1,"call",59.4,2.22126113083176
+"5061",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,2.22126113083176
+"5062",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,1,3,"medium","2",2,NA,1,"call",59.4,2.22126113083176
+"5063",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,2,4,"short","1",1,NA,1,"call",59.4,2.22126113083176
+"5064",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,2,5,"short","2",2,NA,1,"call",59.4,2.22126113083176
+"5065",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,2,6,"short","3",3,NA,1,"call",59.4,2.22126113083176
+"5066",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,3,7,"long","2",2,NA,1,"call",59.4,2.22126113083176
+"5067",20180602,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",1,3,8,"long","1",1,NA,1,"call",59.4,2.22126113083176
+"5068",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,1,1,"long","3",3,NA,1,"call",59.4,1.6662629079801
+"5069",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,1,2,"long","1",2,NA,0,"call",59.4,1.6662629079801
+"5070",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,1,3,"long","2",2,NA,1,"call",59.4,1.6662629079801
+"5071",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,2,4,"medium","2",2,NA,1,"call",59.4,1.6662629079801
+"5072",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,2,5,"medium","3",3,NA,1,"call",59.4,1.6662629079801
+"5073",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,2,6,"medium","1",1,NA,1,"call",59.4,1.6662629079801
+"5074",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,3,7,"short","3",3,NA,1,"call",59.4,1.6662629079801
+"5075",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,3,8,"short","1",1,NA,1,"call",59.4,1.6662629079801
+"5076",20180602,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",1,3,9,"short","2",2,NA,1,"call",59.4,1.6662629079801
+"5077",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,1,1,"short","2",2,NA,1,"call",59.4,-1.38622731770406
+"5078",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,1,2,"short","3",3,NA,1,"call",59.4,-1.38622731770406
+"5079",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,1,3,"short","1",1,NA,1,"call",59.4,-1.38622731770406
+"5080",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,2,4,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
+"5081",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,2,5,"medium","1",3,NA,0,"call",59.4,-1.38622731770406
+"5082",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,2,6,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
+"5083",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,3,7,"long","2",2,NA,1,"call",59.4,-1.38622731770406
+"5084",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,3,8,"long","1",1,NA,1,"call",59.4,-1.38622731770406
+"5085",20180602,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",1,3,9,"long","3",3,NA,1,"call",59.4,-1.38622731770406
+"5086",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,1,1,"medium","2",3,NA,0,"call",59.4,0.556266462276767
+"5087",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,2,2,"long","3",2,NA,0,"call",59.4,0.556266462276767
+"5088",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,2,3,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5089",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,2,4,"long","2",1,NA,0,"call",59.4,0.556266462276767
+"5090",20180602,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,3,5,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5091",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,3,6,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5092",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",1,3,7,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5093",20180602,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,1,1,"long","2",2,NA,1,"call",59.4,0.00126823942510181
+"5094",20180602,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,1,2,"long","1",2,NA,0,"call",59.4,0.00126823942510181
+"5095",20180602,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,1,3,"long","3",2,NA,0,"call",59.4,0.00126823942510181
+"5096",20180602,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,2,4,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
+"5097",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,2,5,"medium","2",1,NA,0,"call",59.4,0.00126823942510181
+"5098",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,2,6,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
+"5099",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,3,7,"short","2",2,NA,1,"call",59.4,0.00126823942510181
+"5100",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,3,8,"short","3",3,NA,1,"call",59.4,0.00126823942510181
+"5101",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",1,3,9,"short","1",1,NA,1,"call",59.4,0.00126823942510181
+"5102",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,1,1,"medium","2",2,NA,1,"call",59.4,0.648766166085378
+"5103",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,1,2,"medium","1",1,NA,1,"call",59.4,0.648766166085378
+"5104",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,1,3,"medium","3",3,NA,1,"call",59.4,0.648766166085378
+"5105",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,2,4,"short","2",2,NA,1,"call",59.4,0.648766166085378
+"5106",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,2,5,"short","3",2,NA,0,"call",59.4,0.648766166085378
+"5107",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,2,6,"short","1",1,NA,1,"call",59.4,0.648766166085378
+"5108",20180602,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",1,3,7,"long","2",2,NA,1,"call",59.4,0.648766166085378
+"5109",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,1,1,"long","2",2,NA,1,"call",59.4,0.278767350850935
+"5110",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,1,2,"long","1",1,NA,1,"call",59.4,0.278767350850935
+"5111",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,1,3,"long","3",1,NA,0,"call",59.4,0.278767350850935
+"5112",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,2,4,"short","3",1,NA,0,"call",59.4,0.278767350850935
+"5113",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,2,5,"short","1",1,NA,1,"call",59.4,0.278767350850935
+"5114",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,2,6,"short","2",2,NA,1,"call",59.4,0.278767350850935
+"5115",20180616,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,3,7,"medium","1",1,NA,1,"call",59.4,0.278767350850935
+"5116",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,3,8,"medium","3",2,NA,0,"call",59.4,0.278767350850935
+"5117",20180602,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",1,3,9,"medium","2",1,NA,0,"call",59.4,0.278767350850935
+"5118",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,1,10,"short","3",3,NA,1,"call",59.4,1.6662629079801
+"5119",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,1,11,"short","1",1,NA,1,"call",59.4,1.6662629079801
+"5120",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,1,12,"short","2",2,NA,1,"call",59.4,1.6662629079801
+"5121",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,2,13,"long","3",2,NA,0,"call",59.4,1.6662629079801
+"5122",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,2,14,"long","2",2,NA,1,"call",59.4,1.6662629079801
+"5123",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,2,15,"long","1",1,NA,1,"call",59.4,1.6662629079801
+"5124",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,3,16,"medium","2",2,NA,1,"call",59.4,1.6662629079801
+"5125",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,3,17,"medium","3",3,NA,1,"call",59.4,1.6662629079801
+"5126",20180608,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",2,3,18,"medium","1",1,NA,1,"call",59.4,1.6662629079801
+"5127",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,1,9,"short","2",2,NA,1,"call",59.4,2.22126113083176
+"5128",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,1,10,"short","3",2,NA,0,"call",59.4,2.22126113083176
+"5129",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,1,11,"short","1",2,NA,0,"call",59.4,2.22126113083176
+"5130",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,2,12,"medium","1",1,NA,1,"call",59.4,2.22126113083176
+"5131",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,2,13,"medium","3",2,NA,0,"call",59.4,2.22126113083176
+"5132",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,2,14,"medium","2",2,NA,1,"call",59.4,2.22126113083176
+"5133",20180608,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,3,15,"long","1",1,NA,1,"call",59.4,2.22126113083176
+"5134",20180616,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,3,16,"long","2",2,NA,1,"call",59.4,2.22126113083176
+"5135",20180616,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",2,3,17,"long","3",2,NA,0,"call",59.4,2.22126113083176
+"5136",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,1,1,"medium","2",1,NA,0,"call",59.4,2.12876142702315
+"5137",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,2.12876142702315
+"5138",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,1,3,"medium","1",2,NA,0,"call",59.4,2.12876142702315
+"5139",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,2,4,"long","1",1,NA,1,"call",59.4,2.12876142702315
+"5140",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,2,5,"long","3",1,NA,0,"call",59.4,2.12876142702315
+"5141",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,2,6,"long","2",2,NA,1,"call",59.4,2.12876142702315
+"5142",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,3,7,"short","2",2,NA,1,"call",59.4,2.12876142702315
+"5143",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,3,8,"short","1",1,NA,1,"call",59.4,2.12876142702315
+"5144",20180608,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",1,3,9,"short","3",3,NA,1,"call",59.4,2.12876142702315
+"5145",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,1,1,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5146",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,1,2,"long","2",1,NA,0,"call",59.4,0.556266462276767
+"5147",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,1,3,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5148",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,2,4,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5149",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,2,5,"short","1",2,NA,0,"call",59.4,0.556266462276767
+"5150",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,2,6,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5151",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,3,7,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5152",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,3,8,"medium","3",3,NA,1,"call",59.4,0.556266462276767
+"5153",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",1,3,9,"medium","2",1,NA,0,"call",59.4,0.556266462276767
+"5154",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,1,10,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5155",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,1,11,"short","2",1,NA,0,"call",59.4,0.556266462276767
+"5156",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,1,12,"short","3",1,NA,0,"call",59.4,0.556266462276767
+"5157",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,2,13,"long","3",1,NA,0,"call",59.4,0.556266462276767
+"5158",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,2,14,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5159",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,2,15,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5160",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,3,16,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5161",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,3,17,"medium","3",1,NA,0,"call",59.4,0.556266462276767
+"5162",20180616,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",2,3,18,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5163",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,1,19,"long","1",1,NA,1,"call",59.4,1.6662629079801
+"5164",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,1,20,"long","3",3,NA,1,"call",59.4,1.6662629079801
+"5165",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,1,21,"long","2",2,NA,1,"call",59.4,1.6662629079801
+"5166",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,2,22,"short","2",2,NA,1,"call",59.4,1.6662629079801
+"5167",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,2,23,"short","1",1,NA,1,"call",59.4,1.6662629079801
+"5168",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,2,24,"short","3",3,NA,1,"call",59.4,1.6662629079801
+"5169",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,3,25,"medium","1",1,NA,1,"call",59.4,1.6662629079801
+"5170",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,3,26,"medium","2",2,NA,1,"call",59.4,1.6662629079801
+"5171",20180616,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",3,3,27,"medium","3",3,NA,1,"call",59.4,1.6662629079801
+"5172",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,1,10,"short","2",2,NA,1,"call",59.4,-1.38622731770406
+"5173",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,1,11,"short","3",3,NA,1,"call",59.4,-1.38622731770406
+"5174",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,1,12,"short","1",1,NA,1,"call",59.4,-1.38622731770406
+"5175",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,2,13,"long","3",3,NA,1,"call",59.4,-1.38622731770406
+"5176",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,2,14,"long","1",3,NA,0,"call",59.4,-1.38622731770406
+"5177",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,2,15,"long","2",1,NA,0,"call",59.4,-1.38622731770406
+"5178",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,3,16,"medium","1",1,NA,1,"call",59.4,-1.38622731770406
+"5179",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,3,17,"medium","3",2,NA,0,"call",59.4,-1.38622731770406
+"5180",20180616,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",2,3,18,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
+"5181",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,1,1,"medium","2",1,NA,0,"call",59.4,1.75876261178871
+"5182",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,1,2,"medium","3",2,NA,0,"call",59.4,1.75876261178871
+"5183",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,1,3,"medium","1",1,NA,1,"call",59.4,1.75876261178871
+"5184",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,2,4,"long","3",3,NA,1,"call",59.4,1.75876261178871
+"5185",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,2,5,"long","2",2,NA,1,"call",59.4,1.75876261178871
+"5186",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,2,6,"long","1",1,NA,1,"call",59.4,1.75876261178871
+"5187",20180616,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,3,7,"short","2",1,NA,0,"call",59.4,1.75876261178871
+"5188",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,3,8,"short","3",1,NA,0,"call",59.4,1.75876261178871
+"5189",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",1,3,9,"short","1",1,NA,1,"call",59.4,1.75876261178871
+"5190",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,8,"short","2",2,NA,1,"call",59.4,0.648766166085378
+"5191",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,9,"short","1",1,NA,1,"call",59.4,0.648766166085378
+"5192",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,10,"short","3",3,NA,1,"call",59.4,0.648766166085378
+"5193",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,11,"medium","2",2,NA,1,"call",59.4,0.648766166085378
+"5194",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,12,"medium","3",1,NA,0,"call",59.4,0.648766166085378
+"5195",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,13,"medium","1",1,NA,1,"call",59.4,0.648766166085378
+"5196",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,14,"long","2",2,NA,1,"call",59.4,0.648766166085378
+"5197",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,15,"long","3",2,NA,0,"call",59.4,0.648766166085378
+"5198",20180616,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,16,"long","1",1,NA,1,"call",59.4,0.648766166085378
+"5199",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,1,8,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5200",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,1,9,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5201",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,1,10,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5202",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,2,11,"medium","3",3,NA,1,"call",59.4,0.556266462276767
+"5203",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,2,12,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5204",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,2,13,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5205",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,3,14,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5206",20180616,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,3,15,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5207",20180620,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",2,3,16,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5208",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,1,10,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
+"5209",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,1,11,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
+"5210",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,1,12,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
+"5211",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,2,13,"short","3",2,NA,0,"call",59.4,0.00126823942510181
+"5212",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,2,14,"short","1",1,NA,1,"call",59.4,0.00126823942510181
+"5213",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,2,15,"short","2",2,NA,1,"call",59.4,0.00126823942510181
+"5214",20180616,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,3,16,"long","1",1,NA,1,"call",59.4,0.00126823942510181
+"5215",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,3,17,"long","2",2,NA,1,"call",59.4,0.00126823942510181
+"5216",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",2,3,18,"long","3",2,NA,0,"call",59.4,0.00126823942510181
+"5217",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,1,1,"medium","3",3,NA,1,"call",59.4,0.556266462276767
+"5218",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,1,2,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5219",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,1,3,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5220",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,2,4,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5221",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,2,5,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5222",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,2,6,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5223",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,3,7,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5224",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,3,8,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5225",20180620,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",1,3,9,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5226",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,1,10,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5227",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,1,11,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5228",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,1,12,"long","3",2,NA,0,"call",59.4,0.556266462276767
+"5229",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,2,13,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5230",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,2,14,"short","3",2,NA,0,"call",59.4,0.556266462276767
+"5231",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,2,15,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5232",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,3,16,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5233",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,3,17,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5234",20180623,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",2,3,18,"medium","3",2,NA,0,"call",59.4,0.556266462276767
+"5235",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,1,28,"medium","3",3,NA,1,"call",59.4,1.6662629079801
+"5236",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,1,29,"medium","2",2,NA,1,"call",59.4,1.6662629079801
+"5237",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,1,30,"medium","1",1,NA,1,"call",59.4,1.6662629079801
+"5238",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,2,31,"short","3",3,NA,1,"call",59.4,1.6662629079801
+"5239",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,2,32,"short","1",2,NA,0,"call",59.4,1.6662629079801
+"5240",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,2,33,"short","2",2,NA,1,"call",59.4,1.6662629079801
+"5241",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,3,34,"long","3",2,NA,0,"call",59.4,1.6662629079801
+"5242",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,3,35,"long","2",2,NA,1,"call",59.4,1.6662629079801
+"5243",20180623,"edinburgh","chimpanzee","Sophie_edi",37,18.5,"no",64,"group",4,3,36,"long","1",1,NA,1,"call",59.4,1.6662629079801
+"5244",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,1,19,"short","2",2,NA,1,"call",59.4,-1.38622731770406
+"5245",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,1,20,"short","1",1,NA,1,"call",59.4,-1.38622731770406
+"5246",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,1,21,"short","3",3,NA,1,"call",59.4,-1.38622731770406
+"5247",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,2,22,"long","3",3,NA,1,"call",59.4,-1.38622731770406
+"5248",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,2,23,"long","1",2,NA,0,"call",59.4,-1.38622731770406
+"5249",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,2,24,"long","2",1,NA,0,"call",59.4,-1.38622731770406
+"5250",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,3,25,"medium","1",1,NA,1,"call",59.4,-1.38622731770406
+"5251",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,3,26,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
+"5252",20180623,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",3,3,27,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
+"5253",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,1,17,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5254",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,1,18,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5255",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,1,19,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5256",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,2,20,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5257",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,2,21,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5258",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,2,22,"medium","3",2,NA,0,"call",59.4,0.556266462276767
+"5259",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,3,23,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5260",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,3,24,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5261",20180623,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",3,3,25,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5262",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,1,10,"long","2",2,NA,1,"call",59.4,1.75876261178871
+"5263",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,1,11,"long","3",2,NA,0,"call",59.4,1.75876261178871
+"5264",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,1,12,"long","1",2,NA,0,"call",59.4,1.75876261178871
+"5265",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,2,13,"medium","3",3,NA,1,"call",59.4,1.75876261178871
+"5266",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,2,14,"medium","2",2,NA,1,"call",59.4,1.75876261178871
+"5267",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,2,15,"medium","1",1,NA,1,"call",59.4,1.75876261178871
+"5268",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,3,16,"short","3",3,NA,1,"call",59.4,1.75876261178871
+"5269",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,3,17,"short","1",1,NA,1,"call",59.4,1.75876261178871
+"5270",20180623,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",2,3,18,"short","2",2,NA,1,"call",59.4,1.75876261178871
+"5271",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,1,19,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5272",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,1,20,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5273",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,1,21,"medium","3",1,NA,0,"call",59.4,0.556266462276767
+"5274",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,2,22,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5275",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,2,23,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5276",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,2,24,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5277",20180623,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,3,25,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5278",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,3,26,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5279",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",3,3,27,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5280",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,1,19,"short","2",2,NA,1,"call",59.4,0.00126823942510181
+"5281",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,1,20,"short","3",3,NA,1,"call",59.4,0.00126823942510181
+"5282",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,1,21,"short","1",1,NA,1,"call",59.4,0.00126823942510181
+"5283",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,2,22,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
+"5284",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,2,23,"medium","1",1,NA,1,"call",59.4,0.00126823942510181
+"5285",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,2,24,"medium","3",2,NA,0,"call",59.4,0.00126823942510181
+"5286",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,3,25,"long","2",2,NA,1,"call",59.4,0.00126823942510181
+"5287",20180623,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,3,26,"long","1",1,NA,1,"call",59.4,0.00126823942510181
+"5288",20180707,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",3,3,27,"long","3",3,NA,1,"call",59.4,0.00126823942510181
+"5289",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,1,28,"long","1",1,NA,1,"call",59.4,-1.38622731770406
+"5290",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,1,29,"long","3",3,NA,1,"call",59.4,-1.38622731770406
+"5291",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,1,30,"long","2",2,NA,1,"call",59.4,-1.38622731770406
+"5292",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,2,31,"medium","1",2,NA,0,"call",59.4,-1.38622731770406
+"5293",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,2,32,"medium","2",2,NA,1,"call",59.4,-1.38622731770406
+"5294",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,2,33,"medium","3",3,NA,1,"call",59.4,-1.38622731770406
+"5295",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,3,34,"short","1",1,NA,1,"call",59.4,-1.38622731770406
+"5296",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,3,35,"short","3",3,NA,1,"call",59.4,-1.38622731770406
+"5297",20180707,"edinburgh","chimpanzee","Velu_edi",4,18.5,"no",64,"group",4,3,36,"short","2",2,NA,1,"call",59.4,-1.38622731770406
+"5298",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,1,28,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5299",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,1,29,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5300",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,1,30,"long","3",2,NA,0,"call",59.4,0.556266462276767
+"5301",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,2,31,"medium","3",3,NA,1,"call",59.4,0.556266462276767
+"5302",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,2,32,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5303",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,2,33,"medium","1",2,NA,0,"call",59.4,0.556266462276767
+"5304",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,3,34,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5305",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,3,35,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5306",20180707,"edinburgh","chimpanzee","Paul_edi",25,18.5,"no",64,"group",4,3,36,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5307",20180707,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,1,10,"medium","2",2,NA,1,"call",59.4,0.278767350850935
+"5308",20180707,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,1,11,"medium","1",1,NA,1,"call",59.4,0.278767350850935
+"5309",20180707,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,1,12,"medium","3",2,NA,0,"call",59.4,0.278767350850935
+"5310",20180707,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,2,13,"short","2",2,NA,1,"call",59.4,0.278767350850935
+"5311",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,2,14,"short","3",2,NA,0,"call",59.4,0.278767350850935
+"5312",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,2,15,"short","1",1,NA,1,"call",59.4,0.278767350850935
+"5313",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,3,16,"long","2",2,NA,1,"call",59.4,0.278767350850935
+"5314",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,3,17,"long","3",2,NA,0,"call",59.4,0.278767350850935
+"5315",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",2,3,18,"long","1",3,NA,0,"call",59.4,0.278767350850935
+"5316",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,1,26,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5317",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,1,27,"long","1",2,NA,0,"call",59.4,0.556266462276767
+"5318",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,1,28,"long","3",2,NA,0,"call",59.4,0.556266462276767
+"5319",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,2,29,"short","3",2,NA,0,"call",59.4,0.556266462276767
+"5320",20180707,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,2,30,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5321",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,2,31,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5322",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,3,32,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5323",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,3,33,"medium","3",2,NA,0,"call",59.4,0.556266462276767
+"5324",20180722,"edinburgh","chimpanzee","Kalimi_edi",25,18.5,"no",64,"group",4,3,34,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5325",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,1,1,"short","3",3,NA,1,"call",59.4,3.23875787272648
+"5326",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,1,2,"short","1",1,NA,1,"call",59.4,3.23875787272648
+"5327",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,1,3,"short","2",2,NA,1,"call",59.4,3.23875787272648
+"5328",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,2,4,"long","3",3,NA,1,"call",59.4,3.23875787272648
+"5329",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,2,5,"long","2",2,NA,1,"call",59.4,3.23875787272648
+"5330",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,2,6,"long","1",1,NA,1,"call",59.4,3.23875787272648
+"5331",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,3,7,"medium","2",2,NA,1,"call",59.4,3.23875787272648
+"5332",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,3,8,"medium","3",2,NA,0,"call",59.4,3.23875787272648
+"5333",20180708,"edinburgh","chimpanzee","Cindy_edi",54,18.5,"no",64,"group",1,3,9,"medium","1",1,NA,1,"call",59.4,3.23875787272648
+"5334",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,1,10,"short","2",2,NA,1,"call",59.4,2.12876142702315
+"5335",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,1,11,"short","3",3,NA,1,"call",59.4,2.12876142702315
+"5336",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,1,12,"short","1",1,NA,1,"call",59.4,2.12876142702315
+"5337",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,2,13,"medium","1",1,NA,1,"call",59.4,2.12876142702315
+"5338",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,2,14,"medium","3",3,NA,1,"call",59.4,2.12876142702315
+"5339",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,2,15,"medium","2",1,NA,0,"call",59.4,2.12876142702315
+"5340",20180708,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,3,16,"long","1",2,NA,0,"call",59.4,2.12876142702315
+"5341",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,3,17,"long","2",2,NA,1,"call",59.4,2.12876142702315
+"5342",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",2,3,18,"long","3",2,NA,0,"call",59.4,2.12876142702315
+"5343",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,1,19,"medium","2",2,NA,1,"call",59.4,1.75876261178871
+"5344",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,1,20,"medium","3",2,NA,0,"call",59.4,1.75876261178871
+"5345",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,1,21,"medium","1",2,NA,0,"call",59.4,1.75876261178871
+"5346",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,2,22,"long","1",1,NA,1,"call",59.4,1.75876261178871
+"5347",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,2,23,"long","3",2,NA,0,"call",59.4,1.75876261178871
+"5348",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,2,24,"long","2",2,NA,1,"call",59.4,1.75876261178871
+"5349",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,3,25,"short","2",2,NA,1,"call",59.4,1.75876261178871
+"5350",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,3,26,"short","1",2,NA,0,"call",59.4,1.75876261178871
+"5351",20180707,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",3,3,27,"short","3",2,NA,0,"call",59.4,1.75876261178871
+"5352",20180707,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,1,19,"long","3",3,NA,1,"call",59.4,0.556266462276767
+"5353",20180707,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,1,20,"long","2",2,NA,1,"call",59.4,0.556266462276767
+"5354",20180707,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,1,21,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5355",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,2,22,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5356",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,2,23,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5357",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,2,24,"short","2",1,NA,0,"call",59.4,0.556266462276767
+"5358",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,3,25,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5359",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,3,26,"medium","3",2,NA,0,"call",59.4,0.556266462276767
+"5360",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",3,3,27,"medium","2",2,NA,1,"call",59.4,0.556266462276767
+"5361",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,1,18,"short","1",1,NA,1,"call",59.4,2.22126113083176
+"5362",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,1,19,"short","2",2,NA,1,"call",59.4,2.22126113083176
+"5363",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,1,20,"short","3",2,NA,0,"call",59.4,2.22126113083176
+"5364",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,2,21,"long","3",3,NA,1,"call",59.4,2.22126113083176
+"5365",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,2,22,"long","1",1,NA,1,"call",59.4,2.22126113083176
+"5366",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,2,23,"long","2",2,NA,1,"call",59.4,2.22126113083176
+"5367",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,3,24,"medium","2",2,NA,1,"call",59.4,2.22126113083176
+"5368",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,3,25,"medium","3",3,NA,1,"call",59.4,2.22126113083176
+"5369",20180707,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",3,3,26,"medium","1",1,NA,1,"call",59.4,2.22126113083176
+"5370",20180710,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,1,28,"long","1",1,NA,1,"call",59.4,1.75876261178871
+"5371",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,1,29,"long","3",2,NA,0,"call",59.4,1.75876261178871
+"5372",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,1,30,"long","2",2,NA,1,"call",59.4,1.75876261178871
+"5373",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,2,31,"short","2",1,NA,0,"call",59.4,1.75876261178871
+"5374",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,2,32,"short","1",1,NA,1,"call",59.4,1.75876261178871
+"5375",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,2,33,"short","3",1,NA,0,"call",59.4,1.75876261178871
+"5376",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,3,34,"medium","1",1,NA,1,"call",59.4,1.75876261178871
+"5377",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,3,35,"medium","2",2,NA,1,"call",59.4,1.75876261178871
+"5378",20180722,"edinburgh","chimpanzee","Eva_edi",38,18.5,"no",64,"group",4,3,36,"medium","3",1,NA,0,"call",59.4,1.75876261178871
+"5379",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,1,19,"short","2",2,NA,1,"call",59.4,0.278767350850935
+"5380",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,1,20,"short","3",2,NA,0,"call",59.4,0.278767350850935
+"5381",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,1,21,"short","1",1,NA,1,"call",59.4,0.278767350850935
+"5382",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,2,22,"long","3",1,NA,0,"call",59.4,0.278767350850935
+"5383",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,2,23,"long","1",1,NA,1,"call",59.4,0.278767350850935
+"5384",20180710,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,2,24,"long","2",2,NA,1,"call",59.4,0.278767350850935
+"5385",20180722,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,3,25,"medium","1",1,NA,1,"call",59.4,0.278767350850935
+"5386",20180722,"edinburgh","chimpanzee","Edith_edi",22,18.5,"no",64,"group",3,3,26,"medium","2",2,NA,1,"call",59.4,0.278767350850935
+"5387",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,1,28,"medium","2",2,NA,1,"call",59.4,0.00126823942510181
+"5388",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,1,29,"medium","3",3,NA,1,"call",59.4,0.00126823942510181
+"5389",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,1,30,"medium","1",2,NA,0,"call",59.4,0.00126823942510181
+"5390",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,2,31,"long","3",3,NA,1,"call",59.4,0.00126823942510181
+"5391",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,2,32,"long","2",2,NA,1,"call",59.4,0.00126823942510181
+"5392",20180718,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,2,33,"long","1",1,NA,1,"call",59.4,0.00126823942510181
+"5393",20180722,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,3,34,"short","2",2,NA,1,"call",59.4,0.00126823942510181
+"5394",20180722,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,3,35,"short","3",3,NA,1,"call",59.4,0.00126823942510181
+"5395",20180722,"edinburgh","chimpanzee","Liberius_edi",19,18.5,"no",64,"group",4,3,36,"short","1",1,NA,1,"call",59.4,0.00126823942510181
+"5396",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,1,19,"long","3",3,NA,1,"call",59.4,2.12876142702315
+"5397",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,1,20,"long","1",1,NA,1,"call",59.4,2.12876142702315
+"5398",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,1,21,"long","2",1,NA,0,"call",59.4,2.12876142702315
+"5399",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,2,22,"medium","3",3,NA,1,"call",59.4,2.12876142702315
+"5400",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,2,23,"medium","2",2,NA,1,"call",59.4,2.12876142702315
+"5401",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,2,24,"medium","1",2,NA,0,"call",59.4,2.12876142702315
+"5402",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,3,25,"short","3",3,NA,1,"call",59.4,2.12876142702315
+"5403",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,3,26,"short","1",1,NA,1,"call",59.4,2.12876142702315
+"5404",20180710,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",3,3,27,"short","2",2,NA,1,"call",59.4,2.12876142702315
+"5405",20180722,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",4,1,28,"medium","2",2,NA,1,"call",59.4,2.12876142702315
+"5406",20180722,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",4,1,29,"medium","1",2,NA,0,"call",59.4,2.12876142702315
+"5407",20180722,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",4,1,30,"medium","3",3,NA,1,"call",59.4,2.12876142702315
+"5408",20180722,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",4,2,31,"short","3",3,NA,1,"call",59.4,2.12876142702315
+"5409",20180722,"edinburgh","chimpanzee","Louis_edi",42,18.5,"no",64,"group",4,2,32,"short","1",1,NA,1,"call",59.4,2.12876142702315
+"5410",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,1,27,"medium","3",3,NA,1,"call",59.4,2.22126113083176
+"5411",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,1,28,"medium","2",2,NA,1,"call",59.4,2.22126113083176
+"5412",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,1,29,"medium","1",1,NA,1,"call",59.4,2.22126113083176
+"5413",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,2,30,"short","3",1,NA,0,"call",59.4,2.22126113083176
+"5414",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,2,31,"short","1",1,NA,1,"call",59.4,2.22126113083176
+"5415",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,2,32,"short","2",2,NA,1,"call",59.4,2.22126113083176
+"5416",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,3,33,"long","3",2,NA,0,"call",59.4,2.22126113083176
+"5417",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,3,34,"long","2",2,NA,1,"call",59.4,2.22126113083176
+"5418",20180722,"edinburgh","chimpanzee","David_edi",43,18.5,"no",64,"group",4,3,35,"long","1",1,NA,1,"call",59.4,2.22126113083176
+"5419",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,17,"short","3",3,NA,1,"call",59.4,0.648766166085378
+"5420",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,18,"short","1",1,NA,1,"call",59.4,0.648766166085378
+"5421",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,1,19,"short","2",2,NA,1,"call",59.4,0.648766166085378
+"5422",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,20,"medium","2",2,NA,1,"call",59.4,0.648766166085378
+"5423",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,21,"medium","1",1,NA,1,"call",59.4,0.648766166085378
+"5424",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,2,22,"medium","3",3,NA,1,"call",59.4,0.648766166085378
+"5425",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,23,"long","1",1,NA,1,"call",59.4,0.648766166085378
+"5426",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,24,"long","3",3,NA,1,"call",59.4,0.648766166085378
+"5427",20180722,"edinburgh","chimpanzee","Qafzeh_edi",26,18.5,"no",64,"group",2,3,25,"long","2",2,NA,1,"call",59.4,0.648766166085378
+"5428",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,1,28,"medium","1",1,NA,1,"call",59.4,0.556266462276767
+"5429",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,1,29,"medium","2",1,NA,0,"call",59.4,0.556266462276767
+"5430",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,1,30,"medium","3",3,NA,1,"call",59.4,0.556266462276767
+"5431",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,2,31,"short","3",3,NA,1,"call",59.4,0.556266462276767
+"5432",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,2,32,"short","1",1,NA,1,"call",59.4,0.556266462276767
+"5433",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,2,33,"short","2",2,NA,1,"call",59.4,0.556266462276767
+"5434",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,3,34,"long","1",1,NA,1,"call",59.4,0.556266462276767
+"5435",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,3,35,"long","3",1,NA,0,"call",59.4,0.556266462276767
+"5436",20180722,"edinburgh","chimpanzee","Rene_edi",25,18.5,"no",64,"group",4,3,36,"long","2",1,NA,0,"call",59.4,0.556266462276767
 "5437",20180710,"Leipzig Zoo","orangutan","Dokana_LZ",29,29,"yes",78,"single",1,1,1,"short","2",2,NA,1,"Daniel Hanus",59,0.944451659954938
 "5438",20180710,"Leipzig Zoo","orangutan","Dokana_LZ",29,29,"yes",78,"single",1,1,2,"short","3",3,NA,1,"Daniel Hanus",59,0.944451659954938
 "5439",20180710,"Leipzig Zoo","orangutan","Dokana_LZ",29,29,"yes",78,"single",1,1,3,"short","1",1,NA,1,"Daniel Hanus",59,0.944451659954938
@@ -5682,7 +5682,7 @@
 "5681",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,1,29,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
 "5682",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,1,30,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
 "5683",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,2,31,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
-"5684",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,2,31,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
+"5684",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,2,32,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
 "5685",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,2,33,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
 "5686",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,3,34,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
 "5687",20180312,"Leipzig Zoo","chimpanzee","Corrie_LZ",41,29,"yes",78,"single",4,3,35,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.03626172321454
@@ -5718,7 +5718,7 @@
 "5717",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,1,29,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
 "5718",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,1,30,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
 "5719",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,2,31,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
-"5720",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,2,31,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
+"5720",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,2,32,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
 "5721",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,2,33,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
 "5722",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,3,34,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
 "5723",20180308,"Leipzig Zoo","chimpanzee","Dorien_LZ",37,29,"yes",78,"single",4,3,35,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.6662629079801
@@ -5754,7 +5754,7 @@
 "5753",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,1,29,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5754",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,1,30,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5755",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,2,31,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
-"5756",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,2,31,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
+"5756",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,2,32,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5757",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,2,33,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5758",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,3,34,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5759",20180309,"Leipzig Zoo","chimpanzee","Fraukje_LZ",42,29,"yes",78,"single",4,3,35,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
@@ -5790,7 +5790,7 @@
 "5789",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,1,29,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
 "5790",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,1,30,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
 "5791",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,2,31,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
-"5792",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,2,31,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
+"5792",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,2,32,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
 "5793",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,2,33,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
 "5794",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,3,34,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
 "5795",20180309,"Leipzig Zoo","chimpanzee","Frodo_LZ",24,29,"yes",78,"single",4,3,35,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,0.463766758468156
@@ -5826,7 +5826,7 @@
 "5825",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,1,29,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
 "5826",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,1,30,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
 "5827",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,2,31,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
-"5828",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,2,31,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
+"5828",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,2,32,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
 "5829",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,2,33,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
 "5830",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,3,34,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
 "5831",20180313,"Leipzig Zoo","chimpanzee","Lobo_LZ",14,29,"yes",78,"single",4,3,35,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.461230279617952
@@ -5862,7 +5862,7 @@
 "5861",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,1,29,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
 "5862",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,1,30,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
 "5863",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,2,31,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
-"5864",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,2,31,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
+"5864",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,2,32,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
 "5865",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,2,33,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
 "5866",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,3,34,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
 "5867",20180308,"Leipzig Zoo","chimpanzee","Lome_LZ",16,29,"yes",78,"single",4,3,35,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.276230872000731
@@ -5898,7 +5898,7 @@
 "5897",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,1,29,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
 "5898",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,1,30,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
 "5899",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,2,31,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
-"5900",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,2,31,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
+"5900",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,2,32,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
 "5901",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,2,33,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
 "5902",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,3,34,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
 "5903",20180313,"Leipzig Zoo","chimpanzee","Natascha_LZ",38,29,"yes",78,"single",4,3,35,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.75876261178871
@@ -5934,7 +5934,7 @@
 "5933",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,1,29,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
 "5934",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,1,30,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
 "5935",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,2,31,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
-"5936",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,2,31,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
+"5936",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,2,32,"short","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
 "5937",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,2,33,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
 "5938",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,3,34,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
 "5939",20180314,"Leipzig Zoo","chimpanzee","Riet_LZ",40,29,"yes",78,"single",4,3,35,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,1.94376201940593
@@ -5970,7 +5970,7 @@
 "5969",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,1,29,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5970",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,1,30,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5971",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,2,31,"medium","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
-"5972",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,2,31,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
+"5972",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,2,32,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5973",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,2,33,"medium","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5974",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,3,34,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
 "5975",20180314,"Leipzig Zoo","chimpanzee","Robert_LZ",42,29,"yes",78,"single",4,3,35,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,2.12876142702315
@@ -6015,7 +6015,7 @@
 "6014",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,1,29,"short","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
 "6015",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,1,30,"short","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
 "6016",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,2,31,"long","1",1,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
-"6017",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,2,31,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
+"6017",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,2,32,"long","2",2,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
 "6018",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,2,33,"long","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
 "6019",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,3,34,"medium","3",3,"-",1,"Alex Sánchez-Amaro",59.4,-0.368730575809342
 "6020",20180308,"Leipzig Zoo","chimpanzee","Tai_LZ",15,29,"yes",78,"single",4,3,35,"medium","2",3,"-",0,"Alex Sánchez-Amaro",59.4,-0.368730575809342
