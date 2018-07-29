@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(lme4)
 library(readr)
+library(tidyverse)
 
 ```
 
@@ -20,11 +21,6 @@ Preparing code for pre-registered mixed modeling.
 ```{r loading data, include = FALSE}
 setwd('M:/SourceTree/ManyPrimates_pilot/analysis/') # only needed for DMA's setup - should be deleted eventually
 mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
-
-mp_data$hiding_location = as.factor(mp_data$hiding_location)
-
-mp_data = mp_data[mp_data$species != "black_faced_spider_monkey",] # only one data point so far, therefore this is not worth including to explode the number of random effects
-  
 ```
 
 
@@ -41,19 +37,58 @@ task_experience + cup_distance + board_size + trial +
 
 In the dataframe, 
 condition = delay,
-subject_site = site,
+subject_site = subject,
 and norm_age should be used for age.
+
+Model as pre-registered has too many random effects
+
+> Error: number of observations (=5807) < number of random effects (=10108) for term (1 + condition + trial | hiding_location:(block:(subject_site:site))); the random-effects parameters are probably unidentifiable
+
+Pruning random effects in the following order (from preregistration): 
+> * Remove correlations between random effects
+  * Remove random slopes (in the following order)
+  + Site
+  + Species
+  + Hiding_location
+  + Block
+  + Subject
+
+Model only converges once we take out `hiding_location`. After doing so, the other random effects (correlation, site, species) can be put back in.
+
+The model below converges. Model output is saved in `06_mp_model.rds`
 
 ``` {r mixed modeling, error=TRUE}
 
+# centering variables for modeling
+# filtering spider monkey. Only one data point so far, therefore this is not worth including to explode the number of random effects
+
+model.data <- mp_data %>%
+  filter(species != "black_faced_spider_monkey")%>%
+  mutate(cup_distance = scale(cup_distance, scale = T, center = T),
+         board_size = scale(board_size, scale = T, center = T),
+         trial = scale(trial, scale = T, center = T),
+         hiding_location = as.factor(hiding_location))
+
+# Model takes a while to run. Run next line to load model output from previous run with structure below.
+
+mm.1 <- readRDS("06_mp_model.rds")
+
+# model summary
+
+summary(mm.1)
+
+# code to run the model
 mm.1 <- glmer(correct ~ condition * norm_age + 
                task_experience + cup_distance + board_size + trial +
-               (1 + condition + trial | site/subject_site/block/hiding_location ) +         
+               (1 + condition + trial | site/subject_site/block ) +         
                (1 + task_experience + cup_distance + board_size + trial + condition | species)
-             , data = mp_data
+             , data = model.data
              , family = binomial
+             , control=glmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5))
 )
 
 
+# save model output
+saveRDS(mm.1, "06_mp_model.rds")
 ```
 
