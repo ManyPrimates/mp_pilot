@@ -20,7 +20,7 @@ Preparing code for pre-registered mixed modeling.
 
 ```{r loading data, include = FALSE}
 setwd('M:/SourceTree/ManyPrimates_pilot/analysis/') # only needed for DMA's setup - should be deleted eventually
-mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
 ```
 
 

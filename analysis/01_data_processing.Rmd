@@ -660,6 +660,7 @@ raw_data <-bind_rows(
   mkyhv_mcqs
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
+  mutate(cup_distance = as.numeric(cup_distance))
               select(-comment,-X__1)
 ```
 
