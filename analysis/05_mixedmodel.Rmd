@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(lme4)
 library(readr)
 library(tidyverse)
+library(sjPlot)
 
 ```
 
@@ -90,5 +91,16 @@ mm.1 <- glmer(correct ~ condition * norm_age +
 
 # save model output
 saveRDS(mm.1, "06_mp_model.rds")
+
+
+
+### Model plotting
+
+# plot_model(mm.1) 
+## sjp.lmer will be deprecated eventually, and plot_model can be used to precisely obtain which plots of the GLMM one wishes to examine.
+sjp.lmer(mm.1)
+## In the meantime, sjp.lmer will plot the random effects by default.
+
+
 ```
 
