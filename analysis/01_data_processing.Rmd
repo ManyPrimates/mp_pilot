@@ -660,8 +660,8 @@ raw_data <-bind_rows(
   mkyhv_mcqs
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
-  mutate(cup_distance = as.numeric(cup_distance))
-              select(-comment,-X__1)
+  mutate(cup_distance = as.numeric(cup_distance))%>%
+              select(-comment,-X__1, -date, -secondary_pick)
 ```
 
 ```{r add life expectancy}
@@ -685,6 +685,11 @@ raw_data <- raw_data %>%
 ```
 
 ```{r quality checks}
+
+# data structure
+str(mp_data)
+
+# 
 raw_data%>%
   ungroup()%>%
   summarise(n = length(unique(subject_site)))
@@ -700,6 +705,11 @@ raw_data%>%
   group_by(site,species,subject_site, trial)%>%
   summarise(n = length(trial))%>%
   filter(n > 1)
+
+# check for NAs
+raw_data %>% 
+  select_if(function(x) any(is.na(x))) %>%
+  summarise_each(funs(sum(is.na(.))))
 
 ```
 
