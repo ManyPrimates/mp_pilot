@@ -82,7 +82,7 @@ summary(mm.1)
 # code to run the model
 mm.1 <- glmer(correct ~ condition * norm_age + 
                task_experience + cup_distance + board_size + trial +
-               (1 + condition + trial | site/subject_site/block ) +         
+               (1 + condition + trial || site/subject_site/block ) +         
                (1 + task_experience + cup_distance + board_size + trial + condition | species)
              , data = model.data
              , family = binomial
@@ -98,7 +98,7 @@ saveRDS(mm.1, "06_mp_model.rds")
 
 ### Model plotting
 
-# plot_model(mm.1) 
+#plot_model(mm.1) 
 ## sjp.lmer will be deprecated eventually, and plot_model can be used to precisely obtain which plots of the GLMM one wishes to examine.
 sjp.lmer(mm.1)
 ## In the meantime, sjp.lmer will plot the random effects by default.

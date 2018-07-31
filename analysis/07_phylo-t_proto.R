@@ -40,7 +40,7 @@ phylo.df$species = as.factor(phylo.df$species)
 levels(phylo.df$species) <- c('Macaca_sylvanus','Varecia_variegata_variegata','Pan_paniscus',
                               'Cebus_apella','Pan_troglodytes_verus','Gorilla_gorilla_gorilla',
                               'Macaca_fascicularis','Pongo_pygmaeus','Macaca_mulatta',
-                              'Lemur_catta','Saimiri_sciureus'
+                              'Lemur_catta','Saimiri_sciureus', 'Macaca_sylvanus'
                               )
 
 phylo.df$species = relevel(phylo.df$species,'Macaca_mulatta')
