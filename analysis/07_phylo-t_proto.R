@@ -5,6 +5,7 @@
 
 library(phytools)
 library(dplyr)
+library(tidyverse)
 
 
 
@@ -15,8 +16,7 @@ mp.tree <- read.nexus('analysis/TreeBlock_10kTrees_Primates_Version3.nex')
 mp.tree[[1]]$tip.label
 
 
-plotTree(mp.tree, type='fan')
-
+plotTree(mp.tree[[1]], type='cladogram')
 
 
 ### Preparing test objects
@@ -35,14 +35,27 @@ phylo.df %>%
 
 ## Reorder df to match tree
 
+# Manuel: I noticed that the species names did not match the performance averages in the data frames belwo. I changed the code to fix that.
+
 mp.tree[[1]]$tip.label
 phylo.df$species = as.factor(phylo.df$species)
-levels(phylo.df$species) <- c('Macaca_sylvanus','Varecia_variegata_variegata','Pan_paniscus',
-                              'Cebus_apella','Pan_troglodytes_verus','Gorilla_gorilla_gorilla',
-                              'Macaca_fascicularis','Pongo_pygmaeus','Macaca_mulatta',
-                              'Lemur_catta','Saimiri_sciureus', 'Macaca_sylvanus'
-                              )
 
+phylo.df <- phylo.df%>%
+  mutate(species = case_when(species == "chimpanzee" ~ "Pan_troglodytes_verus",
+                                   species == "ring_tailed_lemur" ~ "Lemur_catta",
+                                   species == "bonobo"~ "Pan_paniscus",
+                                   species == "gorilla"~ "Gorilla_gorilla_gorilla",
+                                   species == "black_and_white_ruffed_lemur"~ "Varecia_variegata_variegata",
+                                   species == "brown_capuchin_monkey" ~ "Cebus_apella",
+                                   species == "long_tailed_macaque" ~ "Macaca_fascicularis",
+                                   species == "squirrel_monkey"~ "Saimiri_sciureus",
+                                   species == "orangutan"~ "Pongo_pygmaeus",
+                                   species == "barbary_macaque"~ "Macaca_sylvanus",
+                                   species == "rhesus_macaque"~ "Macaca_mulatta"),
+         species = as.factor(species))
+
+
+# not sure what that code does ... delete?
 phylo.df$species = relevel(phylo.df$species,'Macaca_mulatta')
 phylo.df$species = relevel(phylo.df$species,'Macaca_fascicularis')
 phylo.df$species = relevel(phylo.df$species,'Pongo_pygmaeus')
@@ -60,7 +73,7 @@ phylo.df = phylo.df[order(phylo.df$species),]
 ## a one sample t-test is just a paired t-test where the values are paired with the 0 vector
 
 phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(0,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
-row.names(phylo.table.short) = mp.tree[[1]]$tip.label
+row.names(phylo.table.short) = phylo.df%>%filter(condition == "short")%>%pull(species)
 phylo.table.short$Ha = phylo.df$mean[phylo.df$condition=='short']
 phylo.table.short$Ha.SE = phylo.df$sd[phylo.df$condition=='short']
 phylo.table.short = as.matrix(phylo.table.short)
@@ -97,20 +110,12 @@ short.t = phyl.pairedttest(mp.tree[[1]],
                            )
 short.t
 
-
-
-
-
-
 medium.t = phyl.pairedttest(mp.tree[[1]],
                            x1=phylo.table.medium[,'Ha'],x2=phylo.table.medium[,'H0'],
                            se1=phylo.table.medium[,'Ha.SE'],se2=phylo.table.medium[,'H0.SE'],
                            lambda = l.medium$lambda
 )
 medium.t
-
-
-
 
 
 
