@@ -88,11 +88,12 @@ mm.1 <- glmer(correct ~ condition * norm_age +
              , control=glmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5))
 )
 
+## CIs
+
+
 
 # save model output
 saveRDS(mm.1, "06_mp_model.rds")
-
-
 
 ### Model plotting
 

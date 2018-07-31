@@ -444,11 +444,14 @@ lrc_cap <- lrc_cap_raw %>%
   mutate(species = "brown_capuchin_monkey",
          age = ifelse(age == "Unknown (~40)", "40", age),
          cup_distance = gsub("cm","",cup_distance),
-         board_size = 56)%>%
+         board_size = 56,
+         date = as.Date(date,origin = "1899-12-30"))%>%
   filter(!is.na(pick))%>%
   mutate(session = as.numeric(session),
          cup_distance = as.numeric(cup_distance),
-         age = as.numeric(age))
+         date = gsub("-","",date),
+         age = as.numeric(age),
+         date = as.numeric(date))
 ```
 
 
@@ -641,6 +644,57 @@ filter(!is.na(pick))
 ```
 
 
+```{r heidelberg}
+
+hbg_raw <- read_excel("../data/raw_data/Rohdaten Zoo Heidelberg.xlsx", 1 )
+# check column names
+names(sample) %in%  names(hbg_raw)
+# check condition names
+unique(sample$condition) %in%  unique(hbg_raw$condition)
+
+# check species
+unique(hbg_raw$species)
+ # check subject
+unique(hbg_raw$subject_site)
+# check age
+unique(hbg_raw$age)
+# check cup distance
+unique(hbg_raw$cup_distance)
+# check task experience
+unique(hbg_raw$task_experience) %in% unique(sample$task_experience)
+# check board size
+unique(hbg_raw$board_size)
+# check test situation
+unique(hbg_raw$test_situation) %in% unique(sample$test_situation)
+# check session
+unique(hbg_raw$session)
+# check block
+unique(hbg_raw$block)
+# check trial
+unique(hbg_raw$trial)
+# check pick
+unique(hbg_raw$pick)
+# check hiding locations
+unique(hbg_raw$hiding_location) %in% unique(sample$hiding_location)
+# check correct
+unique(hbg_raw$correct)
+
+# change data file
+hbg<- hbg_raw %>%
+  filter(subject_site != "Bobo_Heidelberg")%>% # subject did not complete enough trials
+  mutate(session = as.numeric(session),
+         pick = as.numeric(pick),
+         correct = as.numeric(correct),
+         species = gsub(" ","_",species),
+         secondary_pick = as.character(secondary_pick))%>%
+  group_by(subject_site)%>%
+  mutate(trial = 1:length(pick))%>% # to make trial a continous variable)
+  filter(!is.na(pick))
+
+```
+
+
+
 
 ```{r merge data files}
 raw_data <-bind_rows(
@@ -657,7 +711,8 @@ raw_data <-bind_rows(
   acci_bono,
   edin_chimps,
   lpz_orang_chimps,
-  mkyhv_mcqs
+  mkyhv_mcqs,
+  hbg
 )%>%
   mutate_at(c("condition","species","subject_site","task_experience","test_situation","hiding_location"),funs(factor(.)))%>%
   mutate(cup_distance = as.numeric(cup_distance))%>%
@@ -687,7 +742,7 @@ raw_data <- raw_data %>%
 ```{r quality checks}
 
 # data structure
-str(mp_data)
+str(raw_data)
 
 # 
 raw_data%>%
