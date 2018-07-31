@@ -68,7 +68,8 @@ model.data <- mp_data %>%
   mutate(cup_distance = scale(cup_distance, scale = T, center = T),
          board_size = scale(board_size, scale = T, center = T),
          trial = scale(trial, scale = T, center = T),
-         hiding_location = as.factor(hiding_location))
+         hiding_location = as.factor(hiding_location),
+         condition = relevel(condition, ref = "short"))
 
 # Model takes a while to run. Run next line to load model output from previous run with structure below.
 
