@@ -56,10 +56,13 @@ phylo.df <- phylo.df%>%
 
 
 # not sure what that code does ... delete?
+## DMA - this makes the row order of the testing data match 
+## the order of entries in the phylogenetic tree
+
 phylo.df$species = relevel(phylo.df$species,'Macaca_mulatta')
 phylo.df$species = relevel(phylo.df$species,'Macaca_fascicularis')
 phylo.df$species = relevel(phylo.df$species,'Pongo_pygmaeus')
-phylo.df$species = relevel(phylo.df$species,'Pan_troglodytes_verus')                           
+phylo.df$species = relevel(phylo.df$species,'Pan_troglodytes_verus')
 phylo.df$species = relevel(phylo.df$species,'Pan_paniscus')
 phylo.df$species = relevel(phylo.df$species,'Gorilla_gorilla_gorilla')
 phylo.df$species = relevel(phylo.df$species,'Saimiri_sciureus')
@@ -70,10 +73,12 @@ phylo.df$species = relevel(phylo.df$species,'Lemur_catta')
 phylo.df = phylo.df[order(phylo.df$species),]
 
 
+
 ## a one sample t-test is just a paired t-test where the values are paired with the 0 vector
 
 phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
 row.names(phylo.table.short) = phylo.df%>%filter(condition == "short")%>%pull(species)
+
 phylo.table.short$Ha = phylo.df$mean[phylo.df$condition=='short']
 phylo.table.short$Ha.SE = phylo.df$sd[phylo.df$condition=='short']
 phylo.table.short = as.matrix(phylo.table.short)
@@ -128,3 +133,26 @@ long.t
 
 
 
+### Possible LR tests
+
+## Trying to reproduce _ et al. (2010)
+# LR.D = 2.579 - 2*0 # second part of this is the question
+# Ddf = 1
+# 1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE) ## this matches Table 2, line 2
+
+
+LR.D = abs(2*short.t$logL)
+Ddf = 1
+1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+
+
+
+LR.D = abs(2*medium.t$logL)
+Ddf = 1
+1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+
+
+
+LR.D = abs(2*long.t$logL)
+Ddf = 1
+1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
