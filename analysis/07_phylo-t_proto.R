@@ -72,7 +72,7 @@ phylo.df = phylo.df[order(phylo.df$species),]
 
 ## a one sample t-test is just a paired t-test where the values are paired with the 0 vector
 
-phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(0,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
+phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
 row.names(phylo.table.short) = phylo.df%>%filter(condition == "short")%>%pull(species)
 phylo.table.short$Ha = phylo.df$mean[phylo.df$condition=='short']
 phylo.table.short$Ha.SE = phylo.df$sd[phylo.df$condition=='short']
