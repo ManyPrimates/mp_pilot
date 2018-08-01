@@ -101,11 +101,8 @@ mm.1 <- glmer(correct ~ condition * norm_age +
 confint(mm.1, method='profile')
 
 
-
 ## save model output
 saveRDS(mm.1, "06_mp_model.rds")
-
-
 
 ### Model plotting
 
@@ -114,6 +111,70 @@ plot_model(mm.1, type='re')
 ## sjp.lmer will be deprecated eventually, and plot_model can be used to precisely obtain which plots of the GLMM one wishes to examine.
 sjp.lmer(mm.1)
 ## In the meantime, sjp.lmer will plot the random effects by default.
+
+
+```
+
+```{r}
+# reduced model 
+
+## Model takes a while to run. Run next line to load model output from previous run with structure below.
+
+mm.2 <- readRDS("06_2_mp_model2.rds")
+
+
+# remove block from random effects as the estimates in the previous models were essentially 0
+
+# check for colinearity in the previous model.
+
+library (car)
+
+col.mm1 <- glm(correct ~ condition + norm_age + 
+                 task_experience + cup_distance + board_size + trial
+               , data = model.data
+               , family = binomial)
+
+vif(col.mm1)
+## board size and cup distance show high colinearity. 
+## removing board size as it is highly correlated with cup distance. Cup distance seems to be of more immediate relevance.
+
+# the following function checks how many different levels there are within  each random effect
+source("diagnostic_fcns.r") 
+
+Overview=fe.re.tab("correct ~ condition + task_experience + cup_distance + board_size + trial", "species",data = model.data)
+
+Overview$summary
+
+# this suggests that random slopes for task experience does not make much sense as most species have only 1 level. Same is true for board size. Therefore they are removed
+
+# trial random slopes within species also yields random effects equal to 0. Therefore it is removed 
+
+# reduced model 
+
+mm.2 <- glmer(correct ~ condition * norm_age + 
+                task_experience + cup_distance +  trial +
+                (1 + trial + condition | site / subject_site ) +         
+                (1 + condition | species)
+              , data = model.data
+              , family = binomial
+              , control=glmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5))
+)
+
+summary(mm.2)
+
+# CIs
+# does not work ?
+confint(mm.2, method='profile')
+
+# save model output
+saveRDS(mm.2, "06_2_mp_model2.rds")
+
+#
+
+### Model plotting
+
+plot_model(mm.2, type='est') 
+plot_model(mm.2, type='re') 
 
 
 ```
