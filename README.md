@@ -2,9 +2,6 @@
 
 Project repository for the ManyPrimates Pilot study. For more information about ManyPriamtes visit: https://sites.google.com/view/manyprimates/home
 
-## Note
-
-Datafiles and code are constantly being updated as new data files are submitted. This message will be deleted as soon as all data files have been submitted.
 
 ## Structure
 

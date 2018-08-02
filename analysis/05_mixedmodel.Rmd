@@ -116,16 +116,25 @@ sjp.lmer(mm.1)
 ```
 
 ```{r}
-# reduced model 
+# reduced model
 
 ## Model takes a while to run. Run next line to load model output from previous run with structure below.
 
 mm.2 <- readRDS("06_2_mp_model2.rds")
 
+mm.2.ci<- readRDS("06_2_mp_model2_ci.rds")
 
-# remove block from random effects as the estimates in the previous models were essentially 0
+# Pruning the model
 
-# check for colinearity in the previous model.
+## remove block from random effects as the estimates in the previous models were essentially 0
+## put correlation between random effects within site/species back in 
+
+  #correct ~ condition * norm_age + 
+  #             task_experience + cup_distance + board_size + trial +
+  #             (1 + condition + trial | site/subject_site ) +         
+  #             (1 + task_experience + cup_distance + board_size + trial + condition | species)
+
+## check for colinearity in the previous model.
 
 library (car)
 
@@ -135,19 +144,32 @@ col.mm1 <- glm(correct ~ condition + norm_age +
                , family = binomial)
 
 vif(col.mm1)
-## board size and cup distance show high colinearity. 
-## removing board size as it is highly correlated with cup distance. Cup distance seems to be of more immediate relevance.
 
-# the following function checks how many different levels there are within  each random effect
-source("diagnostic_fcns.r") 
+### board size and cup distance show high colinearity. 
+### removing board size as it is highly correlated with cup distance. Cup distance seems to be of more immediate relevance.
+
+  #correct ~ condition * norm_age + 
+  #             task_experience + cup_distance + trial +
+  #             (1 + condition + trial | site/subject_site ) +         
+  #             (1 + task_experience + cup_distance + trial + condition | species)
+
+## check levels of random effects
+### the following function checks how many different levels there are within  each random effect
+
+source("../../diagnostic_fcns.r") 
 
 Overview=fe.re.tab("correct ~ condition + task_experience + cup_distance + board_size + trial", "species",data = model.data)
 
 Overview$summary
 
-# this suggests that random slopes for task experience does not make much sense as most species have only 1 level. Same is true for board size. Therefore they are removed
+#### this suggests that random slopes for task experience does not make much sense as most species have only 1 level. Same is true for cup distance size. Therefore they are removed
 
-# trial random slopes within species also yields random effects equal to 0. Therefore it is removed 
+  #correct ~ condition * norm_age + 
+  #             task_experience + cup_distance + board_size + trial +
+  #             (1 + condition + trial | site/subject_site ) +         
+  #             (1 + trial + condition | species)
+
+## run model: trial random slopes within species also yields random effects equal to 0. Therefore it is removed 
 
 # reduced model 
 
@@ -166,10 +188,16 @@ summary(mm.2)
 # does not work ?
 confint(mm.2, method='profile')
 
+# Bootsrap function by Roger Mundry @ MPI EVA
+
+source("../../boot_glmm.r")
+
+mm.2.ci = boot.glmm.pred(model.res=mm.2, excl.warnings=F, nboots=1000, para=F, resol=100, level=0.95, use=NULL, circ.var.name=NULL, circ.var=NULL, use.u=F,n.cores=c("all-1", "all"), save.path=NULL)
+
 # save model output
 saveRDS(mm.2, "06_2_mp_model2.rds")
+saveRDS(mm.2.ci, "06_2_mp_model2_ci.rds")
 
-#
 
 ### Model plotting
 
