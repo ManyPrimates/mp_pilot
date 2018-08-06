@@ -22,26 +22,32 @@ plotTree(mp.tree[[1]], type='cladogram')
 
 ### Preparing test objects
 
-phylo.df = aggregate(mp_data$correct, by=list(mp_data$species,mp_data$condition),
-                     FUN=mean)
+## aggregating by condition: short, medium, long
 
-phylo.df.all = aggregate(mp_data$correct, by=list(mp_data$species),
+phylo.df = aggregate(mp_data$correct, by=list(mp_data$species,mp_data$condition),
                      FUN=mean)
 
 phylo.df$sd = aggregate(mp_data$correct, by=list(mp_data$species,mp_data$condition),
                       FUN=sd)[[3]]
 
-phylo.df.all$sd = aggregate(mp_data$correct, by=list(mp_data$species),
-                        FUN=sd)[[2]]
-
-
 colnames(phylo.df) = c('species','condition',
                        'mean','sd')
+
+
+## Aggregating across all conditions, for average performance
+
+phylo.df.all = aggregate(mp_data$correct, by=list(mp_data$species),
+                         FUN=mean)
+
+phylo.df.all$sd = aggregate(mp_data$correct, by=list(mp_data$species),
+                            FUN=sd)[[2]]
 
 colnames(phylo.df.all) = c('species',
                        'mean','sd')
 
 
+
+## comment out this line to use between conditions df:
 phylo.df = phylo.df.all
 
 
@@ -92,20 +98,20 @@ phylo.df = phylo.df[order(phylo.df$species),]
 
 ## a one sample t-test is just a paired t-test where the values are paired with the 0 vector
 
-phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
-row.names(phylo.table.short) = phylo.df%>%filter(condition == "short")%>%pull(species)
-
-phylo.table.short$Ha = phylo.df$mean[phylo.df$condition=='short']
-phylo.table.short$Ha.SE = phylo.df$sd[phylo.df$condition=='short']
-phylo.table.short = as.matrix(phylo.table.short)
-
-phylo.table.medium = phylo.table.short
-phylo.table.medium[,'Ha'] = phylo.df$mean[phylo.df$condition=='medium']
-phylo.table.medium[,'Ha.SE'] = phylo.df$sd[phylo.df$condition=='medium']
-
-phylo.table.long = phylo.table.short
-phylo.table.long[,'Ha'] = phylo.df$mean[phylo.df$condition=='long']
-phylo.table.long[,'Ha.SE'] = phylo.df$sd[phylo.df$condition=='long']
+# phylo.table.short = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
+# row.names(phylo.table.short) = phylo.df%>%filter(condition == "short")%>%pull(species)
+# 
+# phylo.table.short$Ha = phylo.df$mean[phylo.df$condition=='short']
+# phylo.table.short$Ha.SE = phylo.df$sd[phylo.df$condition=='short']
+# phylo.table.short = as.matrix(phylo.table.short)
+# 
+# phylo.table.medium = phylo.table.short
+# phylo.table.medium[,'Ha'] = phylo.df$mean[phylo.df$condition=='medium']
+# phylo.table.medium[,'Ha.SE'] = phylo.df$sd[phylo.df$condition=='medium']
+# 
+# phylo.table.long = phylo.table.short
+# phylo.table.long[,'Ha'] = phylo.df$mean[phylo.df$condition=='long']
+# phylo.table.long[,'Ha.SE'] = phylo.df$sd[phylo.df$condition=='long']
 
 phylo.table.all = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
 row.names(phylo.table.all) = phylo.df%>%pull(species)
@@ -117,14 +123,14 @@ phylo.table.all = as.matrix(phylo.table.all)
 
 ### Estimate lambda starting value in advance
 
-l.short = phylosig(mp.tree[[1]],x=phylo.table.short[,'Ha'],test=TRUE,
-         method='lambda')
-
-l.medium = phylosig(mp.tree[[1]],x=phylo.table.medium[,'Ha'],test=TRUE,
-                   method='lambda')
-
-l.long = phylosig(mp.tree[[1]],x=phylo.table.long[,'Ha'],test=TRUE,
-                   method='lambda')
+# l.short = phylosig(mp.tree[[1]],x=phylo.table.short[,'Ha'],test=TRUE,
+#          method='lambda')
+# 
+# l.medium = phylosig(mp.tree[[1]],x=phylo.table.medium[,'Ha'],test=TRUE,
+#                    method='lambda')
+# 
+# l.long = phylosig(mp.tree[[1]],x=phylo.table.long[,'Ha'],test=TRUE,
+#                    method='lambda')
 
 l.all = phylosig(mp.tree[[1]],x=phylo.table.all[,'Ha'],test=TRUE,
                  method='lambda')
@@ -133,30 +139,30 @@ l.all = phylosig(mp.tree[[1]],x=phylo.table.all[,'Ha'],test=TRUE,
 
 ### T-testing
 
-short.t = phyl.pairedttest(mp.tree[[1]],
-                           x1=phylo.table.short[,'Ha'],x2=phylo.table.short[,'H0'],
-                           se1=phylo.table.short[,'Ha.SE'],se2=phylo.table.short[,'H0.SE'],
-                           lambda = l.short$lambda
-                           )
-short.t
-
-
-
-medium.t = phyl.pairedttest(mp.tree[[1]],
-                           x1=phylo.table.medium[,'Ha'],x2=phylo.table.medium[,'H0'],
-                           se1=phylo.table.medium[,'Ha.SE'],se2=phylo.table.medium[,'H0.SE'],
-                           lambda = l.medium$lambda
-)
-medium.t
-
-
-
-long.t = phyl.pairedttest(mp.tree[[1]],
-                            x1=phylo.table.long[,'Ha'],x2=phylo.table.long[,'H0'],
-                            se1=phylo.table.long[,'Ha.SE'],se2=phylo.table.long[,'H0.SE'],
-                          lambda = l.long$lambda
-)
-long.t
+# short.t = phyl.pairedttest(mp.tree[[1]],
+#                            x1=phylo.table.short[,'Ha'],x2=phylo.table.short[,'H0'],
+#                            se1=phylo.table.short[,'Ha.SE'],se2=phylo.table.short[,'H0.SE'],
+#                            lambda = l.short$lambda
+#                            )
+# short.t
+# 
+# 
+# 
+# medium.t = phyl.pairedttest(mp.tree[[1]],
+#                            x1=phylo.table.medium[,'Ha'],x2=phylo.table.medium[,'H0'],
+#                            se1=phylo.table.medium[,'Ha.SE'],se2=phylo.table.medium[,'H0.SE'],
+#                            lambda = l.medium$lambda
+# )
+# medium.t
+# 
+# 
+# 
+# long.t = phyl.pairedttest(mp.tree[[1]],
+#                             x1=phylo.table.long[,'Ha'],x2=phylo.table.long[,'H0'],
+#                             se1=phylo.table.long[,'Ha.SE'],se2=phylo.table.long[,'H0.SE'],
+#                           lambda = l.long$lambda
+# )
+# long.t
 
 
 
@@ -187,21 +193,21 @@ all.t
 
 
 
-LR.D = abs(2*short.t$logL)
-Ddf = 1
-1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
-
-
-
-LR.D = abs(2*medium.t$logL)
-Ddf = 1
-1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
-
-
-
-LR.D = abs(2*long.t$logL)
-Ddf = 1
-1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+# LR.D = abs(2*short.t$logL)
+# Ddf = 1
+# 1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+# 
+# 
+# 
+# LR.D = abs(2*medium.t$logL)
+# Ddf = 1
+# 1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+# 
+# 
+# 
+# LR.D = abs(2*long.t$logL)
+# Ddf = 1
+# 1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
 
 
 
@@ -218,9 +224,13 @@ phylo.table.all = phylo.table.all - 1/3
 
 priMemAnc = fastAnc(mp.tree[[1]], phylo.table.all, CI = TRUE)
 
-obj<-contMap(anole.tree,svl,plot=FALSE)
-plot(obj,type="fan",legend=0.7*max(nodeHeights(anole.tree)),
-     fsize=c(0.7,0.9))
+
+## Basic contour map of ancetral states by color
+
+obj <- contMap(mp.tree[[1]],phylo.table.all,plot=TRUE,
+               lims = c(-.115,0.645)
+               )
+
+errorbar.contMap(obj)
 
 
-## lambda for overall t.test?
