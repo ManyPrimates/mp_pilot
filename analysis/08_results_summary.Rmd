@@ -15,6 +15,7 @@ library(ggthemes)
 library(langcog)
 library(knitr)
 library(sjPlot)
+library(maps)
 
 # langcog package is installed by running
 # install.packages("devtools")
@@ -52,6 +53,33 @@ mp_data %>%
             Sites = length(unique(site)))%>%
   kable()
 
+```
+
+### Sites
+
+```{r world, include=FALSE}
+
+world <- maps::map("world", ".", exact = FALSE, plot = FALSE, fill = TRUE) %>% fortify()
+
+labs <- data.frame(
+  lat = c(51.348537, 41.9210919,32.6408466,51.56097030000001,-0.004259,49.415154,55.94232599999999,58.1856575,50.705786,33.75306799999999),
+  long = c(12.371651400000019, -87.63399090000001,130.48248009999998,9.952894499999957,36.96367099999998,8.663884000000053,-3.267317999999932,8.144123000000036,-1.2627529999999751,-84.3852819),
+  Site = as.factor(c("Wolfgang Köhler Primate Research Center", "Lincoln Park Zoo","Kumamoto Sanctuary","German Primate Center","Sweetwaters Chimpanzee Sanctuary","Heidelberg Zoo", "Edinburgh Zoo", "Kristiansand Zoo", "Monkey Haven","Language Research Center / Ape Cognition & Conservation Initiative")),
+  stringsAsFactors = FALSE
+  )
+
+map <- ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group), fill = "grey") + 
+  coord_fixed(1.3)+ 
+  geom_point(data = labs, aes(x = long, y = lat), color = "black", size = 3) +
+  geom_point(data = labs, aes(x = long, y = lat,color = Site), size = 2)+
+  ylim(-55,83.59961)+
+  theme_few()+
+  theme(legend.position="right",legend.direction = "vertical",axis.title.x=element_blank(),axis.title.y=element_blank())
+
+```
+
+```{r map, fig.height = 6, fig.width = 12, , echo=FALSE}
+map
 ```
 
 
