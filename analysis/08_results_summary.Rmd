@@ -236,7 +236,7 @@ ggplot() +
 
 ### Ring-tailed lemurs
 
-Again, the absolute level is similar across sites, but there is very few data from one site.
+Again, the absolute level is similar across sites, but there are very few data from one site.
 
 ```{r plots by site ring-tailed-lemurs, fig.height = 2, fig.width = 8}
 rtlemur_plot_individual <- mp_data %>%
@@ -398,9 +398,9 @@ The goal of the phylogenetic analysis is twofold: On the one hand, we want to es
 
 ### Phylogenetic signal: $\lambda$
 
-To answer the first question, we can look at "lambda" - $\lambda$, a single value for estimating the strength of the phylogenetic signal in the data. In a nutshell, $\lambda$ reflects whether species are as similar to one another as predicted by their shared evolutionary history. $\lambda$ ranges (in most cases) between 0 and 1, with 0 meaning no and 1 meaning a strong signal. There are also significance tests for lambda (likelihood ratio tests).For a relatively understandable introduction to how lambda is computed, I'd recommend looking at a paper by [Freckleton et al. (2002)](https://www.journals.uchicago.edu/doi/10.1086/343873). A slightly less technical description is also given in [MacLean et al. (2012)](https://link.springer.com/article/10.1007%2Fs10071-011-0448-8).
+To answer the first question, we can look at "lambda" - $\lambda$, a single value for estimating the strength of the phylogenetic signal in the data. In a nutshell, $\lambda$ reflects whether species are as similar to one another as predicted by their shared evolutionary history. $\lambda$ ranges (in most cases) between 0 and 1, with 0 meaning no and 1 meaning a strong signal. There are also significance tests for lambda (likelihood ratio tests). For a relatively understandable introduction to how lambda is computed, we recommend looking at a paper by [Freckleton et al. (2002)](https://www.journals.uchicago.edu/doi/10.1086/343873). A slightly less technical description is also given in [MacLean et al. (2012)](https://link.springer.com/article/10.1007%2Fs10071-011-0448-8).
 
-In our case, $\lambda$ can be estimated in two ways. First, we can do this based on the performance means alone. Second, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of this as the first way being something like a base $\lambda$ and the second version an updated $\lambda$.
+In our case, $\lambda$ can be estimated in two ways. First, we can do this based on the performance means alone. Second, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of the first version as being something like a base $\lambda$ and the second version an updated $\lambda$.
 
 To get more precise estimates for each species we aggregated the data across conditions for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across conditions reflects the overall level of working memory capacity in each species relatively well.
 
@@ -567,7 +567,7 @@ errorbar.contMap(obj)
 
 A first interpretation of this plot would be that there is a common primate basis of working memory capacity. This capacity increases in the lineage leading up to great apes. 
 
-As the estimation of  $\lambda$, this analysis is preliminary.
+As with the estimation of  $\lambda$, this analysis is preliminary.
 
 
 
