@@ -114,7 +114,7 @@ The pre-registered model had the following structure
         `(1 + delay + trial | site/subject/block/hiding_location ) +` 
         `(1 + task_experience + cup_distance + board_size + trial + delay | species)`
 
-Based on convergence issues and other considerations (see 05_mixed_model file for details on the decision process) we modified the random effect structure and remove board size, which co-varied with board size. The reduced model has the following structure: 
+Based on convergence issues and other considerations (see 05_mixed_model file for details on the decision process) we modified the random effect structure and remove board size, which co-varied with cup distance. The reduced model has the following structure: 
 
 `correct ~ delay * age +`
         `task_experience + cup_distance + trial +`
@@ -394,7 +394,7 @@ ggplot() +
 
 ## Phylogenetic analysis
 
-The goal of the phylogenetic analysis is twofold: On the one hand, we want to estimate how strong the phylogenetic signal is in our data, and on the other hand, we want to make inferences about how working memory capacity evolved over time.
+The goal of the phylogenetic analysis is twofold: On the one hand, we want to estimate how strong the phylogenetic signal is in our data, and on the other hand, we want to make inferences about how short-term memory capacity evolved over time.
 
 ### Phylogenetic signal: $\lambda$
 
@@ -402,7 +402,7 @@ To answer the first question, we can look at "lambda" - $\lambda$, a single valu
 
 In our case, $\lambda$ can be estimated in two ways. First, we can do this based on the performance means alone. Second, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of the first version as being something like a base $\lambda$ and the second version an updated $\lambda$.
 
-To get more precise estimates for each species we aggregated the data across conditions for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across conditions reflects the overall level of working memory capacity in each species relatively well.
+To get more precise estimates for each species we aggregated the data across conditions for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across conditions reflects the overall level of short-term memory capacity in each species relatively well.
 
 ```{r, include = FALSE}
 
@@ -542,11 +542,11 @@ A word of caution: This analysis is preliminary because we do not have much expe
 
 ### Reconstruction of ancestral state
 
-Based on our data, we can also model the working memory capacity of hypothetical common ancestors in the primate lineage. The goal of ancestral state reconstruction is to estimate the condition of phenotypic traits at internal branching points, or nodes, in the tree. So in the case of primate cognition, we are interested in how recently stronger aptitudes evolved, and where along the tree these adaptations occurred.
+Based on our data, we can also model the short-term memory capacity of hypothetical common ancestors in the primate lineage. The goal of ancestral state reconstruction is to estimate the condition of phenotypic traits at internal branching points, or nodes, in the tree. So in the case of primate cognition, we are interested in how recently stronger aptitudes evolved, and where along the tree these adaptations occurred.
 
 Ancestral state reconstructions and visualization is described in [Revell (2013)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.12066), as well as in an R [tutorial](http://www.phytools.org/eqg2015/asr.html). 
 
-The plot can be read based on the color of the branches. The range on the bottom of the graph shows the color scheme in reference to chance level (which would be 0). The more blue a branch is, the higher the estimated working memory capacity. The rectangles at the nodes reflect the 95% CIs for a given common ancestor. If a CI includes some red, the estimated capacity is not different from 0.
+The plot can be read based on the color of the branches. The range on the bottom of the graph shows the color scheme in reference to chance level (which would be 0). The more blue a branch is, the higher the estimated short-term memory capacity. The rectangles at the nodes reflect the 95% CIs for a given common ancestor. If a CI includes some red, the estimated capacity is not different from 0.
 
 ```{r, echo = FALSE}
 ### Ancestral state reconstructions
@@ -567,7 +567,7 @@ obj <- contMap(mp.tree[[1]],phylo.table.all,plot=TRUE,
 errorbar.contMap(obj)
 ```
 
-A first interpretation of this plot would be that there is a common primate basis of working memory capacity. This capacity increases in the lineage leading up to great apes. 
+A first interpretation of this plot would be that there is a common primate basis of short-term memory capacity. This capacity increases in the lineage leading up to great apes. 
 
 *n.b.* As with the estimation of  $\lambda$, this analysis is preliminary. *P. t. verus* and *P. pygmaeus* were arbitrarily chosen as the representative species or subspecies of chimpanzees and orangutans. This was because detailed species and subspecies information was not available at this point in the study; the results were not affected by these decisions.
 
