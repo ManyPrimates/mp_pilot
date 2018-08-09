@@ -128,7 +128,7 @@ Variable names in the data frame:
 
 Below, we plot odds ratios for fixed effects. As a guideline for interpretation, errorbars that do not overlap with the vertical line indicate a significant effect in the model.
 
-```{r glmm, echo=FALSE, warning=FALSE, fig.height = 4, fig.width = 8}
+```{r glmm, include=FALSE}
 
 mm.2 <- readRDS("06_2_mp_model2.rds")
 
@@ -136,6 +136,10 @@ model_plot <- plot_model(mm.2, type='est', title = "Fixed Effects")+
   geom_hline(yintercept = 1, lty=2)+
   ylim(.05,3)+
   theme_few()
+
+```
+
+```{r model output, echo=FALSE, fig.height = 4, fig.width = 8}
 
 model_plot
 
