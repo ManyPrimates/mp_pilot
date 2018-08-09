@@ -28,7 +28,7 @@ mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_dat
 
 ## Descriptives 
 
-Here is an overview of our sample.
+Here is an overview of our sample. The size and diversity are impressive.
 
 ### Sample size
 
@@ -36,6 +36,7 @@ Here is an overview of our sample.
 
 mp_data %>%
   summarize(N = length(unique(subject_site)),
+            Species = length(unique(species)),
             Sites = length(unique(site)))%>%
   kable()
 
@@ -56,9 +57,9 @@ mp_data %>%
 
 ## Visual overview
 
-First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Solid dots is the group mean for that condition. Error bars are 95% confidence intervals.
+First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Solid dots are species means for a given condition. Error bars are 95% confidence intervals (CI). Dotted line represents level expected by chance. Performance is significantly different from chance, if the CI does not overlap with the chance line. 
 
-Species are ordered by phylogeny, with lemurs on top, followed by new world monkeys, old world monkeys and apes.
+Species are grouped by phylogeny, with lemurs on top, followed by new world monkeys, old world monkeys and apes.
 
 ```{r overview by species, echo = FALSE, fig.height = 8, fig.width = 8}
 plot_individual <- mp_data %>%
@@ -101,7 +102,10 @@ ggplot() +
 
 ## Inference: GLMM
 
-The main purpose of the model is to test our two hypothesis.
+The main purpose of the model is to test our two hypothesis:
+
+1. Probability of correct choice decreases with delay length (main effect of condition)
+2. Probability of correct choice decreases in older individuals in longer delays (interaction between age and delay)
 
 The pre-registered model had the following structure
 
@@ -110,12 +114,7 @@ The pre-registered model had the following structure
         `(1 + delay + trial | site/subject/block/hiding_location ) +` 
         `(1 + task_experience + cup_distance + board_size + trial + delay | species)`
 
-Our two main hypothesis were: 
-
-1. Probability of correct choice decreases with delay length (main effect of condition)
-2. Probability of correct choice decreases in older individuals in longer delays (interaction between age and delay
-
-Based on convergence issues and other considerations (see 05_mixed_model file for details on the decision process) we had to modify the random effect structure and remove board size. The reduced model has the following structure: 
+Based on convergence issues and other considerations (see 05_mixed_model file for details on the decision process) we modified the random effect structure and remove board size, which co-varied with board size. The reduced model has the following structure: 
 
 `correct ~ delay * age +`
         `task_experience + cup_distance + trial +`
@@ -125,7 +124,7 @@ Based on convergence issues and other considerations (see 05_mixed_model file fo
 Variable names in the data frame:
 * condition = delay,
 * subject_site = subject,
-* norm_age = age.
+* norm_age = age divided by species longevity and scaled and centered across species.
 
 Below, we plot odds ratios for fixed effects. As a guideline for interpretation, errorbars that do not overlap with the vertical line indicate a significant effect in the model.
 
@@ -148,7 +147,7 @@ What we see is a significant effect delay. The reference level is the short dela
 
 ### Interaction of age and condition
 
-No such interaction could be found in the model. Below we plot performance against age (Regression line is smoothed conditional mean). This visualization confirms the statistical analysis. We might think of exploring the data further and look for a quadratic or cubic relation between age, condition and performance.
+No such interaction could be found in the model. Below we plot performance aggregated for each subject against age (regression line is smoothed conditional mean with 95% CI). This visualization confirms the statistical analysis. As part of the exploratory analysis, we might want to look for a quadratic or cubic relation between age, condition and performance.
 
 ```{r plotting age, echo = FALSE,fig.height = 4, fig.width = 8}
 plot_age <- mp_data %>%
@@ -171,7 +170,7 @@ ggplot(plot_age,
 
 ### Effect of cup distance
 
-We did not expect such an effect and looking at the data it is unlikely that cup distance in and of itself is driving this effect. Looking at the graph below, one can see that cup distance is confounded with species (presumably due to body size) and also site within species. This is effect is likely a result of allowing 
+We did not expect such an effect and looking at the data it is unlikely that cup distance in and of itself is driving this effect. Looking at the graph below, one can see that cup distance is confounded with species (presumably due to body size) and also site within species. This is effect is therefore likely a result of adjusting the test setup to site and species.
 
 ```{r plotting cup distance, echo = FALSE, fig.height = 4, fig.width = 8}
 plot_cup <- mp_data %>%
@@ -192,18 +191,17 @@ ggplot(plot_cup,
 ```
 
 
-
 ## Comparing sites
 
 Here we select the species for which we have data from multiple sites. This is a rough way of checking whether there is a lot of variation between sites. Plotting conventions are the same as above.
 
-Based on the table above, this is true for bonobos, chimpanzees, capuchins, gorillas and ring-tailed lemurs. The most informative plots of the following will be the ones for chimpanzees and capuchins because here we have the largest sample size per site. 
+Based on the table above, we have data from multiple sites for bonobos, chimpanzees, capuchins, gorillas and ring-tailed lemurs. The most informative plots will be the ones for chimpanzees and capuchins because there we have the largest sample size per site. 
 
-We can compare absolute level of performance (in what range of correct proportions does the data across conditions from each site fall) as well as relative (how do the conditions compare to one another)
+We can compare absolute level of performance (in what range of correct proportions does the data across conditions from each site fall) as well as relative (how do the conditions compare to one another).
 
 ### Chimpanzees
 
-Here we see that performance on an absolute level is fairly similar across sites. The Leipzig chimpanzees seem to perform better compared to the others, but this might be due to them being involved in a lot of studies using the same or a very similar setup. 
+Here we see that performance on an absolute level is fairly similar across sites. The Leipzig chimpanzees seem to perform better compared to the others, but this might be due to them being involved in a lot of studies using the same or a very similar setup.
 
 ```{r plots by site chimps, echo= FALSE, fig.height = 4, fig.width = 8}
 # starting with chimps
@@ -234,7 +232,7 @@ ggplot() +
 
 ### Ring-tailed lemurs
 
-Again, the absolute level is similar across sites, but there is very few data.
+Again, the absolute level is similar across sites, but there is very few data from one site.
 
 ```{r plots by site ring-tailed-lemurs, fig.height = 2, fig.width = 8}
 rtlemur_plot_individual <- mp_data %>%
@@ -293,7 +291,7 @@ ggplot() +
 
 ### Bonobos
 
-Here we have relatively few data and quite variable estimates. Performance looks more variable compared to the other species.
+Here we have relatively few data and therefore quite variable estimates. Performance looks more variable compared to the other species.
 
 ```{r plots by site bonobo, fig.height = 2, fig.width = 8}
 bon_plot_individual <- mp_data %>%
@@ -320,10 +318,9 @@ ggplot() +
 
 ```
 
-
 ## Comparing across task-experience
 
-Even though we did not find an overall effect of task experience in the model, it might be interesting to look at how subjects from one species but different levels of task experience perform. Here we split each species by task experience. This only applies to chimpanzees and bonobos. However, task experience is confounded with site. In the plots below, the dots are colored according to site to visualize this.
+Even though we did not find an overall effect of task experience in the model, it might be interesting to look at how subjects from one species with different levels of task experience perform. This only applies to chimpanzees and bonobos. However, task experience is confounded with site. In the plots below, the dots are colored according to site to visualize this.
 
 ### Chimpanzees
 
@@ -393,13 +390,13 @@ ggplot() +
 
 ## Phylogenetic analysis
 
-The goal of the phylogenetic analysis is on the one hand to estimate how strong the phylogenetic signal in our data is and on the other hand to make inferences about how working memory capacity evolved over time.
+The goal of the phylogenetic analysis is twofold: On the one hand, we want to estimate how strong the phylogenetic signal is in our data, and on the other hand, we want to make inferences about how working memory capacity evolved over time.
 
 ### Phylogenetic signal: $\lambda$
 
-To answer the first question, we can look at "lambda" - $\lambda$, a single value for estimating the strength of the phylogenetic signal in the data. In a nutshell, $\lambda$ reflects whether species are as similar to one another as predicted by their shared evolutionary history. $\lambda$ ranges (in most cases) between 0 and 1, with 0 no and 1 meaning strong signal. There are also significance tests for lambda (likelihood ratio tests).For a relatively understandable introduction to how lambda is computed, I'd recommend looking at a paper by [Freckleton et al. (2002)](https://www.journals.uchicago.edu/doi/10.1086/343873). A slightly less technical description is also given in [MacLean et al. (2012)](https://link.springer.com/article/10.1007%2Fs10071-011-0448-8).
+To answer the first question, we can look at "lambda" - $\lambda$, a single value for estimating the strength of the phylogenetic signal in the data. In a nutshell, $\lambda$ reflects whether species are as similar to one another as predicted by their shared evolutionary history. $\lambda$ ranges (in most cases) between 0 and 1, with 0 meaning no and 1 meaning a strong signal. There are also significance tests for lambda (likelihood ratio tests).For a relatively understandable introduction to how lambda is computed, I'd recommend looking at a paper by [Freckleton et al. (2002)](https://www.journals.uchicago.edu/doi/10.1086/343873). A slightly less technical description is also given in [MacLean et al. (2012)](https://link.springer.com/article/10.1007%2Fs10071-011-0448-8).
 
-In our case, $\lambda$ can be estimated in two ways. On the one hand we can do this based on the performance means alone. On the other hand, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another based due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of this as the first way being something like a base $\lambda$ and the second version an updated $\lambda$.
+In our case, $\lambda$ can be estimated in two ways. First, we can do this based on the performance means alone. Second, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of this as the first way being something like a base $\lambda$ and the second version an updated $\lambda$.
 
 To get more precise estimates for each species we aggregated the data across conditions for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across conditions reflects the overall level of working memory capacity in each species relatively well.
 
@@ -537,11 +534,11 @@ Updated $\lambda$ = `r round(all.t$lambda,2)`, *p* = `r round(p_lambda_updated,2
 
 Just based on the numerical value of $\lambda$, it seems that there is a substantial phylogenetic signal in our data. That is, species that share a long evolutionary history tend to perform on a similar level. When updated, $\lambda$ is also significantly different from 0.
 
-A word of caution: This analysis is preliminary because we do not have much experience with this measure. As we learn more, the results and approach taken might actually change.  
+A word of caution: This analysis is preliminary because we do not have much experience with this measure. As we learn more, the results and approach taken might change.  
 
 ### Reconstruction of ancestral state
 
-Based on our data, we can also model the working memory capacity of a hypothetical common ancestor of some species. 
+Based on our data, we can also model the working memory capacity of hypothetical common ancestors of. 
 
 The plot can be read based on the color of the branches. The range on the bottom of the graph shows the color scheme in reference to chance level (which would be 0). The more blue a branch is, the higher the estimated working memory capacity. The rectangles at the nodes reflect the 95% CIs for a given common ancestor. If a CI includes some red, the estimated capacity is not different from 0.
 
