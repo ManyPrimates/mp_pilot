@@ -228,7 +228,8 @@ priMemAnc = fastAnc(mp.tree[[1]], phylo.table.all, CI = TRUE)
 ## Basic contour map of ancetral states by color
 
 obj <- contMap(mp.tree[[1]],phylo.table.all,plot=TRUE,
-               lims = c(-.115,0.645)
+               lims = c(-.115,0.645),
+               sig = 2
                )
 
 errorbar.contMap(obj)

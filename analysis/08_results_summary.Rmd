@@ -1,0 +1,575 @@
+---
+title: "ManyPrimates Pilot Summary of Results"
+author: "ManyPrimates"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(ggthemes)
+library(langcog)
+library(knitr)
+library(sjPlot)
+
+# langcog package is installed by running
+# install.packages("devtools")
+# devtools::install_github("langcog/langcog")
+
+```
+
+```{r loading data, include = FALSE}
+mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+```
+
+## Descriptives 
+
+Here is an overview of our sample.
+
+### Sample size
+
+```{r descriptives overall, echo=FALSE}
+
+mp_data %>%
+  summarize(N = length(unique(subject_site)),
+            Sites = length(unique(site)))%>%
+  kable()
+
+```
+
+### Sample size by species
+
+```{r descriptives by site and species, echo=FALSE}
+
+mp_data %>%
+  group_by(species)%>%
+  summarize(N = length(unique(subject_site)),
+            Sites = length(unique(site)))%>%
+  kable()
+
+```
+
+
+## Visual overview
+
+First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Solid dots is the group mean for that condition. Error bars are 95% confidence intervals.
+
+Species are ordered by phylogeny, with lemurs on top, followed by new world monkeys, old world monkeys and apes.
+
+```{r overview by species, echo = FALSE, fig.height = 8, fig.width = 8}
+plot_individual <- mp_data %>%
+  mutate(phylo = case_when(species == "chimpanzee" ~ 9,
+                           species == "ring_tailed_lemur" ~ 1,
+                           species == "orangutan"~ 12,
+                           species == "bonobo"~ 10,
+                           species == "gorilla"~ 11,
+                           species == "black_and_white_ruffed_lemur"~ 2,
+                           species == "brown_capuchin_monkey" ~ 3,
+                           species == "black_faced_spider_monkey" ~ 4,
+                           species == "long_tailed_macaque" ~ 7,
+                           species == "barbary_macaque" ~ 8,
+                           species == "rhesus_macaque" ~ 6,
+                           species == "squirrel_monkey"~ 5),
+         species = reorder(species,phylo))%>%
+  group_by(phylo,species,condition,subject_site) %>%
+  summarise(correct = mean(correct),
+             nr_trials = max(trial))
+
+
+plot_group <- plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+
+ggplot() +
+  geom_jitter(data = plot_individual, aes(x = condition, y = correct, col = condition, size = nr_trials), width = .3,height = .015, alpha = .15)+
+  geom_pointrange(data = plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = 1)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(species ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  scale_size_continuous(breaks = c(12,24,36))+
+  coord_flip()
+```
+
+## Inference: GLMM
+
+The main purpose of the model is to test our two hypothesis.
+
+The pre-registered model had the following structure
+
+`correct ~ delay * age +`
+        `task_experience + cup_distance + board_size + trial +`
+        `(1 + delay + trial | site/subject/block/hiding_location ) +` 
+        `(1 + task_experience + cup_distance + board_size + trial + delay | species)`
+
+Our two main hypothesis were: 
+
+1. Probability of correct choice decreases with delay length (main effect of condition)
+2. Probability of correct choice decreases in older individuals in longer delays (interaction between age and delay
+
+Based on convergence issues and other considerations (see 05_mixed_model file for details on the decision process) we had to modify the random effect structure and remove board size. The reduced model has the following structure: 
+
+`correct ~ delay * age +`
+        `task_experience + cup_distance + trial +`
+        `(1 + trial + condition | site / subject_site ) +` 
+        `(1 + condition | species)`
+                
+Variable names in the data frame:
+* condition = delay,
+* subject_site = subject,
+* norm_age = age.
+
+Below, we plot odds ratios for fixed effects. As a guideline for interpretation, errorbars that do not overlap with the vertical line indicate a significant effect in the model.
+
+```{r glmm, echo=FALSE, warning=FALSE, fig.height = 4, fig.width = 8}
+
+mm.2 <- readRDS("06_2_mp_model2.rds")
+
+model_plot <- plot_model(mm.2, type='est', title = "Fixed Effects")+
+  geom_hline(yintercept = 1, lty=2)+
+  ylim(.05,3)+
+  theme_few()
+
+model_plot
+
+```
+
+### Effect of condition
+
+What we see is a significant effect delay. The reference level is the short delay condition and performance in the long as well as in the medium condition are significantly worse compared to this. This suggests that, across species, performance decreases in the delay trials. This confirms the intuition one gets from looking at the summary plot above. In another model, not shown here, we tested if medium delay is also different from long delay and found that this was the case. This shows a graded retention effect across species. 
+
+### Interaction of age and condition
+
+No such interaction could be found in the model. Below we plot performance against age (Regression line is smoothed conditional mean). This visualization confirms the statistical analysis. We might think of exploring the data further and look for a quadratic or cubic relation between age, condition and performance.
+
+```{r plotting age, echo = FALSE,fig.height = 4, fig.width = 8}
+plot_age <- mp_data %>%
+   group_by(subject_site,norm_age,species,condition) %>%
+   summarise(correct = mean(correct))
+
+
+ggplot(plot_age, 
+       aes(x = norm_age, y = correct))+
+  geom_jitter(aes(colour=species), width = .05, height = .05, alpha = .7)+
+  geom_smooth(method = "loess", se = T , level = 0.95, col = "black")+
+  guides(fill=FALSE)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  ggtitle("Age by condition")+
+  labs(x="Normed Age (relative to species longevity)",y="Proportion Correct")+
+  #facet_grid( condition ~ species )+
+  facet_grid( condition ~ . )+
+  theme_few()
+```
+
+### Effect of cup distance
+
+We did not expect such an effect and looking at the data it is unlikely that cup distance in and of itself is driving this effect. Looking at the graph below, one can see that cup distance is confounded with species (presumably due to body size) and also site within species. This is effect is likely a result of allowing 
+
+```{r plotting cup distance, echo = FALSE, fig.height = 4, fig.width = 8}
+plot_cup <- mp_data %>%
+   group_by(subject_site,cup_distance,species,condition) %>%
+   summarise(correct = mean(correct))
+
+
+ggplot(plot_cup, 
+       aes(x = cup_distance, y = correct))+
+  geom_jitter(aes(colour=species), width = .5, height = .15)+
+  geom_smooth(method = "loess", se = F , level = 0.95)+
+  guides(fill=FALSE)+
+  labs(x="Cup Distance in cm",y="Proportion Correct")+
+  ggtitle("Cup distance")+
+  geom_hline(yintercept = 1/3, lty=2)+
+  scale_color_discrete()+
+  theme_few()
+```
+
+
+
+## Comparing sites
+
+Here we select the species for which we have data from multiple sites. This is a rough way of checking whether there is a lot of variation between sites. Plotting conventions are the same as above.
+
+Based on the table above, this is true for bonobos, chimpanzees, capuchins, gorillas and ring-tailed lemurs. The most informative plots of the following will be the ones for chimpanzees and capuchins because here we have the largest sample size per site. 
+
+We can compare absolute level of performance (in what range of correct proportions does the data across conditions from each site fall) as well as relative (how do the conditions compare to one another)
+
+### Chimpanzees
+
+Here we see that performance on an absolute level is fairly similar across sites. The Leipzig chimpanzees seem to perform better compared to the others, but this might be due to them being involved in a lot of studies using the same or a very similar setup. 
+
+```{r plots by site chimps, echo= FALSE, fig.height = 4, fig.width = 8}
+# starting with chimps
+
+chimp_plot_individual <- mp_data %>%
+  filter(species == "chimpanzee")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+chimp_plot_group <- chimp_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = chimp_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
+  geom_pointrange(data = chimp_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="Proportion Correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ggtitle("Chimpanzees")+
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+### Ring-tailed lemurs
+
+Again, the absolute level is similar across sites, but there is very few data.
+
+```{r plots by site ring-tailed-lemurs, fig.height = 2, fig.width = 8}
+rtlemur_plot_individual <- mp_data %>%
+  filter(species == "ring_tailed_lemur")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+rtlemur_plot_group <- rtlemur_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = rtlemur_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
+  geom_pointrange(data = rtlemur_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ggtitle("Ring-tailed Lemurs")+
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+
+### Brown Capuchins
+
+Here we have a decent sample size for both sites. Absolute and relative performance looks very similar. 
+
+```{r plots by site capuchins, fig.height = 2, fig.width = 8}
+cap_plot_individual <- mp_data %>%
+  filter(species == "brown_capuchin_monkey")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+cap_plot_group <- cap_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = cap_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
+  geom_pointrange(data = cap_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ggtitle("Capuchin Monkeys")+
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+### Bonobos
+
+Here we have relatively few data and quite variable estimates. Performance looks more variable compared to the other species.
+
+```{r plots by site bonobo, fig.height = 2, fig.width = 8}
+bon_plot_individual <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(site,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+bon_plot_group <- bon_plot_individual %>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = bon_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
+  geom_pointrange(data = bon_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(site ~ . ,switch = "y") +
+  theme_few() + 
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  ggtitle("Bonobos")+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_solarized(name="delay")+
+  coord_flip()
+
+```
+
+
+## Comparing across task-experience
+
+Even though we did not find an overall effect of task experience in the model, it might be interesting to look at how subjects from one species but different levels of task experience perform. Here we split each species by task experience. This only applies to chimpanzees and bonobos. However, task experience is confounded with site. In the plots below, the dots are colored according to site to visualize this.
+
+### Chimpanzees
+
+The absolute level seems to be comparable with and without task experience. 
+
+```{r plots by task experience chimps, echo = FALSE, fig.height = 2, fig.width = 8}
+# starting with chimps
+
+chimp_task_plot_individual <- mp_data %>%
+  filter(species == "chimpanzee")%>%
+  group_by(site, task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+chimp_task_plot_group <- mp_data %>%
+  filter(species == "chimpanzee")%>%
+  group_by(task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))%>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = chimp_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .8)+
+  geom_pointrange(data = chimp_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(task_experience ~ . ,switch = "y") +
+  theme_few() + 
+  ggtitle("Chimpanzees")+
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_hue(name="site")+
+  coord_flip()
+
+```
+
+### Bonobos
+
+This plot is redundant with the site plot above. 
+
+```{r plots by task experience bonobos, fig.height = 2, fig.width = 8}
+bonobo_task_plot_individual <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(site, task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))
+
+bonobo_task_plot_group <- mp_data %>%
+  filter(species == "bonobo")%>%
+  group_by(task_experience,condition,subject_site) %>%
+  summarise(correct = mean(correct))%>%
+   multi_boot_standard(col = "correct")
+
+ggplot() +
+  geom_jitter(data = bonobo_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .8)+
+  geom_pointrange(data = bonobo_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
+  geom_hline(yintercept = 1/3, lty=2)+
+  labs(x="",y="proportion correct")+
+  facet_grid(task_experience ~ . ,switch = "y") +
+  theme_few() + 
+  ggtitle("Bonobos")+
+  ylim(-0.05,1.05)+
+  guides(alpha = F)+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  scale_colour_hue(name="site")+
+  coord_flip()
+
+```
+
+## Phylogenetic analysis
+
+The goal of the phylogenetic analysis is on the one hand to estimate how strong the phylogenetic signal in our data is and on the other hand to make inferences about how working memory capacity evolved over time.
+
+### Phylogenetic signal: $\lambda$
+
+To answer the first question, we can look at "lambda" - $\lambda$, a single value for estimating the strength of the phylogenetic signal in the data. In a nutshell, $\lambda$ reflects whether species are as similar to one another as predicted by their shared evolutionary history. $\lambda$ ranges (in most cases) between 0 and 1, with 0 no and 1 meaning strong signal. There are also significance tests for lambda (likelihood ratio tests).For a relatively understandable introduction to how lambda is computed, I'd recommend looking at a paper by [Freckleton et al. (2002)](https://www.journals.uchicago.edu/doi/10.1086/343873). A slightly less technical description is also given in [MacLean et al. (2012)](https://link.springer.com/article/10.1007%2Fs10071-011-0448-8).
+
+In our case, $\lambda$ can be estimated in two ways. On the one hand we can do this based on the performance means alone. On the other hand, it can be estimated as part of a phylogenetic t-test. This test is basically a one sample t-test that also recognizes that species might be more similar to one another based due to their shared evolutionary history. The additional information that goes into the t-test is the standard deviation and the reference (chance) level. You can think of this as the first way being something like a base $\lambda$ and the second version an updated $\lambda$.
+
+To get more precise estimates for each species we aggregated the data across conditions for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across conditions reflects the overall level of working memory capacity in each species relatively well.
+
+```{r, include = FALSE}
+
+library(phytools)
+
+mp.tree <- read.nexus('TreeBlock_10kTrees_Primates_Version3.nex')
+
+### Preparing test objects
+
+## aggregating by condition: short, medium, long
+
+phylo.df = aggregate(mp_data$correct, by=list(mp_data$species,mp_data$condition),
+                     FUN=mean)
+
+phylo.df$sd = aggregate(mp_data$correct, by=list(mp_data$species,mp_data$condition),
+                      FUN=sd)[[3]]
+
+colnames(phylo.df) = c('species','condition',
+                       'mean','sd')
+
+
+## Aggregating across all conditions, for average performance
+
+phylo.df.all = aggregate(mp_data$correct, by=list(mp_data$species),
+                         FUN=mean)
+
+phylo.df.all$sd = aggregate(mp_data$correct, by=list(mp_data$species),
+                            FUN=sd)[[2]]
+
+colnames(phylo.df.all) = c('species',
+                       'mean','sd')
+
+
+
+## comment out this line to use between conditions df:
+phylo.df = phylo.df.all
+
+
+phylo.df %>%  
+  filter(species != 'black_faced_spider_monkey') -> phylo.df
+
+
+## Reorder df to match tree
+
+# Manuel: I noticed that the species names did not match the performance averages in the data frames belwo. I changed the code to fix that.
+
+mp.tree[[1]]$tip.label
+phylo.df$species = as.factor(phylo.df$species)
+
+phylo.df <- phylo.df%>%
+  mutate(species = case_when(species == "chimpanzee" ~ "Pan_troglodytes_verus",
+                                   species == "ring_tailed_lemur" ~ "Lemur_catta",
+                                   species == "bonobo"~ "Pan_paniscus",
+                                   species == "gorilla"~ "Gorilla_gorilla_gorilla",
+                                   species == "black_and_white_ruffed_lemur"~ "Varecia_variegata_variegata",
+                                   species == "brown_capuchin_monkey" ~ "Cebus_apella",
+                                   species == "long_tailed_macaque" ~ "Macaca_fascicularis",
+                                   species == "squirrel_monkey"~ "Saimiri_sciureus",
+                                   species == "orangutan"~ "Pongo_pygmaeus",
+                                   species == "barbary_macaque"~ "Macaca_sylvanus",
+                                   species == "rhesus_macaque"~ "Macaca_mulatta"),
+         species = as.factor(species))
+
+
+# not sure what that code does ... delete?
+## DMA - this makes the row order of the testing data match 
+## the order of entries in the phylogenetic tree
+
+phylo.df$species = relevel(phylo.df$species,'Macaca_mulatta')
+phylo.df$species = relevel(phylo.df$species,'Macaca_fascicularis')
+phylo.df$species = relevel(phylo.df$species,'Pongo_pygmaeus')
+phylo.df$species = relevel(phylo.df$species,'Pan_troglodytes_verus')
+phylo.df$species = relevel(phylo.df$species,'Pan_paniscus')
+phylo.df$species = relevel(phylo.df$species,'Gorilla_gorilla_gorilla')
+phylo.df$species = relevel(phylo.df$species,'Saimiri_sciureus')
+phylo.df$species = relevel(phylo.df$species,'Cebus_apella')
+phylo.df$species = relevel(phylo.df$species,'Varecia_variegata_variegata')
+phylo.df$species = relevel(phylo.df$species,'Lemur_catta')
+
+phylo.df = phylo.df[order(phylo.df$species),]
+
+
+
+## a one sample t-test is just a paired t-test where the values are paired with the 0 vector
+
+phylo.table.all = data.frame(Ha=numeric(11),H0=rep.int(1/3,11),Ha.SE=numeric(11),H0.SE=rep.int(0,11))
+row.names(phylo.table.all) = phylo.df%>%pull(species)
+phylo.table.all$Ha = phylo.df$mean
+phylo.table.all$Ha.SE = phylo.df$sd
+phylo.table.all = as.matrix(phylo.table.all)
+
+
+
+### Estimate lambda starting value in advance
+
+
+l.all = phylosig(mp.tree[[1]],x=phylo.table.all[,'Ha'],test=TRUE,
+                 method='lambda')
+  
+  
+
+### T-testing
+
+all.t = phyl.pairedttest(mp.tree[[1]],
+                          x1=phylo.table.all[,'Ha'],x2=phylo.table.all[,'H0'],
+                          se1=phylo.table.all[,'Ha.SE'],se2=phylo.table.all[,'H0.SE'],
+                          lambda = l.all$lambda
+)
+all.t
+
+
+
+
+
+
+LR.D = abs(2*all.t$logL)
+
+
+Ddf = 1
+p_lambda_updated <- 1 - pchisq(LR.D, Ddf, ncp=0, lower.tail=TRUE, log.p=FALSE)
+
+
+
+
+
+```
+
+Here are the estimates for $\lambda$ based on our data:
+
+Base $\lambda$ = `r round(l.all$lambda,2)`, *p* = `r round(l.all$P,2)`
+
+Updated $\lambda$ = `r round(all.t$lambda,2)`, *p* = `r round(p_lambda_updated,2)`
+
+Just based on the numerical value of $\lambda$, it seems that there is a substantial phylogenetic signal in our data. That is, species that share a long evolutionary history tend to perform on a similar level. When updated, $\lambda$ is also significantly different from 0.
+
+A word of caution: This analysis is preliminary because we do not have much experience with this measure. As we learn more, the results and approach taken might actually change.  
+
+### Reconstruction of ancestral state
+
+Based on our data, we can also model the working memory capacity of a hypothetical common ancestor of some species. 
+
+The plot can be read based on the color of the branches. The range on the bottom of the graph shows the color scheme in reference to chance level (which would be 0). The more blue a branch is, the higher the estimated working memory capacity. The rectangles at the nodes reflect the 95% CIs for a given common ancestor. If a CI includes some red, the estimated capacity is not different from 0.
+
+```{r, echo = FALSE}
+### Ancestral state reconstructions
+
+phylo.table.all = phylo.table.all[,'Ha']
+phylo.table.all = phylo.table.all - 1/3
+
+priMemAnc = fastAnc(mp.tree[[1]], phylo.table.all, CI = TRUE)
+
+
+## Basic contour map of ancetral states by color
+
+obj <- contMap(mp.tree[[1]],phylo.table.all,plot=TRUE,
+               lims = c(-.115,0.645),
+               sig = 2
+               )
+
+errorbar.contMap(obj)
+```
+
+A first interpretation of this plot would be that there is a common primate basis of working memory capacity. This capacity increases in the lineage leading up to great apes. 
+
+As the estimation of  $\lambda$, this analysis is preliminary.
+
+
+
+
+
+

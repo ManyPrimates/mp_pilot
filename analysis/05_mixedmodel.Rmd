@@ -194,14 +194,19 @@ source("../../boot_glmm.r")
 
 mm.2.ci = boot.glmm.pred(model.res=mm.2, excl.warnings=F, nboots=1000, para=F, resol=100, level=0.95, use=NULL, circ.var.name=NULL, circ.var=NULL, use.u=F,n.cores=c("all-1", "all"), save.path=NULL)
 
+
 # save model output
 saveRDS(mm.2, "06_2_mp_model2.rds")
-saveRDS(mm.2.ci, "06_2_mp_model2_ci.rds")
+saveRDS(mm.2.ci, "06_3_mp_model3_drop1.rds")
 
 
 ### Model plotting
 
-plot_model(mm.2, type='est') 
+plot_model(mm.2, type='est', title = "Fixed Effects")+
+  geom_hline(yintercept = 1, lty=2)+
+  ylim(.05,3)+
+  theme_few()
+
 plot_model(mm.2, type='re') 
 
 
