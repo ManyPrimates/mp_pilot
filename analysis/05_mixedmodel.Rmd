@@ -173,7 +173,7 @@ Overview$summary
 
 # reduced model 
 
-mm.2 <- glmer(correct ~ condition * norm_age + 
+mm.3 <- glmer(correct ~ condition * norm_age + species +
                 task_experience + cup_distance +  trial +
                 (1 + trial + condition | site / subject_site ) +         
                 (1 + condition | species)
@@ -209,6 +209,41 @@ plot_model(mm.2, type='est', title = "Fixed Effects")+
 
 plot_model(mm.2, type='re') 
 
+
+```
+
+
+```{r}
+a <-tidy(mm.2)%>%
+  filter(term == "conditionlong" |term == "conditionmedium" | term == "cup_distance")%>%
+  mutate(estimate.m2 = round(estimate,2))%>%
+  select(term,estimate.m2)
+  
+
+b <-tidy(mm.1)%>%
+  filter(term == "conditionlong" |term == "conditionmedium" | term == "cup_distance")%>%
+  mutate(estimate.m1 = round(estimate,2))%>%
+  select(term,estimate.m1)
+
+b %>%
+  mutate(diff = estimate.m1 - a$estimate.m2)
+
+
+
+
+```
+```{r}
+mm.3 <- glmer(correct ~ condition * norm_age +
+                task_experience + cup_distance +  trial +
+       
+                (1 + condition | species)
+              , data = model.data
+              , family = binomial
+              , control=glmerControl(optimizer="bobyqa",optCtrl=list(maxfun=2e5))
+)
+
+
+plot_model(mm.3, type='re', sort.est = T) 
 
 ```
 

@@ -32,12 +32,12 @@ map <- ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)
   geom_point(data = labs, aes(x = long, y = lat), color = "black", size = 3) +
   geom_point(data = labs, aes(x = long, y = lat,color = Site), size = 2)+
   ylim(-55,83.59961)+
-  theme_few(base_size = 15)+
-  theme(legend.position="right",legend.direction = "vertical",axis.title.x=element_blank(),axis.title.y=element_blank())
+  theme_few(base_size =  16)+
+  theme(legend.position="bottom",legend.direction = "vertical",axis.title.x=element_blank(),axis.title.y=element_blank())
 
 ```
 
-```{r map, fig.height = 6, fig.width = 13, , echo=FALSE}
+```{r map, fig.height = 4, fig.width = 8, , echo=FALSE}
 map
 ```
 

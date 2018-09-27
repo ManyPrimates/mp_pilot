@@ -78,7 +78,7 @@ map <- ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)
 
 ```
 
-```{r map, fig.height = 6, fig.width = 12, , echo=FALSE}
+```{r map, fig.height = 6, fig.width = 12,  echo=FALSE}
 map
 ```
 
@@ -150,6 +150,7 @@ Based on convergence issues and other considerations (see 05_mixed_model file fo
         `(1 + condition | species)`
                 
 Variable names in the data frame:
+
 * condition = delay,
 * subject_site = subject,
 * norm_age = age divided by species longevity and scaled and centered across species.

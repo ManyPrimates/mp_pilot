@@ -23,7 +23,8 @@ library(langcog)
 These are some preliminary visualizations of the data.
 
 ```{r loading data, include = FALSE}
-mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")%>%
+  mutate(condition = factor(condition, levels = rev(levels(condition))))
 ```
 
 # Overview by species
@@ -32,18 +33,18 @@ First an overview of the data, plotted by species and condition. Small, transpar
 
 ```{r overview by species}
 plot_individual <- mp_data %>%
-  mutate(phylo = case_when(species == "chimpanzee" ~ 9,
-                           species == "ring_tailed_lemur" ~ 1,
-                           species == "orangutan"~ 12,
-                           species == "bonobo"~ 10,
-                           species == "gorilla"~ 11,
-                           species == "black_and_white_ruffed_lemur"~ 2,
-                           species == "brown_capuchin_monkey" ~ 3,
-                           species == "black_faced_spider_monkey" ~ 4,
-                           species == "long_tailed_macaque" ~ 7,
-                           species == "barbary_macaque" ~ 8,
-                           species == "rhesus_macaque" ~ 6,
-                           species == "squirrel_monkey"~ 5),
+  mutate(phylo = case_when(species == "chimpanzee" ~ 7,
+                           species == "ring_tailed_lemur" ~ 2,
+                           species == "orangutan"~ 9,
+                           species == "bonobo"~ 8,
+                           species == "gorilla"~ 6,
+                           species == "black_and_white_ruffed_lemur"~ 1,
+                           species == "brown_capuchin_monkey" ~ 10,
+                           species == "black_faced_spider_monkey" ~ 11,
+                           species == "long_tailed_macaque" ~ 4,
+                           species == "barbary_macaque" ~ 3,
+                           species == "rhesus_macaque" ~ 5,
+                           species == "squirrel_monkey"~ 12),
          species = reorder(species,phylo))%>%
   group_by(phylo,species,condition,subject_site) %>%
   summarise(correct = mean(correct),
@@ -127,14 +128,14 @@ ggplot() +
   geom_pointrange(data = chimp_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
   labs(x="",y="Proportion Correct")+
-  facet_grid(site ~ . ,switch = "y") +
-  theme_few() + 
+  facet_grid( ~ site ) +
+  theme_few(base_size = 14) + 
   ggtitle("Chimpanzees")+
   ylim(-0.05,1.05)+
   guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
   scale_colour_solarized(name="delay")+
-  coord_flip()
+  theme(legend.position="bottom")
 
 ```
 
@@ -176,19 +177,22 @@ cap_plot_individual <- mp_data %>%
 cap_plot_group <- cap_plot_individual %>%
    multi_boot_standard(col = "correct")
 
+
+
+
 ggplot() +
   geom_jitter(data = cap_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
   geom_pointrange(data = cap_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
   geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  facet_grid(site ~ . ,switch = "y") +
-  theme_few() + 
-  ggtitle("Capuchin Monkeys")+
+  labs(x="",y="Proportion Correct")+
+  facet_grid( ~ site ) +
+  theme_few(base_size = 14) + 
+   ggtitle("Capuchin Monkeys")+
   ylim(-0.05,1.05)+
   guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
+  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
   scale_colour_solarized(name="delay")+
-  coord_flip()
+  theme(legend.position="bottom")
 
 ```
 
@@ -308,8 +312,8 @@ plot_age <- mp_data %>%
 
 ggplot(plot_age, 
        aes(x = norm_age, y = correct))+
-  geom_jitter(aes(colour=species), width = .05, height = .05, alpha = .7)+
-  geom_smooth(method = "loess", se = T , level = 0.95, col = "black")+
+  geom_jitter(aes(colour=species), width = .05, height = .05, alpha = .5)+
+  geom_smooth(method = "lm", formula = y ~ poly(x, 3), se = T , level = 0.95, col = "black")+
   guides(fill=FALSE)+
   geom_hline(yintercept = 1/3, lty=2)+
   labs(x="Normed Age (relative to species longevity)",y="Proportion Correct")+
