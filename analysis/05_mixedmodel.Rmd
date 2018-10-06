@@ -173,7 +173,7 @@ Overview$summary
 
 # reduced model 
 
-mm.3 <- glmer(correct ~ condition * norm_age + species +
+mm.2 <- glmer(correct ~ condition * norm_age + species +
                 task_experience + cup_distance +  trial +
                 (1 + trial + condition | site / subject_site ) +         
                 (1 + condition | species)
@@ -232,6 +232,8 @@ b %>%
 
 
 ```
+
+
 ```{r}
 mm.3 <- glmer(correct ~ condition * norm_age +
                 task_experience + cup_distance +  trial +
