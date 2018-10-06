@@ -32,8 +32,9 @@ map <- ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)
   geom_point(data = labs, aes(x = long, y = lat), color = "black", size = 3) +
   geom_point(data = labs, aes(x = long, y = lat,color = Site), size = 2)+
   ylim(-55,83.59961)+
-  theme_few(base_size =  16)+
-  theme(legend.position="bottom",legend.direction = "vertical",axis.title.x=element_blank(),axis.title.y=element_blank())
+  theme_few(base_size =  12)+
+  theme(legend.position="right",legend.direction = "vertical",axis.title.x=element_blank(),axis.title.y=element_blank())+
+  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank())
 
 ```
 
