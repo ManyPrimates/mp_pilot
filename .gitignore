@@ -1,7 +1,7 @@
 
 README.html
 
-
+analysis/rsconnect/*
 
 *.Rproj
 
@@ -10,3 +10,5 @@ README.html
 *RData
 
 .Rproj.user
+
+*sublime*
