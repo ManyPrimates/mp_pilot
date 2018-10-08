@@ -224,16 +224,10 @@ dpz_lem_raw <- read_excel(str_c(path, "data_ruffed_ringtailed_lemurs_C_Fichtel.x
 doChecks(dpz_lem_raw)
 ```
 
-> **!!!** Not sure what's up with this line in which `pick = 9`. If this is supposed to be NA, then exclude (not currently the case). If it's a different pick (1, 2, 3), correct this. --jw
-
-```{r}
-filter(dpz_lem_raw, pick == 9)
-```
-
 ```{r}
 # change data file
 dpz_lem <- dpz_lem_raw %>%
-  # filter(pick != 9) %>%
+  filter(pick != 9) %>%
   mutate(condition = recode(condition, "0s" = "short", "15s" = "medium", "30s" = "long"),
          species = recode(species, 
                           "black-ad white ruffed lemur" = "black_and_white_ruffed_lemur", 
@@ -285,7 +279,7 @@ linc <- linc_raw %>%
 
 ```{r}
 # specify column types -- makes 1st col (date) text, guesses (as usual) for everything else
-ct = c('text', rep('guess', nrow(sample) - 1))
+ct = c('text', rep('guess', 17))
 ```
 
 ```{r}
@@ -436,10 +430,13 @@ glimpse(raw_data)
 
 > Sample sizes
 
+Note. Sweetwaters is represented twice (for groups 1 and 2)
+
 ```{r, results = 'asis'}
 raw_data %>%
   summarise(N = n_distinct(subject_site),
-            n_sites = n_distinct(site)) %>%
+            n_sites = n_distinct(site),
+            n_species = n_distinct(species)) %>%
   knitr::kable()
 ```
 
@@ -459,18 +456,26 @@ raw_data %>%
   filter(n > 1)
 ```
 
+> Any cases where the `correct` value doesn't match whether `hiding_location` and `pick` are identical?
+
+```{r}
+raw_data %>%
+  filter(as.numeric(hiding_location == pick) != correct) %>%
+  select(site:subject_site, trial:researcher)
+```
+
 > Are there any missing values?
 
 ```{r}
 raw_data %>% 
-  select_if(function(x) all(is.na(x))) %>%
+  select_if(function(x) any(is.na(x))) %>%
   summarise_all(funs(sum(is.na(.))))
 ```
 
 > Export Merged Data
 
 ```{r write data file}
-write_csv(raw_data, "../data/merged_data/01_manyprimates_pilot_merged_data_20181007.csv")
+write_csv(raw_data, "../data/merged_data/01_manyprimates_pilot_merged_data_v2.csv")
 ```
 
 
