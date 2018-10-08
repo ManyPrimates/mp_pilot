@@ -168,7 +168,6 @@ edin_chimps <- edin_chimps_raw %>%
   filter(!is.na(pick)) %>%
   mutate(cup_distance = str_sub(cup_distance, 1, -4) %>% as.numeric,
          board_size = str_sub(board_size, 1, 2) %>% as.numeric,
-         correct = as.numeric(hiding_location == pick),
          researcher = "call") %>%
   group_by(subject_site) %>%
   mutate(trial = 1:n()) # to make trial continous across blocks
@@ -270,10 +269,8 @@ doChecks(linc_raw)
 # change data file
 linc <- linc_raw %>%
   mutate(species = tolower(species),
-         board_size = 61.5)
+         board_size = 61.5) # 35.5 was board depth; corrected via email w L Hopper
 ```
-
-> **!!!** Where does the new board_size number (61.5) come from? --jw
 
 ## Language Research Center
 
@@ -380,7 +377,7 @@ doChecks(hbg_raw)
 ```{r}
 # change data file
 hbg <- hbg_raw %>%
-  filter(subject_site != "Bobo_Heidelberg")%>% # subject did not complete enough trials
+  filter(subject_site != "Bobo_Heidelberg") %>% # subject did not complete enough trials
   mutate(pick = as.numeric(pick),
          species = gsub(" ", "_", species),
          secondary_pick = as.character(secondary_pick)) %>%
@@ -411,13 +408,15 @@ raw_data <- bind_rows(
   select(-comment, -date, -secondary_pick)
 ```
 
-> Add life expectancy and normalize it
+> - Add life expectancy and normalize it
+> - Make `correct` value match whether `hiding_location` and `pick` are identical
 
 ```{r add life expectancy, message=FALSE}
 species_data <- read_csv('../data/species_data.csv') %>% select(species, life_expectancy)
 raw_data <- raw_data %>%
   left_join(species_data, by = 'species') %>%
-  mutate(norm_age = scale(age/life_expectancy))
+  mutate(norm_age = scale(age/life_expectancy),
+         correct = as.numeric(hiding_location == pick))
 ```
 
 ## Quality Checks
@@ -430,12 +429,10 @@ glimpse(raw_data)
 
 > Sample sizes
 
-Note. Sweetwaters is represented twice (for groups 1 and 2)
-
 ```{r, results = 'asis'}
 raw_data %>%
   summarise(N = n_distinct(subject_site),
-            n_sites = n_distinct(site),
+            n_sites = n_distinct(site) - 1, # sweetwaters and sweetwaters_group2
             n_species = n_distinct(species)) %>%
   knitr::kable()
 ```
@@ -454,14 +451,6 @@ raw_data %>%
   group_by(site, species, subject_site, trial)%>%
   summarise(n = n()) %>%
   filter(n > 1)
-```
-
-> Any cases where the `correct` value doesn't match whether `hiding_location` and `pick` are identical?
-
-```{r}
-raw_data %>%
-  filter(as.numeric(hiding_location == pick) != correct) %>%
-  select(site:subject_site, trial:researcher)
 ```
 
 > Are there any missing values?

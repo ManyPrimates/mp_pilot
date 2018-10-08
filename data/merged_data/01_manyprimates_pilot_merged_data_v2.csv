@@ -1412,7 +1412,7 @@ edinburgh,squirrel_monkey,sipi_edi,8,11,yes,60,single,3,1,12,long,3,3,1,Elizabet
 edinburgh,squirrel_monkey,sipi_edi,8,11,yes,60,single,3,2,13,medium,2,3,0,Elizabeth Warren,30.2,-0.29752362944929756
 edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,1,1,medium,2,3,0,Elizabeth Warren,30.2,-0.48012761700358503
 edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,1,2,medium,1,3,0,Elizabeth Warren,30.2,-0.48012761700358503
-edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,1,3,medium,3,3,0,Elizabeth Warren,30.2,-0.48012761700358503
+edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,1,3,medium,3,3,1,Elizabeth Warren,30.2,-0.48012761700358503
 edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,2,4,short,3,3,1,Elizabeth Warren,30.2,-0.48012761700358503
 edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,1,2,5,short,2,2,1,Elizabeth Warren,30.2,-0.48012761700358503
 edinburgh,squirrel_monkey,lexi_edi,7,11,yes,60,single,2,2,6,short,1,2,0,Elizabeth Warren,30.2,-0.48012761700358503
@@ -2019,7 +2019,7 @@ sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,14,medium,3,3,1,haux,5
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,15,medium,3,3,1,haux,59.4,0.7482992083616213
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,16,medium,1,2,0,haux,59.4,0.7482992083616213
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,17,medium,2,2,1,haux,59.4,0.7482992083616213
-sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,18,medium,1,1,0,haux,59.4,0.7482992083616213
+sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,1,3,18,medium,1,1,1,haux,59.4,0.7482992083616213
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,2,1,19,medium,2,2,1,haux,59.4,0.7482992083616213
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,2,1,20,medium,1,3,0,haux,59.4,0.7482992083616213
 sweetwaters,chimpanzee,chipie_swe,27,20,yes,80,single,2,1,21,medium,3,3,1,haux,59.4,0.7482992083616213
@@ -4338,7 +4338,7 @@ LRC,brown_capuchin_monkey,Lychee_LRC,19,10,yes,56,single,2,11,33,long,1,3,0,MF M
 LRC,brown_capuchin_monkey,Lychee_LRC,19,10,yes,56,single,2,12,34,medium,2,3,0,MF MV,46,0.519430732260971
 LRC,brown_capuchin_monkey,Lychee_LRC,19,10,yes,56,single,2,12,35,medium,3,3,1,MF MV,46,0.519430732260971
 LRC,brown_capuchin_monkey,Lychee_LRC,19,10,yes,56,single,2,12,36,medium,1,2,0,MF MV,46,0.519430732260971
-LRC,brown_capuchin_monkey,Gambit_LRC,22,10,yes,56,single,1,1,1,short,1,3,1,MF MV,46,0.8790811947048502
+LRC,brown_capuchin_monkey,Gambit_LRC,22,10,yes,56,single,1,1,1,short,1,3,0,MF MV,46,0.8790811947048502
 LRC,brown_capuchin_monkey,Gambit_LRC,22,10,yes,56,single,1,1,2,short,2,2,1,MF MV,46,0.8790811947048502
 LRC,brown_capuchin_monkey,Gambit_LRC,22,10,yes,56,single,1,1,3,short,3,3,1,MF MV,46,0.8790811947048502
 LRC,brown_capuchin_monkey,Gambit_LRC,22,10,yes,56,single,1,2,4,medium,2,2,1,MF MV,46,0.8790811947048502
@@ -4490,7 +4490,7 @@ LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,2,5,long,1,2,0,MF MV,46
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,2,6,long,3,3,1,MF MV,46,0.1597802698170917
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,3,7,medium,2,3,0,MF MV,46,0.1597802698170917
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,3,8,medium,1,1,1,MF MV,46,0.1597802698170917
-LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,3,9,medium,3,2,1,MF MV,46,0.1597802698170917
+LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,3,9,medium,3,2,0,MF MV,46,0.1597802698170917
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,4,10,medium,3,2,0,MF MV,46,0.1597802698170917
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,4,11,medium,1,1,1,MF MV,46,0.1597802698170917
 LRC,brown_capuchin_monkey,Wren_LRC,16,10,yes,56,single,1,4,12,medium,2,2,1,MF MV,46,0.1597802698170917
@@ -5814,7 +5814,7 @@ Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,2,3,17,medium,1,1,1,Alex Sán
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,2,3,18,medium,3,3,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,1,19,long,3,2,0,Alex Sánchez-Amaro,59.4,-0.45860862857126167
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,1,20,long,1,1,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
-Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,1,21,long,2,2,0,Alex Sánchez-Amaro,59.4,-0.45860862857126167
+Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,1,21,long,2,2,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,2,22,short,2,2,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,2,23,short,1,1,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
 Leipzig Zoo,chimpanzee,Lobo_LZ,14,29,yes,78,single,3,2,24,short,3,3,1,Alex Sánchez-Amaro,59.4,-0.45860862857126167
@@ -6144,7 +6144,7 @@ monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,2,3,17,medium,1,2,0
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,2,3,18,medium,2,2,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,1,19,medium,2,2,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,1,20,medium,3,2,0,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
-monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,1,21,medium,3,1,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
+monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,1,21,medium,3,1,0,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,2,22,short,3,3,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,2,23,short,1,1,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
 monkeyhaven,barbary_macaque,nanushka_mon,10,10,yes,55,single,3,2,24,short,1,1,1,Marine Joly and Charlotte Gurney-Read,29.1,0.1367099079650216
