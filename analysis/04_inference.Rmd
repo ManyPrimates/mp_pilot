@@ -1,24 +1,28 @@
 ---
 title: "ManyPrimates inference"
 author: "Manuel Bohn"
-date: "8 7 2018"
-output: html_document
+date: "10 Oct 2018"
+output:
+  html_notebook:
+    code_folding: hide
+    css: style.css
+    theme: paper
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
-
 library(tidyverse)
 library(lsr)
-
 ```
 
 # Intro
 
 Preparing code for inferential statistics according to pre-registration analysis. 
 
-```{r loading data, include = FALSE}
-mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")
+```{r loading data}
+mp_data <- read_csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.csv", 
+                    col_types = list(age = 'd', cup_distance = 'd'))
 ```
 
 ## T-tests against chance per species and delay type
@@ -26,14 +30,15 @@ mp_data <- read_csv(file = "../data/merged_data/01_manyprimates_pilot_merged_dat
 Quote from Registration:
 
 > T-tests: Proportion of correct choices different from chance level (0.33) per species and delay type.
-For this analysis, performance is aggregated per individual.
+> 
+> For this analysis, performance is aggregated per individual.
 
 For species with only 1 subject, t-tests cannot be computed. They are therefore exluced.
 
-```{r comparisons to chance}
+```{r}
 mp_data %>%  
-  filter(species != "black_faced_spider_monkey")%>% # only one data point so far, therefor no t test possible
-  group_by(species ,condition, subject_site) %>%
+  filter(species != "black_faced_spider_monkey") %>% # only one data point so far, therefor no t test possible
+  group_by(species, condition, subject_site) %>%
   summarise(correct = mean(correct)) %>%
   summarize(correct = list(correct)) %>%
   group_by(species ,condition) %>%
@@ -45,5 +50,24 @@ mp_data %>%
   d = cohensD(unlist(correct), mu = 1/3)) %>%
   select(species ,condition,n,mean,t,p,d)%>%
   knitr::kable(digits = 2)
+```
+
+
+```{r comparisons to chance}
+mp_data %>%
+  # no t test possible because ...
+  filter(species != "black_faced_spider_monkey", # only 1 data point so far
+         !(species == 'orangutan' & condition == 'short')) %>% # data constant at M=1 (i.e., SD=0)
+  group_by(species, condition, subject_site) %>%
+  summarise(correct = mean(correct)) %>%
+  summarise(n = n(),
+         mean = mean(correct) %>% round(2),
+         # df = t.test(correct, mu = 1/3)$parameter, # redundant info in combination with n
+         t = t.test(correct, mu = 1/3)$statistic %>% round(2),
+         p = t.test(correct, mu = 1/3)$p.value %>% round(3),
+         d = cohensD(correct, mu = 1/3) %>% round(2)) %>%
+  mutate(p.visual = case_when(p<.001 ~ '***', p<.01 ~ '**', p<.05 ~ '*', p<.01 ~ '.', T ~ '')) %>%
+  select(species:mean, d, everything()) #%>%
+  # knitr::kable(digits = 2)
 ```
 
