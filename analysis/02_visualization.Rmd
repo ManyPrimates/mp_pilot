@@ -379,7 +379,7 @@ plot_age <- mp_data %>%
 ```{r, fig.width=4, fig.height=1.3}
 ggplot(plot_age, aes(x = norm_age, y = correct))+
   geom_jitter(aes(fill = clade), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
-  geom_smooth(aes(col = condition), method = "lm", formula = y ~ poly(x, 3), show.legend = F) +
+  geom_smooth(aes(col = condition), method = "loess", show.legend = F) +
   geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
   facet_grid( ~ condition ) +
@@ -395,7 +395,7 @@ ggsave('../graphs/02_09_age_by_condition.png', width = 4, height = 1.3, scale = 
 ```{r, fig.width=4, fig.height=3.4}
 ggplot(plot_age, aes(x = norm_age, y = correct))+
   geom_jitter(aes(fill = species), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
-  geom_smooth(aes(col = condition), method = "lm", formula = y ~ poly(x, 3), show.legend = F) +
+  geom_smooth(aes(col = condition), method = "loess", show.legend = F) +
   geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
   facet_grid(condition ~ clade, scales = 'free_x') +
