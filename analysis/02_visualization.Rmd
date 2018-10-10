@@ -1,97 +1,120 @@
 ---
 title: "ManyPrimates plots"
 author: "Manuel Bohn"
-date: "4 7 2018"
-output: html_document
+date: "Oct 10 2018"
+output:
+  html_notebook:
+    code_folding: hide
+    css: style.css
+    theme: paper
+    toc: yes
+    toc_float: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
-
+```{r setup, message=FALSE}
 library(tidyverse)
 library(ggthemes)
-library(langcog)
-
+library(gridExtra)
+library(langcog) # for multi_boot_standard
+  
+theme_set(theme_few())
 # langcog package is installed by running
 # install.packages("devtools")
 # devtools::install_github("langcog/langcog")
+```
 
+```{r}
+# make a base plots
+# for flipped coordinate system with prop correct on x
+p1 = ggplot() +
+  geom_hline(yintercept = 1/3, lty = 2) +
+  scale_y_continuous('Proportion Correct', limits = c(-0.05, 1.05)) +
+  theme(axis.title.y = element_blank(), axis.ticks.y = element_blank())
+
+p2 = p1 + theme(axis.text.y = element_blank())
 ```
 
 # Intro
 
 These are some preliminary visualizations of the data.
 
-```{r loading data, include = FALSE}
-mp_data <- read.csv(file = "../data/merged_data/01_manyprimates_pilot_merged_data.csv")%>%
-  mutate(condition = factor(condition, levels = rev(levels(condition))))
+```{r loading data, message=FALSE}
+phylo <- read_csv('../data/species_data.csv') %>% select(species, clade, phylo)
+mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.csv", 
+                    stringsAsFactors = F) %>%
+  left_join(phylo, by = 'species') %>%
+  mutate(species = reorder(species, phylo),
+         clade = fct_relevel(clade, 'lemur', 'old_world_monkey', 'ape'),
+         condition = factor(condition))
 ```
 
 # Overview by species
 
-First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Solid dots is the group mean for that condition. Error bars are 95% confidence intervals.
+First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Open dots are the group mean for that condition. Error bars are 95% confidence intervals. Text labels are the sample size.
 
-```{r overview by species}
-plot_individual <- mp_data %>%
-  mutate(phylo = case_when(species == "chimpanzee" ~ 7,
-                           species == "ring_tailed_lemur" ~ 2,
-                           species == "orangutan"~ 9,
-                           species == "bonobo"~ 8,
-                           species == "gorilla"~ 6,
-                           species == "black_and_white_ruffed_lemur"~ 1,
-                           species == "brown_capuchin_monkey" ~ 10,
-                           species == "black_faced_spider_monkey" ~ 11,
-                           species == "long_tailed_macaque" ~ 4,
-                           species == "barbary_macaque" ~ 3,
-                           species == "rhesus_macaque" ~ 5,
-                           species == "squirrel_monkey"~ 12),
-         species = reorder(species,phylo))%>%
-  group_by(phylo,species,condition,subject_site) %>%
+```{r overview by species, warning=FALSE}
+plot_individual <- mp_data %>% 
+  group_by(phylo, clade, species, condition, subject_site) %>%
   summarise(correct = mean(correct),
-             nr_trials = max(trial))
-
+            nr_trials = max(trial))
 
 plot_group <- plot_individual %>%
    multi_boot_standard(col = "correct")
+```
 
+```{r}
+# get sample sizes (for use in plots)
+ns = mp_data %>%
+  group_by(clade, species) %>%
+  mutate(n = n_distinct(subject_site)) %>%
+  group_by(clade, species, site, n) %>%
+  summarise(n_by_site = n_distinct(subject_site))
+```
 
-ggplot() +
-  geom_jitter(data = plot_individual, aes(x = condition, y = correct, col = condition, size = nr_trials), width = .3,height = .015, alpha = .15)+
-  geom_pointrange(data = plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = 1.5)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="Proportion Correct")+
-  facet_grid(species ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_solarized(name="delay")+
-  scale_size_continuous(breaks = c(12,24,36))+
+```{r, fig.width=4, fig.height=4.5}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = plot_individual, aes(size = nr_trials), width = .1, height = .015, alpha = .15) +
+  geom_point(data = plot_group, aes(y = mean), shape = 1, size = 3, stroke = 1.5) +
+  geom_linerange(data = plot_group, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2) +
+  geom_text(data = ns, aes(label = n), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(species ~ ., switch = "y") +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_size_area(max_size = 3, breaks = c(12, 24, 36)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
   coord_flip()
 ```
 
-```{r overview by species across conditions}
-plot_individual2 <- plot_individual%>%
-  group_by(species,subject_site)%>%
+```{r}
+ggsave('../graphs/02_01_overview.png', width = 4, height = 4.5, scale = 2)
+```
+
+1536x1728
+
+# Overview by species across conditions
+
+```{r overview by species across conditions, warning=FALSE}
+plot_individual2 <- plot_individual %>%
+  group_by(clade, species, subject_site) %>%
   summarise(correct = mean(correct))
 
 plot_group2 <- plot_individual2 %>%
    multi_boot_standard(col = "correct")
+```
 
-
-ggplot() +
-  geom_jitter(data = plot_individual2, aes(x = species, y = correct, col = species), width = .3,height = .015, alpha = .15)+
-  geom_pointrange(data = plot_group2, aes(x = species, y = mean, col = species,ymin = ci_lower, ymax = ci_upper),size = 1.5)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  #facet_grid(species ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_hue(name="delay")+
-  scale_size_continuous(breaks = c(12,24,36))+
+```{r, fig.width=4, fig.height=1.8}
+p1 + aes(x = fct_rev(species), y = correct, col = clade) +
+  geom_jitter(data = plot_individual2, width = .1, height = .015, alpha = .15, size = 3) +
+  geom_point(data = plot_group2, aes(y = mean), shape = 1, size = 3, stroke = 1.5) +
+  geom_linerange(data = plot_group2, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2) +
+  geom_text(data = ns, aes(label = n), y = -.05, col = 'black', size = 3) +
+  facet_grid(clade ~. , scales = 'free_y', space = 'free_y') +
+  theme(strip.text.y = element_blank()) +  
+  scale_colour_solarized() +
   coord_flip()
+```
+
+```{r}
+ggsave('../graphs/02_02_overview_across_conditions.png', width = 4, height = 1.8, scale = 2)
 ```
 
 # Plots by site
@@ -99,204 +122,246 @@ ggplot() +
 Here we select the species for which we have data from multiple sites. This is a very preliminary way of checking whether there is a lot of variation between sites. Plotting conventions are the same as above.
 
 First we check for which species we have data from more than one site:
-```{r plots by site}
-# plotting data by site for species for which we have data from more than one lab
 
-# check for which species this applies
-
-mp_data%>%
-  group_by(species)%>%
-  summarise(sites = length(unique(site)))%>%
+```{r plots by site, results='asis'}
+mp_data %>%
+  group_by(species) %>%
+  summarise(sites = n_distinct(site)) %>%
+  arrange(desc(sites)) %>%
   knitr::kable()
 ```
 
 ## Chimpanzees
 
-```{r plots by site chimps}
-# starting with chimps
-
+```{r}
 chimp_plot_individual <- mp_data %>%
-  filter(species == "chimpanzee")%>%
-  group_by(site,condition,subject_site) %>%
+  filter(species == "chimpanzee") %>%
+  group_by(site, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 chimp_plot_group <- chimp_plot_individual %>%
    multi_boot_standard(col = "correct")
-
-ggplot() +
-  geom_jitter(data = chimp_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = chimp_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="Proportion Correct")+
-  facet_grid( ~ site ) +
-  theme_few(base_size = 14) + 
-  ggtitle("Chimpanzees")+
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
-  scale_colour_solarized(name="delay")+
-  theme(legend.position="bottom")
-
 ```
+
+```{r, fig.width=4, fig.height=2.5}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = chimp_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
+  geom_pointrange(data = chimp_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
+  geom_text(data = filter(ns, species == 'chimpanzee'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(site ~ ., switch = 'y') +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  ggtitle("Chimpanzees") +
+  coord_flip()
+```
+
+```{r}
+# ggsave('../graphs/02_03_chimp_by_site.png', width = 4, height = 2.5, scale = 2, type = 'cairo', compression = 'lzw')
+ggsave('../graphs/02_03_chimp_by_site.png', width = 4, height = 2.5, scale = 2)
+```
+
 
 ## Ring-tailed lemurs
 
-```{r plots by site ring-tailed-lemurs}
+```{r}
 rtlemur_plot_individual <- mp_data %>%
   filter(species == "ring_tailed_lemur")%>%
-  group_by(site,condition,subject_site) %>%
+  group_by(site, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 rtlemur_plot_group <- rtlemur_plot_individual %>%
    multi_boot_standard(col = "correct")
+```
 
-ggplot() +
-  geom_jitter(data = rtlemur_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = rtlemur_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  facet_grid(site ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_solarized(name="delay")+
+```{r, fig.width=4, fig.height=1.2}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = rtlemur_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
+  geom_pointrange(data = rtlemur_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
+  geom_text(data = filter(ns, species == 'ring_tailed_lemur'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(site ~ ., switch = 'y') +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  ggtitle("Ring-tailed lemurs") +
   coord_flip()
+```
 
+```{r}
+ggsave('../graphs/02_04_rtlemur_by_site.png', width = 4, height = 1.2, scale = 2)
 ```
 
 
 ## Brown Capuchins
 
-```{r plots by site capuchins}
+```{r}
 cap_plot_individual <- mp_data %>%
   filter(species == "brown_capuchin_monkey")%>%
-  group_by(site,condition,subject_site) %>%
+  group_by(site, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 cap_plot_group <- cap_plot_individual %>%
    multi_boot_standard(col = "correct")
+```
 
+```{r, fig.width=4, fig.height=1.2}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = cap_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
+  geom_pointrange(data = cap_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
+  geom_text(data = filter(ns, species == 'brown_capuchin_monkey'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(site ~ ., switch = 'y') +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  ggtitle("Capuchin Monkeys") +
+  coord_flip()
+```
 
-
-
-ggplot() +
-  geom_jitter(data = cap_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = cap_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="Proportion Correct")+
-  facet_grid( ~ site ) +
-  theme_few(base_size = 14) + 
-   ggtitle("Capuchin Monkeys")+
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
-  scale_colour_solarized(name="delay")+
-  theme(legend.position="bottom")
-
+```{r}
+ggsave('../graphs/02_05_capuchin_by_site.png', width = 4, height = 1.2, scale = 2)
 ```
 
 ## Bonobos
 
-```{r plots by site bonobo}
+```{r}
 bon_plot_individual <- mp_data %>%
   filter(species == "bonobo")%>%
-  group_by(site,condition,subject_site) %>%
+  group_by(site, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 bon_plot_group <- bon_plot_individual %>%
    multi_boot_standard(col = "correct")
-
-ggplot() +
-  geom_jitter(data = bon_plot_individual, aes(x = condition, y = correct, col = condition),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = bon_plot_group, aes(x = condition, y = mean, col = condition,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  facet_grid(site ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_solarized(name="delay")+
-  coord_flip()
-
 ```
 
+```{r, fig.width=4, fig.height=1.2}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = bon_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
+  geom_pointrange(data = bon_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
+  geom_text(data = filter(ns, species == 'bonobo'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(site ~ ., switch = 'y') +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  ggtitle("Bonobos") +
+  coord_flip()
+```
+
+```{r}
+ggsave('../graphs/02_06_bonobo_by_site.png', width = 4, height = 1.2, scale = 2)
+```
+
+## Gorilla
+
+```{r}
+gor_plot_individual <- mp_data %>%
+  filter(species == "gorilla")%>%
+  group_by(site, condition, subject_site) %>%
+  summarise(correct = mean(correct))
+
+gor_plot_group <- gor_plot_individual %>%
+   multi_boot_standard(col = "correct")
+```
+
+```{r, fig.width=4, fig.height=1.2}
+p2 + aes(x = condition, y = correct, col = condition) +
+  geom_jitter(data = gor_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
+  geom_pointrange(data = gor_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
+  geom_text(data = filter(ns, species == 'gorilla'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(site ~ ., switch = 'y') +
+  theme(strip.text.y = element_text(angle = 180)) +
+  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  ggtitle("Gorillas") +
+  coord_flip()
+```
+
+```{r}
+ggsave('../graphs/02_07_gorilla_by_site.png', width = 4, height = 1.2, scale = 2)
+```
 
 # Task-experience
 
 Here we split each species by task experience. Check if we have species with sufficient memebers having different levels of task experience.
 
-```{r plots by task experience}
-# check for which species this applies
-
-mp_data%>%
-  group_by(species, task_experience)%>%
-  summarise(n = length(unique(subject_site)))%>%
+```{r plots by task experience, results='asis'}
+mp_data %>%
+  group_by(species) %>%
+  mutate(lvls_task_exp = n_distinct(task_experience)) %>%
+  filter(lvls_task_exp > 1) %>%
+  group_by(species, task_experience) %>%
+  summarise(n = n_distinct(subject_site)) %>%
   knitr::kable()
 ```
 
+```{r}
+# get sample sizes (for use in plots)
+ns_task_exp = mp_data %>%
+  group_by(clade, species) %>%
+  mutate(n = n_distinct(task_experience)) %>%
+  group_by(clade, species, task_experience, n) %>%
+  summarise(n_by_site = n_distinct(subject_site))
+```
 
 So far, this only applies to chimps and bonobos. However, task experience co-varies with site.
 
-## Chimpanzees
+<!-- ## Chimpanzees -->
 
-```{r plots by task experience chimps}
-# starting with chimps
-
+```{r}
 chimp_task_plot_individual <- mp_data %>%
-  filter(species == "chimpanzee")%>%
-  group_by(site, task_experience,condition,subject_site) %>%
+  filter(species == "chimpanzee") %>%
+  group_by(site, task_experience, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 chimp_task_plot_group <- mp_data %>%
-  filter(species == "chimpanzee")%>%
-  group_by(task_experience,condition,subject_site) %>%
-  summarise(correct = mean(correct))%>%
-   multi_boot_standard(col = "correct")
-
-ggplot() +
-  geom_jitter(data = chimp_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = chimp_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  facet_grid(task_experience ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_hue(name="site")+
-  coord_flip()
-
+  filter(species == "chimpanzee") %>%
+  group_by(task_experience, condition, subject_site) %>%
+  summarise(correct = mean(correct)) %>%
+  multi_boot_standard(col = "correct")
 ```
 
-## Bonobos
+```{r, fig.width=4, fig.height=1.2}
+p_taskexp_chimp = p2 + aes(x = condition, y = correct) +
+  geom_jitter(data = chimp_task_plot_individual, aes(col = site), width = .3, height = .015, alpha = .5, size = 3) +
+  geom_pointrange(data = chimp_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = condition), size = .8, stroke = 1.5) +
+  geom_text(data = filter(ns_task_exp, species == 'chimpanzee'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(task_experience ~ ., switch = 'y') +
+  theme(legend.box = 'horizontal', strip.text.y = element_text(angle = 180)) +
+  scale_shape_manual('delay', values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized() +
+  ggtitle("Chimpanzees") +
+  coord_flip()
+```
 
-```{r plots by task experience chimps}
+<!-- ## Bonobos -->
+
+```{r}
 bonobo_task_plot_individual <- mp_data %>%
-  filter(species == "bonobo")%>%
-  group_by(site, task_experience,condition,subject_site) %>%
+  filter(species == "bonobo") %>%
+  group_by(site, task_experience, condition, subject_site) %>%
   summarise(correct = mean(correct))
 
 bonobo_task_plot_group <- mp_data %>%
-  filter(species == "bonobo")%>%
-  group_by(task_experience,condition,subject_site) %>%
-  summarise(correct = mean(correct))%>%
-   multi_boot_standard(col = "correct")
+  filter(species == "bonobo") %>%
+  group_by(task_experience, condition, subject_site) %>%
+  summarise(correct = mean(correct)) %>%
+  multi_boot_standard(col = "correct")
+```
 
-ggplot() +
-  geom_jitter(data = bonobo_task_plot_individual, aes(x = condition, y = correct, col = site),width = .3,height = .015, alpha = .3)+
-  geom_pointrange(data = bonobo_task_plot_group, aes(x = condition, y = mean ,ymin = ci_lower, ymax = ci_upper),size = .8)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="",y="proportion correct")+
-  facet_grid(task_experience ~ . ,switch = "y") +
-  theme_few() + 
-  ylim(-0.05,1.05)+
-  guides(alpha = F)+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank(),strip.text.y = element_text(angle = 180))+
-  scale_colour_hue(name="site")+
+```{r, fig.width=4, fig.height=1.2}
+p_taskexp_bon = p2 + aes(x = condition, y = correct) +
+  geom_jitter(data = bonobo_task_plot_individual, aes(col = site), width = .3, height = .015, alpha = .5, size = 3) +
+  geom_pointrange(data = bonobo_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = condition), size = .8, stroke = 1.5) +
+  geom_text(data = filter(ns_task_exp, species == 'bonobo'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
+  facet_grid(task_experience ~ ., switch = 'y') +
+  theme(legend.box = 'horizontal', strip.text.y = element_text(angle = 180)) +
+  scale_shape_manual('delay', values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized() +
+  ggtitle("Bonobos") +
   coord_flip()
+```
 
+```{r, fig.width=4, fig.height=3}
+grid.arrange(p_taskexp_chimp, p_taskexp_bon, ncol = 1)
+```
+
+```{r}
+grob = arrangeGrob(p_taskexp_chimp, p_taskexp_bon, ncol = 1)
+ggsave('../graphs/02_08_task_experience.png', grob, width = 4, height = 3, scale = 2)
 ```
 
 
@@ -304,39 +369,70 @@ ggplot() +
 
 Here we plot age against correct choice separate for each condition and species. Regression line is smoothed conditional mean.
 
-```{r plotting age}
+```{r}
 plot_age <- mp_data %>%
-   group_by(subject_site,norm_age,species,condition) %>%
-   summarise(correct = mean(correct))
-
-
-ggplot(plot_age, 
-       aes(x = norm_age, y = correct))+
-  geom_jitter(aes(colour=species), width = .05, height = .05, alpha = .5)+
-  geom_smooth(method = "lm", formula = y ~ poly(x, 3), se = T , level = 0.95, col = "black")+
-  guides(fill=FALSE)+
-  geom_hline(yintercept = 1/3, lty=2)+
-  labs(x="Normed Age (relative to species longevity)",y="Proportion Correct")+
-  #facet_grid( condition ~ species )+
-  facet_grid( condition ~ . )+
-  theme_few()
+  mutate(condition = fct_rev(condition)) %>%
+  group_by(subject_site, norm_age, clade, species, condition) %>%
+  summarise(correct = mean(correct))
 ```
 
-# Cup distance (sig. effect in preliminary model)
+```{r, fig.width=4, fig.height=1.3}
+ggplot(plot_age, aes(x = norm_age, y = correct))+
+  geom_jitter(aes(fill = clade), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
+  geom_smooth(aes(col = condition), method = "lm", formula = y ~ poly(x, 3), show.legend = F) +
+  geom_vline(xintercept = 0, lty = 2) +
+  geom_hline(yintercept = 1/3, lty = 2) +
+  facet_grid( ~ condition ) +
+  labs(x = "Normed Age (relative to species longevity)", y ="Proportion Correct") +
+  scale_color_manual(values = rev(solarized_palette(3))) +
+  ylim(c(-.05, 1.05))
+```
 
-```{r plotting cup distance}
+```{r}
+ggsave('../graphs/02_09_age_by_condition.png', width = 4, height = 1.3, scale = 2)
+```
+
+```{r, fig.width=4, fig.height=3.4}
+ggplot(plot_age, aes(x = norm_age, y = correct))+
+  geom_jitter(aes(fill = species), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
+  geom_smooth(aes(col = condition), method = "lm", formula = y ~ poly(x, 3), show.legend = F) +
+  geom_vline(xintercept = 0, lty = 2) +
+  geom_hline(yintercept = 1/3, lty = 2) +
+  facet_grid(condition ~ clade, scales = 'free_x') +
+  labs(x = "Normed Age (relative to species longevity)", y = "Proportion Correct") +
+  theme(legend.position = 'bottom') +
+  scale_color_manual(values = rev(solarized_palette(3))) +
+  ylim(c(-.05, 1.05))
+```
+
+```{r}
+ggsave('../graphs/02_10_age_by_condition_species.png', width = 4, height = 3.4, scale = 2)
+```
+
+
+# Cup distance
+
+(sig. effect in preliminary model)
+
+```{r}
 plot_cup <- mp_data %>%
-   group_by(subject_site,cup_distance,species,condition) %>%
+   group_by(subject_site, cup_distance, clade, species, condition) %>%
    summarise(correct = mean(correct))
-
-
-ggplot(plot_cup, 
-       aes(x = cup_distance, y = correct))+
-  geom_jitter(aes(colour=species), width = .5, height = .15)+
-  geom_smooth(method = "loess", se = F , level = 0.95)+
-  guides(fill=FALSE)+
-  labs(x="Cup Distance in cm",y="Proportion Correct")+
-  geom_hline(yintercept = 1/3, lty=2)+
-  scale_color_discrete()+
-  theme_few()
 ```
+
+```{r plotting cup distance, fig.width=4, fig.height=2}
+cp = ggplot(plot_cup, aes(x = cup_distance, y = correct)) +
+  geom_jitter(aes(col = clade), width = .5, height = .15, alpha = .5, size = 2) +
+  geom_smooth(method = "loess", se = F) +
+  labs(x = "Cup Distance in cm", y = "Proportion Correct") +
+  geom_hline(yintercept = 1/3, lty = 2) +
+  scale_color_solarized() +
+  ylim(c(-.05, 1.05))
+
+cp + theme(plot.margin = unit(c(.5, 5, .5, .5), 'cm'))
+```
+
+```{r}
+ggsave('../graphs/02_11_cup_distance.png', cp, width = 3, height = 2, scale = 2)
+```
+
