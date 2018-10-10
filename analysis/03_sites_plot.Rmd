@@ -30,7 +30,7 @@ ggplot(labs, aes(x = long, y = lat)) +
 ```
 
 ```{r}
-ggsave('../graphs/pilot_sites.png', width = 9, height = 4, scale = 1.5)
+ggsave('../graphs/03_pilot_sites.png', width = 9, height = 4, scale = 2)
 ```
 
 
