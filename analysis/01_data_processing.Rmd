@@ -96,7 +96,7 @@ doChecks(kris_raw)
 kris <- kris_raw %>%
   filter(!is.na(pick)) %>%
   mutate(test_situation = ifelse(test_situation == "solitary", "single", "group"),
-         species = recode(species, 'black faced spider monkeys' = 'black faced spider monkey'),
+         species = fct_recode(species, 'black faced spider monkey' = 'black faced spider monkeys'),
          species = gsub(' ', '_', species))
 ```
 
@@ -415,6 +415,7 @@ raw_data <- bind_rows(
 species_data <- read_csv('../data/species_data.csv') %>% select(species, life_expectancy)
 raw_data <- raw_data %>%
   left_join(species_data, by = 'species') %>%
+  rename(delay = condition) %>%
   mutate(norm_age = scale(age/life_expectancy),
          correct = as.numeric(hiding_location == pick))
 ```

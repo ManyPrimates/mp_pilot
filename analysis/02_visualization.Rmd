@@ -18,6 +18,7 @@ library(gridExtra)
 library(langcog) # for multi_boot_standard
   
 theme_set(theme_few())
+
 # langcog package is installed by running
 # install.packages("devtools")
 # devtools::install_github("langcog/langcog")
@@ -45,16 +46,16 @@ mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.cs
   left_join(phylo, by = 'species') %>%
   mutate(species = reorder(species, phylo),
          clade = fct_relevel(clade, 'lemur', 'old_world_monkey', 'ape'),
-         condition = factor(condition))
+         delay = factor(delay))
 ```
 
 # Overview by species
 
-First an overview of the data, plotted by species and condition. Small, transparent dots represent aggregated data for each individual by condition. Open dots are the group mean for that condition. Error bars are 95% confidence intervals. Text labels are the sample size.
+First an overview of the data, plotted by species and delay. Small, transparent dots represent aggregated data for each individual by delay. Open dots are the group mean for that delay. Error bars are 95% confidence intervals. Text labels are the sample size.
 
 ```{r overview by species, warning=FALSE}
 plot_individual <- mp_data %>% 
-  group_by(phylo, clade, species, condition, subject_site) %>%
+  group_by(phylo, clade, species, delay, subject_site) %>%
   summarise(correct = mean(correct),
             nr_trials = max(trial))
 
@@ -72,7 +73,7 @@ ns = mp_data %>%
 ```
 
 ```{r, fig.width=4, fig.height=4.5}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = plot_individual, aes(size = nr_trials), width = .1, height = .015, alpha = .15) +
   geom_point(data = plot_group, aes(y = mean), shape = 1, size = 3, stroke = 1.5) +
   geom_linerange(data = plot_group, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2) +
@@ -80,7 +81,7 @@ p2 + aes(x = condition, y = correct, col = condition) +
   facet_grid(species ~ ., switch = "y") +
   theme(strip.text.y = element_text(angle = 180)) +
   scale_size_area(max_size = 3, breaks = c(12, 24, 36)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   coord_flip()
 ```
 
@@ -90,9 +91,9 @@ ggsave('../graphs/02_01_overview.png', width = 4, height = 4.5, scale = 2)
 
 1536x1728
 
-# Overview by species across conditions
+# Overview by species across delays
 
-```{r overview by species across conditions, warning=FALSE}
+```{r overview by species across delays, warning=FALSE}
 plot_individual2 <- plot_individual %>%
   group_by(clade, species, subject_site) %>%
   summarise(correct = mean(correct))
@@ -114,7 +115,7 @@ p1 + aes(x = fct_rev(species), y = correct, col = clade) +
 ```
 
 ```{r}
-ggsave('../graphs/02_02_overview_across_conditions.png', width = 4, height = 1.8, scale = 2)
+ggsave('../graphs/02_02_overview_across_delays.png', width = 4, height = 1.8, scale = 2)
 ```
 
 # Plots by site
@@ -136,7 +137,7 @@ mp_data %>%
 ```{r}
 chimp_plot_individual <- mp_data %>%
   filter(species == "chimpanzee") %>%
-  group_by(site, condition, subject_site) %>%
+  group_by(site, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 chimp_plot_group <- chimp_plot_individual %>%
@@ -144,13 +145,13 @@ chimp_plot_group <- chimp_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=2.5}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = chimp_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = chimp_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == 'chimpanzee'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(site ~ ., switch = 'y') +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   ggtitle("Chimpanzees") +
   coord_flip()
 ```
@@ -166,7 +167,7 @@ ggsave('../graphs/02_03_chimp_by_site.png', width = 4, height = 2.5, scale = 2)
 ```{r}
 rtlemur_plot_individual <- mp_data %>%
   filter(species == "ring_tailed_lemur")%>%
-  group_by(site, condition, subject_site) %>%
+  group_by(site, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 rtlemur_plot_group <- rtlemur_plot_individual %>%
@@ -174,13 +175,13 @@ rtlemur_plot_group <- rtlemur_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = rtlemur_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = rtlemur_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == 'ring_tailed_lemur'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(site ~ ., switch = 'y') +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   ggtitle("Ring-tailed lemurs") +
   coord_flip()
 ```
@@ -195,7 +196,7 @@ ggsave('../graphs/02_04_rtlemur_by_site.png', width = 4, height = 1.2, scale = 2
 ```{r}
 cap_plot_individual <- mp_data %>%
   filter(species == "brown_capuchin_monkey")%>%
-  group_by(site, condition, subject_site) %>%
+  group_by(site, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 cap_plot_group <- cap_plot_individual %>%
@@ -203,13 +204,13 @@ cap_plot_group <- cap_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = cap_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = cap_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == 'brown_capuchin_monkey'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(site ~ ., switch = 'y') +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   ggtitle("Capuchin Monkeys") +
   coord_flip()
 ```
@@ -223,7 +224,7 @@ ggsave('../graphs/02_05_capuchin_by_site.png', width = 4, height = 1.2, scale = 
 ```{r}
 bon_plot_individual <- mp_data %>%
   filter(species == "bonobo")%>%
-  group_by(site, condition, subject_site) %>%
+  group_by(site, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 bon_plot_group <- bon_plot_individual %>%
@@ -231,13 +232,13 @@ bon_plot_group <- bon_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = bon_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = bon_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == 'bonobo'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(site ~ ., switch = 'y') +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   ggtitle("Bonobos") +
   coord_flip()
 ```
@@ -251,7 +252,7 @@ ggsave('../graphs/02_06_bonobo_by_site.png', width = 4, height = 1.2, scale = 2)
 ```{r}
 gor_plot_individual <- mp_data %>%
   filter(species == "gorilla")%>%
-  group_by(site, condition, subject_site) %>%
+  group_by(site, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 gor_plot_group <- gor_plot_individual %>%
@@ -259,13 +260,13 @@ gor_plot_group <- gor_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p2 + aes(x = condition, y = correct, col = condition) +
+p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = gor_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = gor_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == 'gorilla'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(site ~ ., switch = 'y') +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("delay", breaks = c('short', 'medium', 'long')) +
+  scale_colour_solarized(breaks = c('short', 'medium', 'long')) +
   ggtitle("Gorillas") +
   coord_flip()
 ```
@@ -304,24 +305,24 @@ So far, this only applies to chimps and bonobos. However, task experience co-var
 ```{r}
 chimp_task_plot_individual <- mp_data %>%
   filter(species == "chimpanzee") %>%
-  group_by(site, task_experience, condition, subject_site) %>%
+  group_by(site, task_experience, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 chimp_task_plot_group <- mp_data %>%
   filter(species == "chimpanzee") %>%
-  group_by(task_experience, condition, subject_site) %>%
+  group_by(task_experience, delay, subject_site) %>%
   summarise(correct = mean(correct)) %>%
   multi_boot_standard(col = "correct")
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p_taskexp_chimp = p2 + aes(x = condition, y = correct) +
+p_taskexp_chimp = p2 + aes(x = delay, y = correct) +
   geom_jitter(data = chimp_task_plot_individual, aes(col = site), width = .3, height = .015, alpha = .5, size = 3) +
-  geom_pointrange(data = chimp_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = condition), size = .8, stroke = 1.5) +
+  geom_pointrange(data = chimp_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = delay), size = .8, stroke = 1.5) +
   geom_text(data = filter(ns_task_exp, species == 'chimpanzee'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(task_experience ~ ., switch = 'y') +
   theme(legend.box = 'horizontal', strip.text.y = element_text(angle = 180)) +
-  scale_shape_manual('delay', values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
+  scale_shape_manual(values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
   scale_colour_solarized() +
   ggtitle("Chimpanzees") +
   coord_flip()
@@ -332,24 +333,24 @@ p_taskexp_chimp = p2 + aes(x = condition, y = correct) +
 ```{r}
 bonobo_task_plot_individual <- mp_data %>%
   filter(species == "bonobo") %>%
-  group_by(site, task_experience, condition, subject_site) %>%
+  group_by(site, task_experience, delay, subject_site) %>%
   summarise(correct = mean(correct))
 
 bonobo_task_plot_group <- mp_data %>%
   filter(species == "bonobo") %>%
-  group_by(task_experience, condition, subject_site) %>%
+  group_by(task_experience, delay, subject_site) %>%
   summarise(correct = mean(correct)) %>%
   multi_boot_standard(col = "correct")
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p_taskexp_bon = p2 + aes(x = condition, y = correct) +
+p_taskexp_bon = p2 + aes(x = delay, y = correct) +
   geom_jitter(data = bonobo_task_plot_individual, aes(col = site), width = .3, height = .015, alpha = .5, size = 3) +
-  geom_pointrange(data = bonobo_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = condition), size = .8, stroke = 1.5) +
+  geom_pointrange(data = bonobo_task_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = delay), size = .8, stroke = 1.5) +
   geom_text(data = filter(ns_task_exp, species == 'bonobo'), aes(label = n_by_site), y = -.05, x = 2, col = 'black', size = 3) +
   facet_grid(task_experience ~ ., switch = 'y') +
   theme(legend.box = 'horizontal', strip.text.y = element_text(angle = 180)) +
-  scale_shape_manual('delay', values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
+  scale_shape_manual(values = c(1, 2, 5), breaks = c('short', 'medium', 'long')) +
   scale_colour_solarized() +
   ggtitle("Bonobos") +
   coord_flip()
@@ -367,38 +368,38 @@ ggsave('../graphs/02_08_task_experience.png', grob, width = 4, height = 3, scale
 
 # Age
 
-Here we plot age against correct choice separate for each condition and species. Regression line is smoothed conditional mean.
+Here we plot age against correct choice separate for each delay and species. Regression line is smoothed delayal mean.
 
 ```{r}
 plot_age <- mp_data %>%
-  mutate(condition = fct_rev(condition)) %>%
-  group_by(subject_site, norm_age, clade, species, condition) %>%
+  mutate(delay = fct_rev(delay)) %>%
+  group_by(subject_site, norm_age, clade, species, delay) %>%
   summarise(correct = mean(correct))
 ```
 
 ```{r, fig.width=4, fig.height=1.3}
 ggplot(plot_age, aes(x = norm_age, y = correct))+
   geom_jitter(aes(fill = clade), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
-  geom_smooth(aes(col = condition), method = "loess", show.legend = F) +
+  geom_smooth(aes(col = delay), method = "loess", show.legend = F) +
   geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
-  facet_grid( ~ condition ) +
+  facet_grid( ~ delay ) +
   labs(x = "Normed Age (relative to species longevity)", y ="Proportion Correct") +
   scale_color_manual(values = rev(solarized_palette(3))) +
   ylim(c(-.05, 1.05))
 ```
 
 ```{r}
-ggsave('../graphs/02_09_age_by_condition.png', width = 4, height = 1.3, scale = 2)
+ggsave('../graphs/02_09_age_by_delay.png', width = 4, height = 1.3, scale = 2)
 ```
 
 ```{r, fig.width=4, fig.height=3.4}
 ggplot(plot_age, aes(x = norm_age, y = correct))+
   geom_jitter(aes(fill = species), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
-  geom_smooth(aes(col = condition), method = "loess", show.legend = F) +
+  geom_smooth(aes(col = delay), method = "loess", show.legend = F) +
   geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
-  facet_grid(condition ~ clade, scales = 'free_x') +
+  facet_grid(delay ~ clade, scales = 'free_x') +
   labs(x = "Normed Age (relative to species longevity)", y = "Proportion Correct") +
   theme(legend.position = 'bottom') +
   scale_color_manual(values = rev(solarized_palette(3))) +
@@ -406,7 +407,7 @@ ggplot(plot_age, aes(x = norm_age, y = correct))+
 ```
 
 ```{r}
-ggsave('../graphs/02_10_age_by_condition_species.png', width = 4, height = 3.4, scale = 2)
+ggsave('../graphs/02_10_age_by_delay_species.png', width = 4, height = 3.4, scale = 2)
 ```
 
 
@@ -416,14 +417,14 @@ ggsave('../graphs/02_10_age_by_condition_species.png', width = 4, height = 3.4, 
 
 ```{r}
 plot_cup <- mp_data %>%
-   group_by(subject_site, cup_distance, clade, species, condition) %>%
+   group_by(subject_site, cup_distance, clade, species, delay) %>%
    summarise(correct = mean(correct))
 ```
 
 ```{r plotting cup distance, fig.width=4, fig.height=2}
 cp = ggplot(plot_cup, aes(x = cup_distance, y = correct)) +
   geom_jitter(aes(col = clade), width = .5, height = .15, alpha = .5, size = 2) +
-  geom_smooth(method = "loess", se = F) +
+  geom_smooth(method = "loess") +
   labs(x = "Cup Distance in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
   scale_color_solarized() +
