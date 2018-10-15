@@ -308,7 +308,7 @@ mm.2 <- readRDS("06_2_mp_model2_v2.rds")
 
 ```{r, eval=FALSE}
 mm.2 <- glmer(correct ~ delay * norm_age +
-              task_experience + cup_distance +  trial +
+              task_experience + cup_distance + trial +
               (1 + trial + delay | site / subject_site ) +         
               (1 + delay | species)
               , data = model.data
