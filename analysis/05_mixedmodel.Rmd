@@ -426,7 +426,7 @@ plot_model(mm.3, title = "Fixed Effects", order.terms = c(6, 4, 3:1, 8:7, 5), wi
 ```
 
 ```{r}
-ggsave('../graphs/07_forestplot.png', width = 4, height = 2.5, scale = 2)
+ggsave('../graphs/05_forestplot.png', width = 4, height = 2.5, scale = 2)
 ```
 
 ## Random effects
