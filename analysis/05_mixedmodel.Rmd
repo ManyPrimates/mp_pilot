@@ -476,7 +476,7 @@ We're looking for the lowest AIC(c) as the model with the 'best fit' with a reas
 Indeed, the reduced model seems to do a better job of striking that balance between fitting the data with fewer parameters.
 
 ```{r}
-bbmle::AICctab(mm.1, mm.2, mm.3, mm.4)
+bbmle::AICctab(mm.1, mm.2, mm.3, mm.4, logLik=TRUE, weights=TRUE)
 ```
 
 ```{r}
