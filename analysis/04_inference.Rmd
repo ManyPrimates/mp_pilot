@@ -35,30 +35,13 @@ Quote from Registration:
 
 For species with only 1 subject, t-tests cannot be computed. They are therefore exluced.
 
-```{r}
-mp_data %>%  
-  filter(species != "black_faced_spider_monkey") %>% # only one data point so far, therefor no t test possible
-  group_by(species, condition, subject_site) %>%
-  summarise(correct = mean(correct)) %>%
-  summarize(correct = list(correct)) %>%
-  group_by(species ,condition) %>%
-  mutate(n = length(unlist(correct)),
-         mean = mean(unlist(correct)),
-  #       df = t.test(unlist(correct), mu = 1/3)$parameter, # redundant info in combination with n
-         t = t.test(unlist(correct), mu = 1/3)$statistic,
-         p = t.test(unlist(correct), mu = 1/3)$p.value,
-  d = cohensD(unlist(correct), mu = 1/3)) %>%
-  select(species ,condition,n,mean,t,p,d)%>%
-  knitr::kable(digits = 2)
-```
-
-
 ```{r comparisons to chance}
 mp_data %>%
   # no t test possible because ...
   filter(species != "black_faced_spider_monkey", # only 1 data point so far
-         !(species == 'orangutan' & condition == 'short')) %>% # data constant at M=1 (i.e., SD=0)
-  group_by(species, condition, subject_site) %>%
+         !(species == 'orangutan' & delay == 'short')) %>% # data constant at M=1 (i.e., SD=0)
+  mutate(delay = fct_rev(delay)) %>%
+  group_by(species, delay, subject_site) %>%
   summarise(correct = mean(correct)) %>%
   summarise(n = n(),
          mean = mean(correct) %>% round(2),
