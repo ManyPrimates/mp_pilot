@@ -15,8 +15,8 @@ library(tidyverse)
 library(lme4)
 library(emmeans)
 library(car) # for vif
+library(bbmle) # for AICtab
 library(sjPlot)
-library(broom)
 library(knitr)
 
 theme_set(ggthemes::theme_few())
@@ -76,7 +76,7 @@ correct ~ delay * norm_age +
           (1 + delay | species)
 ```
 
-![](../graphs/07_forestplot.png)
+![](../graphs/05_forestplot.png)
 
 ***
 
@@ -191,7 +191,7 @@ corr %>% as.data.frame %>% select(-10) %>% rownames_to_column
 
 based on estimated marginal means
 
-*Note. This wasn't in the preregistration but, of course, yields the same conclusion as specifying another model with, say, 'medium' as the reference level or running another model that excludes 'short'. And it's a more elegant approach in my opinion. Thoughts? --jw*
+*Note. This wasn't in the preregistration.*
 
 ```{r, message=FALSE}
 emmeans(mm.1, pairwise ~ delay, type = 'response')$contrasts
@@ -321,7 +321,7 @@ saveRDS(mm.2, "06_2_mp_model2_v2.rds")
 
 # Model 3
 
-*I would argue to also remove `trial` from the random slopes for subject/species as it's near zero both in `mm.1` and even more so in `mm.2`. I've done so below, in `mm.3`. Thoughts? --jw*
+Remove `trial` from the random slopes for subject/site as it's near zero both in `mm.1` and even more so in `mm.2`
 
 ```{r}
 VarCorr(mm.2) %>% print(comp = c("Variance", "Std.Dev."), formatter = fmt, digits = 3)
@@ -351,7 +351,7 @@ mm.3 <- glmer(correct ~ delay * norm_age +
               , control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
               )
 
-saveRDS(mm.4, "06_3_mp_model3_v2.rds")
+saveRDS(mm.3, "06_3_mp_model3_v2.rds")
 ```
 
 ## Model summary
@@ -384,7 +384,7 @@ source("boot_glmm.r")
 
 mm.3.ci = boot.glmm.pred(model.res=mm.3, excl.warnings=F, nboots=1000, para=F, resol=100, level=0.95, use=NULL, circ.var.name=NULL, circ.var=NULL, use.u=F,n.cores=c("all-1", "all"), save.path=NULL)
 
-saveRDS(mm.2.ci, "06_2_mp_model2_ci_v2.rds")
+saveRDS(mm.3.ci, "06_3_mp_model3_ci_v2.rds")
 ```
 
 ```{r}
@@ -455,9 +455,7 @@ ranef.plots2[[3]]
 
 # Model 4
 
-- further remove subject/site random effects
-
-*Note. I'm not sure why this is here. It runs fast and is simpler but it's also worse than the less reduced model/s (mm.2/3) and also worse than the full(ish) model (mm.1); see below. --jw*
+- further remove subject/site random effects to look at species differences (from preregistration)
 
 ```{r}
 mm.4 <- glmer(correct ~ delay * norm_age +
@@ -476,7 +474,7 @@ We're looking for the lowest AIC(c) as the model with the 'best fit' with a reas
 Indeed, the reduced model seems to do a better job of striking that balance between fitting the data with fewer parameters.
 
 ```{r}
-bbmle::AICctab(mm.1, mm.2, mm.3, mm.4)
+AICctab(mm.1, mm.2, mm.3, mm.4, logLik = T, weights = T)
 ```
 
 ```{r}
