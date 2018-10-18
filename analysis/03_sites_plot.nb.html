@@ -179,24 +179,37 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShnZ3RoZW1lcylcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShtYXBzKVxuYGBgXG5gYGAifQ== -->
-<p><code>r</code>r library(ggthemes) library(tidyverse) library(maps)</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxubGlicmFyeShnZ3RoZW1lcylcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShtYXBzKVxuYGBgXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r</p>
+<pre class="r"><code>library(ggthemes)
+library(tidyverse)
+library(maps)</code></pre>
 <pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGFicyA8LSByZWFkX2NzdignLi4vZGF0YS9zaXRlX2Nvb3JkaW5hdGVzLmNzdicpXG53b3JsZCA8LSBtYXAoXFx3b3JsZFxcLCBwbG90ID0gRkFMU0UsIGZpbGwgPSBUUlVFKSAlPiUgZm9ydGlmeSgpXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r labs &lt;- read_csv(‘../data/site_coordinates.csv’) world &lt;- map(, plot = FALSE, fill = TRUE) %&gt;% fortify()</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxubGFicyA8LSByZWFkX2NzdignLi4vZGF0YS9zaXRlX2Nvb3JkaW5hdGVzLmNzdicpXG53b3JsZCA8LSBtYXAoXFx3b3JsZFxcLCBwbG90ID0gRkFMU0UsIGZpbGwgPSBUUlVFKSAlPiUgZm9ydGlmeSgpXG5gYGBcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r</p>
+<pre class="r"><code>labs &lt;- read_csv('../data/site_coordinates.csv')
+world &lt;- map(\world\, plot = FALSE, fill = TRUE) %&gt;% fortify()</code></pre>
 <pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2dwbG90KGxhYnMsIGFlcyh4ID0gbG9uZywgeSA9IGxhdCkpICsgXG4gIGdlb21fcG9seWdvbihkYXRhID0gd29ybGQsIGFlcyhncm91cCA9IGdyb3VwKSwgZmlsbCA9IFxcZ3JleVxcKSArIFxuICBnZW9tX3BvaW50KGNvbG9yID0gXFxibGFja1xcLCBzaXplID0gMykgK1xuICBnZW9tX3BvaW50KGFlcyhjb2xvciA9IFNpdGUpLCBzaXplID0gMikgK1xuICBjb29yZF9maXhlZCgxLjMsIHlsaW0gPSBjKC01NSwgODMuNTk5NjEpKSArXG4gIHhsYWIoJycpICsgeWxhYignJykgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDE2KSArIFxuICB0aGVtZShwYW5lbC5ncmlkID0gZWxlbWVudF9ibGFuaygpLCBheGlzLnRleHQgPSBlbGVtZW50X2JsYW5rKCkpXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r ggplot(labs, aes(x = long, y = lat)) + geom_polygon(data = world, aes(group = group), fill = ) + geom_point(color = , size = 3) + geom_point(aes(color = Site), size = 2) + coord_fixed(1.3, ylim = c(-55, 83.59961)) + xlab(‘’) + ylab(’’) + theme_minimal(base_size = 16) + theme(panel.grid = element_blank(), axis.text = element_blank())</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxuZ2dwbG90KGxhYnMsIGFlcyh4ID0gbG9uZywgeSA9IGxhdCkpICsgXG4gIGdlb21fcG9seWdvbihkYXRhID0gd29ybGQsIGFlcyhncm91cCA9IGdyb3VwKSwgZmlsbCA9IFxcZ3JleVxcKSArIFxuICBnZW9tX3BvaW50KGNvbG9yID0gXFxibGFja1xcLCBzaXplID0gMykgK1xuICBnZW9tX3BvaW50KGFlcyhjb2xvciA9IFNpdGUpLCBzaXplID0gMikgK1xuICBjb29yZF9maXhlZCgxLjMsIHlsaW0gPSBjKC01NSwgODMuNTk5NjEpKSArXG4gIHhsYWIoJycpICsgeWxhYignJykgK1xuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDE2KSArIFxuICB0aGVtZShwYW5lbC5ncmlkID0gZWxlbWVudF9ibGFuaygpLCBheGlzLnRleHQgPSBlbGVtZW50X2JsYW5rKCkpXG5gYGBcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r</p>
+<pre class="r"><code>ggplot(labs, aes(x = long, y = lat)) + 
+  geom_polygon(data = world, aes(group = group), fill = \grey\) + 
+  geom_point(color = \black\, size = 3) +
+  geom_point(aes(color = Site), size = 2) +
+  coord_fixed(1.3, ylim = c(-55, 83.59961)) +
+  xlab('') + ylab('') +
+  theme_minimal(base_size = 16) + 
+  theme(panel.grid = element_blank(), axis.text = element_blank())</code></pre>
 <pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-plot-begin -->
@@ -206,15 +219,16 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2dzYXZlKCcuLi9ncmFwaHMvMDNfcGlsb3Rfc2l0ZXMucG5nJywgd2lkdGggPSA5LCBoZWlnaHQgPSA0LCBzY2FsZSA9IDIpXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r ggsave(‘../graphs/03_pilot_sites.png’, width = 9, height = 4, scale = 2)</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxuZ2dzYXZlKCcuLi9ncmFwaHMvMDNfcGlsb3Rfc2l0ZXMucG5nJywgd2lkdGggPSA5LCBoZWlnaHQgPSA0LCBzY2FsZSA9IDIpXG5gYGBcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r</p>
+<pre class="r"><code>ggsave('../graphs/03_pilot_sites.png', width = 9, height = 4, scale = 2)</code></pre>
 <pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWFueVByaW1hdGVzIFBpbG90IFNpdGVzIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgY3NzOiBzdHlsZS5jc3MKICAgIHRoZW1lOiBwYXBlcgotLS0KCmBgYHtyIHNldHVwLCBtZXNzYWdlPUZBTFNFfQpsaWJyYXJ5KGdndGhlbWVzKQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShtYXBzKQpgYGAKCmBgYHtyIGxvYWQgY29vcmRpbmF0ZXMsIG1lc3NhZ2U9RkFMU0V9CmxhYnMgPC0gcmVhZF9jc3YoIi4uL2RhdGEvc2l0ZV9jb29yZGluYXRlcy5jc3YiKQp3b3JsZCA8LSBtYXAoIndvcmxkIiwgcGxvdCA9IEZBTFNFLCBmaWxsID0gVFJVRSkgJT4lIGZvcnRpZnkoKQpgYGAKCmBgYHtyIG1hcCwgZmlnLndpZHRoID0gOSwgZmlnLmhlaWdodCA9IDR9CmdncGxvdChsYWJzLCBhZXMoeCA9IGxvbmcsIHkgPSBsYXQpKSArCiAgZ2VvbV9wb2x5Z29uKGRhdGEgPSB3b3JsZCwgYWVzKGdyb3VwID0gZ3JvdXApLCBmaWxsID0gImdyZXkiKSArCiAgZ2VvbV9wb2ludChjb2xvciA9ICJibGFjayIsIHNpemUgPSAzKSArCiAgZ2VvbV9wb2ludChhZXMoY29sb3IgPSBTaXRlKSwgc2l6ZSA9IDIpICsKICBjb29yZF9maXhlZCgxLjMsIHlsaW0gPSBjKC01NSwgODMuNTk5NjEpKSArCiAgeGxhYigiIikgKyB5bGFiKCIiKSArCiAgdGhlbWVfbWluaW1hbChiYXNlX3NpemUgPSAxNikgKwogIHRoZW1lKHBhbmVsLmdyaWQgPSBlbGVtZW50X2JsYW5rKCksIGF4aXMudGV4dCA9IGVsZW1lbnRfYmxhbmsoKSkKYGBgCgpgYGB7cn0KZ2dzYXZlKCIuLi9ncmFwaHMvMDNfcGlsb3Rfc2l0ZXMucG5nIiwgd2lkdGggPSA5LCBoZWlnaHQgPSA0LCBzY2FsZSA9IDIpCmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWFueVByaW1hdGVzIFBpbG90IFNpdGVzIgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgY3NzOiBzdHlsZS5jc3MKICAgIHRoZW1lOiBwYXBlcgotLS0KCmBgYHtyIHNldHVwLCBtZXNzYWdlPUZBTFNFfQpsaWJyYXJ5KGdndGhlbWVzKQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShtYXBzKQpgYGAKCmBgYHtyIGxvYWQgY29vcmRpbmF0ZXMsIG1lc3NhZ2U9RkFMU0V9CmxhYnMgPC0gcmVhZF9jc3YoIi4uL2RhdGEvc2l0ZV9jb29yZGluYXRlcy5jc3YiKQp3b3JsZCA8LSBtYXAoIndvcmxkIiwgcGxvdCA9IEZBTFNFLCBmaWxsID0gVFJVRSkgJT4lIGZvcnRpZnkoKQpgYGAKCmBgYHtyIG1hcCwgZmlnLndpZHRoPTksIGZpZy5oZWlnaHQ9NH0KZ2dwbG90KGxhYnMsIGFlcyh4ID0gbG9uZywgeSA9IGxhdCkpICsKICBnZW9tX3BvbHlnb24oZGF0YSA9IHdvcmxkLCBhZXMoZ3JvdXAgPSBncm91cCksIGZpbGwgPSAiZ3JleSIpICsKICBnZW9tX3BvaW50KGNvbG9yID0gImJsYWNrIiwgc2l6ZSA9IDMpICsKICBnZW9tX3BvaW50KGFlcyhjb2xvciA9IFNpdGUpLCBzaXplID0gMikgKwogIGNvb3JkX2ZpeGVkKDEuMywgeWxpbSA9IGMoLTU1LCA4My41OTk2MSkpICsKICB4bGFiKCIiKSArIHlsYWIoIiIpICsKICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZSA9IDE2KSArCiAgdGhlbWUocGFuZWwuZ3JpZCA9IGVsZW1lbnRfYmxhbmsoKSwgYXhpcy50ZXh0ID0gZWxlbWVudF9ibGFuaygpKQpgYGAKCmBgYHtyfQpnZ3NhdmUoIi4uL2dyYXBocy8wM19waWxvdF9zaXRlcy5wbmciLCB3aWR0aCA9IDksIGhlaWdodCA9IDQsIHNjYWxlID0gMikKYGBgCgoK</div>
 
 
 

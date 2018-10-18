@@ -18,63 +18,63 @@ library(readxl)
 
 ```{r sample, message=FALSE}
 # load sample
-path = '../data/raw_data/'
+path <- "../data/raw_data/"
 sample <- read_delim(str_c(path, "coding_sample.csv"), delim = ";")
 ```
 
 ```{r}
 # define helper function
-fail_str = '--- FAIL ---\n'
+fail_str <- "--- FAIL ---\n"
 
-doChecks = function (df) {
+do_checks <- function(df) {
   cat("check column number (= 19?): ")
-  if(ncol(sample) == ncol(df)) {cat("pass\n")} 
+  if (ncol(sample) == ncol(df)) cat("pass\n")
   else {cat(fail_str); print(ncol(df))}
-  
+
   cat("\ncheck column names: ")
-  if(all(names(sample) %in% names(df))) {cat("pass\n")} 
+  if (all(names(sample) %in% names(df))) cat("pass\n")
   else {cat(fail_str); print(names(df))}
-  
+
   cat("\ncheck condition names: ")
-  if(all(unique(df$condition) %in% unique(sample$condition))) {cat("pass\n")} 
+  if (all(unique(df$condition) %in% unique(sample$condition))) cat("pass\n")
   else {cat(fail_str); print(unique(df$condition))}
-  
+
   cat("\ncheck species:\n")
   print(unique(df$species))
-  
+
   cat("\ncheck subject:\n")
   print(sort(unique(df$subject_site), na.last = T))
-  
+
   cat("\ncheck age:\n")
   print(sort(unique(df$age), na.last = T))
-  
+
   cat("\ncheck cup distance:", unique(df$cup_distance), "\n")
-  
+
   cat("\ncheck task experience: ")
-  if(all(unique(df$task_experience) %in% unique(sample$task_experience))) {cat("pass\n")} 
+  if (all(unique(df$task_experience) %in% unique(sample$task_experience))) cat("pass\n")
   else {cat(fail_str); print(unique(df$task_experience))}
-  
+
   cat("\ncheck board size:", unique(df$board_size), "\n")
-  
+
   cat("\ncheck test situation: ")
-  if(all(unique(df$test_situation) %in% unique(sample$test_situation))) {cat("pass\n")} 
+  if (all(unique(df$test_situation) %in% unique(sample$test_situation))) cat("pass\n")
   else {cat(fail_str); print(unique(df$test_situation))}
-  
+
   cat("\ncheck session:\n")
   print(unique(df$session))
-  
+
   cat("\ncheck block:\n")
   print(unique(df$block))
-  
+
   cat("\ncheck trial:\n")
   print(sort(unique(df$trial), na.last = T))
-  
+
   cat("\ncheck pick:", sort(unique(df$pick), na.last = T), "\n")
-  
+
   cat("\ncheck hiding locations: ")
-  if(all(unique(df$hiding_location) %in% unique(sample$hiding_location))) {cat("pass\n")} 
+  if (all(unique(df$hiding_location) %in% unique(sample$hiding_location))) cat("pass\n")
   else {cat(fail_str); print(unique(df$hiding_location))}
-  
+
   cat("\ncheck correct:", unique(df$correct), "\n")
 }
 ```
@@ -88,7 +88,7 @@ kris_raw <- read_csv(str_c(path, "AlbaMotes_datakristiansand_ManyPrimates.csv"))
 ```
 
 ```{r}
-doChecks(kris_raw)
+do_checks(kris_raw)
 ```
 
 ```{r}
@@ -96,8 +96,8 @@ doChecks(kris_raw)
 kris <- kris_raw %>%
   filter(!is.na(pick)) %>%
   mutate(test_situation = ifelse(test_situation == "solitary", "single", "group"),
-         species = fct_recode(species, 'black faced spider monkey' = 'black faced spider monkeys'),
-         species = gsub(' ', '_', species))
+         species = fct_recode(species, "black faced spider monkey" = "black faced spider monkeys"),
+         species = gsub(" ", "_", species))
 ```
 
 ## Kumamoto
@@ -107,7 +107,7 @@ kuma_raw <- read_excel(str_c(path, "ManyPrimates Pilot Coding -kano.xlsx"), 2)
 ```
 
 ```{r}
-doChecks(kuma_raw)
+do_checks(kuma_raw)
 ```
 
 ```{r}
@@ -122,11 +122,11 @@ kuma <- kuma_raw %>%
 ### Capuchins
 
 ```{r}
-edin_cap_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_CapuchinsEdi_Voelter.xlsx", 1)
+edin_cap_raw <- read_excel("../data/raw_data/ManyPrimates Pilot_CapuchinsEdi_Voelter.xlsx")
 ```
 
 ```{r}
-doChecks(edin_cap_raw)
+do_checks(edin_cap_raw)
 ```
 
 ```{r}
@@ -144,7 +144,7 @@ edin_squ_raw <- read_excel(str_c(path, "ManyPrimates Pilot Coding_Squirrel monke
 ```
 
 ```{r}
-doChecks(edin_squ_raw)
+do_checks(edin_squ_raw)
 ```
 
 ```{r}
@@ -159,7 +159,7 @@ edin_chimps_raw <- read_excel(str_c(path, "ManyPrimates Pilot Coding_edin_chimps
 ```
 
 ```{r}
-doChecks(edin_chimps_raw)
+do_checks(edin_chimps_raw)
 ```
 
 ```{r}
@@ -182,14 +182,14 @@ swee_1_raw <- read_delim(str_c(path, "Data_sweetwaters.csv"), delim = ";")
 ```
 
 ```{r}
-doChecks(swee_1_raw)
+do_checks(swee_1_raw)
 ```
 
 ```{r}
 # change data file
 swee_1 <- swee_1_raw %>%
   filter(!is.na(pick)) %>%
-  mutate(researcher = "haux", 
+  mutate(researcher = "haux",
          species = "chimpanzee")
 ```
 
@@ -200,7 +200,7 @@ swee_2_raw <- read_excel(str_c(path, "manyprimatespilot_sweetwaters_group2.xlsx"
 ```
 
 ```{r}
-doChecks(swee_2_raw)
+do_checks(swee_2_raw)
 ```
 
 ```{r}
@@ -220,7 +220,7 @@ dpz_lem_raw <- read_excel(str_c(path, "data_ruffed_ringtailed_lemurs_C_Fichtel.x
 ```
 
 ```{r}
-doChecks(dpz_lem_raw)
+do_checks(dpz_lem_raw)
 ```
 
 ```{r}
@@ -228,8 +228,8 @@ doChecks(dpz_lem_raw)
 dpz_lem <- dpz_lem_raw %>%
   filter(pick != 9) %>%
   mutate(condition = recode(condition, "0s" = "short", "15s" = "medium", "30s" = "long"),
-         species = recode(species, 
-                          "black-ad white ruffed lemur" = "black_and_white_ruffed_lemur", 
+         species = recode(species,
+                          "black-ad white ruffed lemur" = "black_and_white_ruffed_lemur",
                           "ring-tailed lemurs" = "ring_tailed_lemur"),
          cup_distance = str_sub(cup_distance, 1, -4) %>% as.numeric,
          board_size = str_sub(board_size, 1, 2) %>% as.numeric,
@@ -243,14 +243,14 @@ dpz_mac_raw <- read_excel(str_c(path, "ManyPrimates_data dpz_long-tailed macaque
 ```
 
 ```{r}
-doChecks(dpz_mac_raw)
+do_checks(dpz_mac_raw)
 ```
 
 ```{r}
 # change data file
 dpz_mac <- dpz_mac_raw %>%
   mutate(site = toupper(site),
-         species = gsub('[ -]', '_', species),
+         species = gsub("[ -]", "_", species),
          correct = as.numeric(correct),
          secondary_pick = as.character(secondary_pick))
 ```
@@ -262,7 +262,7 @@ linc_raw <- read_excel(str_c(path, "LPZ 3 cups data June 2018 Hopper Egelkamp Ro
 ```
 
 ```{r}
-doChecks(linc_raw)
+do_checks(linc_raw)
 ```
 
 ```{r}
@@ -276,7 +276,7 @@ linc <- linc_raw %>%
 
 ```{r}
 # specify column types -- makes 1st col (date) text, guesses (as usual) for everything else
-ct = c('text', rep('guess', 17))
+ct <- c("text", rep("guess", 17))
 ```
 
 ```{r}
@@ -284,7 +284,7 @@ lrc_cap_raw <- read_excel(str_c(path, "ManyPrimates Pilot_LRC_ACCI.xlsx"), 6, co
 ```
 
 ```{r}
-doChecks(lrc_cap_raw)
+do_checks(lrc_cap_raw)
 ```
 
 ```{r}
@@ -292,10 +292,10 @@ doChecks(lrc_cap_raw)
 
 # A NOTE ON THE DATES HERE (--jw)
 # In the raw file, some of the dates were in Excel date format, some in yyyymmdd format
-# I initially read them in as text (because it wouldn't let me read them as numeric)
+# I initially read them in as text (because it wouldn"t let me read them as numeric)
 # Here, 1) turn them all into numbers (e.g., 43262 = Excel date for 2018-06-11)
 # 2) Convert numbers smaller than 20180000 (i.e., the Excel date numbers) into dates
-# 3) Then remove the dashes and make numeric (e.g., '2018-06-11' --> 20180611)
+# 3) Then remove the dashes and make numeric (e.g., "2018-06-11" --> 20180611)
 
 lrc_cap <- lrc_cap_raw %>%
   mutate(species = "brown_capuchin_monkey",
@@ -314,7 +314,7 @@ acci_bono_raw <- read_excel(str_c(path, "ManyPrimates Pilot_LRC_ACCI.xlsx"), 7)
 ```
 
 ```{r}
-doChecks(acci_bono_raw)
+do_checks(acci_bono_raw)
 ```
 
 ```{r}
@@ -332,14 +332,14 @@ lpz_orang_chimps_raw <- read_excel(str_c(path, "ManyPrimates Pilot_Lpz_Mkyhv_dat
 ```
 
 ```{r}
-doChecks(lpz_orang_chimps_raw)
+do_checks(lpz_orang_chimps_raw)
 ```
 
 ```{r}
 # change data file
 lpz_orang_chimps <- lpz_orang_chimps_raw %>%
   rename(comment = X__1) %>%
-  group_by(subject_site)%>%
+  group_by(subject_site) %>%
   mutate(trial = 1:n()) # to make trial continous across blocks
 ```
 
@@ -350,7 +350,7 @@ mkyhv_mcqs_raw <- read_excel(str_c(path, "ManyPrimates Pilot_Lpz_Mkyhv_data.xlsx
 ```
 
 ```{r}
-doChecks(mkyhv_mcqs_raw)
+do_checks(mkyhv_mcqs_raw)
 ```
 
 ```{r}
@@ -371,7 +371,7 @@ hbg_raw <- read_excel(str_c(path, "Rohdaten Zoo Heidelberg.xlsx"))
 ```
 
 ```{r}
-doChecks(hbg_raw)
+do_checks(hbg_raw)
 ```
 
 ```{r}
@@ -412,11 +412,11 @@ raw_data <- bind_rows(
 > - Make `correct` value match whether `hiding_location` and `pick` are identical
 
 ```{r add life expectancy, message=FALSE}
-species_data <- read_csv('../data/species_data.csv') %>% select(species, life_expectancy)
+species_data <- read_csv("../data/species_data.csv") %>% select(species, life_expectancy)
 raw_data <- raw_data %>%
-  left_join(species_data, by = 'species') %>%
+  left_join(species_data, by = "species") %>%
   rename(delay = condition) %>%
-  mutate(norm_age = scale(age/life_expectancy),
+  mutate(norm_age = scale(age / life_expectancy),
          correct = as.numeric(hiding_location == pick))
 ```
 
@@ -430,7 +430,7 @@ glimpse(raw_data)
 
 > Sample sizes
 
-```{r, results = 'asis'}
+```{r, results="asis"}
 raw_data %>%
   summarise(N = n_distinct(subject_site),
             n_sites = n_distinct(site) - 1, # sweetwaters and sweetwaters_group2
@@ -438,9 +438,9 @@ raw_data %>%
   knitr::kable()
 ```
 
-```{r, results = 'asis'}
+```{r, results="asis"}
 raw_data %>%
-  group_by(site, species)%>%
+  group_by(site, species) %>%
   summarise(n = n_distinct(subject_site)) %>%
   knitr::kable()
 ```
@@ -449,7 +449,7 @@ raw_data %>%
 
 ```{r}
 raw_data %>%
-  group_by(site, species, subject_site, trial)%>%
+  group_by(site, species, subject_site, trial) %>%
   summarise(n = n()) %>%
   filter(n > 1)
 ```
@@ -457,7 +457,7 @@ raw_data %>%
 > Are there any missing values?
 
 ```{r}
-raw_data %>% 
+raw_data %>%
   select_if(function(x) any(is.na(x))) %>%
   summarise_all(funs(sum(is.na(.))))
 ```
