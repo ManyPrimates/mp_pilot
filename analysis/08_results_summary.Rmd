@@ -25,7 +25,7 @@ Here is an overview of our sample. The size and diversity are impressive.
 
 ### Sample size
 
-```{r descriptives overall, results = 'asis'}
+```{r descriptives overall, results="asis"}
 mp_data %>%
   summarize(N = n_distinct(subject_site),
             Species = n_distinct(species),
@@ -35,7 +35,7 @@ mp_data %>%
 
 ### Sample size by species
 
-```{r descriptives by site and species, results = 'asis'}
+```{r descriptives by site and species, results="asis"}
 mp_data %>%
   group_by(species) %>%
   summarize(N = n_distinct(subject_site),
@@ -168,12 +168,12 @@ In our case, $\lambda$ can be estimated in two ways. First, we can do this based
 To get more precise estimates for each species we aggregated the data across delays for this analysis. In principle, we could also repeat the analysis for each delay condition separately but we thought that the mean across delays reflects the overall level of short-term memory capacity in each species relatively well.
 
 ```{r}
-l.all = readRDS("07_lambda.rds")
-t.all = readRDS("07_t-tests.rds")
+l.all <- readRDS("07_lambda.rds")
+t.all <- readRDS("07_t-tests.rds")
 
-LR.D = abs(2*t.all$logL)
-Ddf = 1
-p.val = 1 - pchisq(LR.D, Ddf, ncp = 0, lower.tail = T, log.p = F)
+LR.D <- abs(2*t.all$logL)
+Ddf <- 1
+p.val <- 1 - pchisq(LR.D, Ddf, ncp = 0, lower.tail = T, log.p = F)
 ```
 
 Here are the estimates for $\lambda$ based on our data:

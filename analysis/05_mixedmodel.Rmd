@@ -1,7 +1,7 @@
 ---
 title: "ManyPrimates pilot mixed modeling"
 author: "Drew Altschul"
-date: "15 Oct 2018"
+date: "18 Oct 2018"
 output:
   html_notebook:
     css: style.css
@@ -12,12 +12,13 @@ output:
 
 ```{r setup, message=FALSE}
 library(tidyverse)
+library(knitr)
+library(sjPlot)
 library(lme4)
 library(emmeans)
 library(car) # for vif
 library(bbmle) # for AICtab
-library(sjPlot)
-library(knitr)
+library(broom) # for glance
 
 theme_set(ggthemes::theme_few())
 ```
@@ -96,7 +97,7 @@ Prepare code for pre-registered mixed modeling
 ```{r}
 model.data <- mp_data %>%
   filter(species != "black_faced_spider_monkey") %>%
-  mutate_at(vars(cup_distance, board_size, trial), funs(scale(.)[,1])) %>%
+  mutate_at(vars(cup_distance, board_size, trial), funs(scale(.)[, 1])) %>%
   mutate(hiding_location = factor(hiding_location),
          delay = fct_relevel(delay, "short"))
 ```
@@ -111,9 +112,9 @@ mm.1 <- readRDS("06_mp_model_v2.rds")
 ```
 
 ```{r, eval=FALSE}
-mm.1 = glmer(correct ~ delay * norm_age + 
+mm.1 <- glmer(correct ~ delay * norm_age +
                task_experience + cup_distance + board_size + trial +
-               (1 + delay + trial | site/subject_site/block) + 
+               (1 + delay + trial | site/subject_site/block) +
                (1 + task_experience + cup_distance + board_size + trial + delay | species)
              , data = model.data
              , family = binomial
@@ -142,14 +143,14 @@ Confirm model structure
 formula(mm.1)
 ```
 
-```{r, results='asis'}
+```{r, results="asis"}
 glance(mm.1) %>% kable(digits = 2)
 ```
 
 ## Random effects
 
 ```{r}
-fmt = function(num, digits) return(round(num, digits))
+fmt <- function(num, digits) return(round(num, digits))
 VarCorr(mm.1) %>% print(formatter = fmt, digits = 3) # comp = c("Variance", "Std.Dev.")
 ```
 
@@ -158,31 +159,31 @@ VarCorr(mm.1) %>% print(formatter = fmt, digits = 3) # comp = c("Variance", "Std
 CIs
 
 ```{r}
-mm.1.ci = confint(mm.1, method = 'Wald') %>% # bootstrap these later
-  as.data.frame %>% 
-  rownames_to_column %>% 
-  filter(complete.cases(.)) %>% 
+mm.1.ci <- confint(mm.1, method = "Wald") %>% # bootstrap these later
+  as.data.frame %>%
+  rownames_to_column %>%
+  filter(complete.cases(.)) %>%
   rename(LL = `2.5 %`, UL = `97.5 %`) %>%
   mutate(OR_LL = exp(LL), OR_UL = exp(UL))
 ```
 
-```{r, results='asis'}
-coef(summary(mm.1)) %>% 
-  as.data.frame %>% 
+```{r, results="asis"}
+coef(summary(mm.1)) %>%
+  as.data.frame %>%
   rownames_to_column() %>%
   mutate(OR = exp(Estimate)) %>%
-  left_join(mm.1.ci, by = 'rowname') %>%
+  left_join(mm.1.ci, by = "rowname") %>%
   select(rowname, OR, OR_LL, OR_UL, Estimate, LL, UL, everything()) %>%
   kable(digits = 3)
 ```
 
 <!-- ## Correlation of Fixed Effects -->
 
-```{r, eval=FALSE, results='asis'}
-corr = cov2cor(vcov(mm.1)) %>% as.matrix %>% round(2)
-corr[upper.tri(corr, diag = T)] = ''
-colnames(corr) = 1:10
-rownames(corr) = str_c(1:10, ' ', rownames(corr))
+```{r, eval=FALSE, results="asis"}
+corr <- cov2cor(vcov(mm.1)) %>% as.matrix %>% round(2)
+corr[upper.tri(corr, diag = T)] <- ""
+colnames(corr) <- 1:10
+rownames(corr) <- str_c(1:10, " ", rownames(corr))
 
 corr %>% as.data.frame %>% select(-10) %>% rownames_to_column
 ```
@@ -194,7 +195,7 @@ based on estimated marginal means
 *Note. This wasn't in the preregistration.*
 
 ```{r, message=FALSE}
-emmeans(mm.1, pairwise ~ delay, type = 'response')$contrasts
+emmeans(mm.1, pairwise ~ delay, type = "response")$contrasts
 ```
 
 # Model 1 plots
@@ -202,8 +203,8 @@ emmeans(mm.1, pairwise ~ delay, type = 'response')$contrasts
 ## Fixed effects
 
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
-plot_model(mm.1, title = 'Fixed Effects', order.terms = c(7, 4, 3:1, 9:8, 5, 6), width = .3,
-           show.values = T, value.size = 2.5, value.offset = .3) +
+plot_model(mm.1, title = "Fixed Effects", order.terms = c(7, 4, 3:1, 9:8, 5, 6),
+           width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
   geom_hline(yintercept = 1, lty = 2) +
   ylim(0, 3)
 ```
@@ -211,7 +212,7 @@ plot_model(mm.1, title = 'Fixed Effects', order.terms = c(7, 4, 3:1, 9:8, 5, 6),
 ## Random effects
 
 ```{r}
-ranef.plots = plot_model(mm.1, type = 're', sort.est = '(Intercept)')
+ranef.plots <- plot_model(mm.1, type = "re", sort.est = "(Intercept)")
 ```
 
 ### Block/Subject/Site
@@ -257,7 +258,7 @@ correct ~ delay * norm_age +
 ## Check colinearity in the previous model
 
 ```{r}
-col.mm1 <- glm(correct ~ delay + norm_age + 
+col.mm1 <- glm(correct ~ delay + norm_age +
                  task_experience + cup_distance + board_size + trial
                , data = model.data
                , family = binomial)
@@ -281,11 +282,11 @@ correct ~ delay * norm_age +
 Check how many different levels there are within each random effect
 
 ```{r}
-source("diagnostic_fcns.r") 
+source("diagnostic_fcns.r")
 
-Overview = fe.re.tab("correct ~ delay + task_experience + cup_distance + trial", "species", data = model.data)
+overview <- fe.re.tab("correct ~ delay + task_experience + cup_distance + trial", "species", data = model.data)
 
-Overview$summary
+overview$summary
 ```
 
 This suggests that, within species, random slopes for `task_experience` does not make much sense as most species have only 1 level. Same is true for `cup_distance`. Indeed, the model summary and random effects plot for `species` confirm that there is little variability in these estimates (they're close to zero). Therefore they are removed.
@@ -303,13 +304,13 @@ The model takes a while to run. Run next line to load model output from previous
 
 ```{r}
 mm.2 <- readRDS("06_2_mp_model2_v2.rds")
-# mm.2.ci<- readRDS("06_2_mp_model2_ci_v2.rds")
+# mm.2.ci <- readRDS("06_2_mp_model2_ci_v2.rds")
 ```
 
 ```{r, eval=FALSE}
 mm.2 <- glmer(correct ~ delay * norm_age +
               task_experience + cup_distance + trial +
-              (1 + trial + delay | site / subject_site ) +         
+              (1 + trial + delay | site/subject_site) +
               (1 + delay | species)
               , data = model.data
               , family = binomial
@@ -328,11 +329,11 @@ VarCorr(mm.2) %>% print(comp = c("Variance", "Std.Dev."), formatter = fmt, digit
 ```
 
 ```{r, fig.width=10, fig.height=8}
-plot_model(mm.2, type = 're', sort.est = '(Intercept)')[[1]]
+plot_model(mm.2, type = "re", sort.est = "(Intercept)")[[1]]
 ```
 
 ```{r, fig.width=10, fig.height=3}
-plot_model(mm.2, type = 're', sort.est = '(Intercept)')[[2]]
+plot_model(mm.2, type = "re", sort.est = "(Intercept)")[[2]]
 ```
 
 The model takes a while to run. Run next line to load model output from previous run with structure below.
@@ -343,8 +344,8 @@ mm.3 <- readRDS("06_3_mp_model3_v2.rds")
 
 ```{r, eval=FALSE}
 mm.3 <- glmer(correct ~ delay * norm_age +
-              task_experience + cup_distance +  trial +
-              (1 + delay | site / subject_site ) +         
+              task_experience + cup_distance + trial +
+              (1 + delay | site/subject_site) +
               (1 + delay | species)
               , data = model.data
               , family = binomial
@@ -362,7 +363,7 @@ Confirm model structure
 formula(mm.3)
 ```
 
-```{r, results='asis'}
+```{r, results="asis"}
 glance(mm.3) %>% kable(digits = 2)
 ```
 
@@ -382,26 +383,29 @@ CIs
 # this is not currently run
 source("boot_glmm.r")
 
-mm.3.ci = boot.glmm.pred(model.res=mm.3, excl.warnings=F, nboots=1000, para=F, resol=100, level=0.95, use=NULL, circ.var.name=NULL, circ.var=NULL, use.u=F,n.cores=c("all-1", "all"), save.path=NULL)
+mm.3.ci <- boot.glmm.pred(model.res = mm.3, excl.warnings = F, nboots = 1000,
+                         para = F, resol = 100, level = 0.95, use = NULL,
+                         circ.var.name = NULL, circ.var = NULL, use.u = F,
+                         n.cores = c("all-1", "all"), save.path = NULL)
 
 saveRDS(mm.3.ci, "06_3_mp_model3_ci_v2.rds")
 ```
 
 ```{r}
-mm.3.ci = confint(mm.3, method = 'Wald') %>% # bootstrap these later
-  as.data.frame %>% 
-  rownames_to_column %>% 
-  filter(complete.cases(.)) %>% 
+mm.3.ci <- confint(mm.3, method = "Wald") %>% # bootstrap these later
+  as.data.frame %>%
+  rownames_to_column %>%
+  filter(complete.cases(.)) %>%
   rename(LL = `2.5 %`, UL = `97.5 %`) %>%
   mutate(OR_LL = exp(LL), OR_UL = exp(UL))
 ```
 
-```{r, results='asis'}
-coef(summary(mm.3)) %>% 
-  as.data.frame %>% 
+```{r, results="asis"}
+coef(summary(mm.3)) %>%
+  as.data.frame %>%
   rownames_to_column() %>%
   mutate(OR = exp(Estimate)) %>%
-  left_join(mm.3.ci, by = 'rowname') %>%
+  left_join(mm.3.ci, by = "rowname") %>%
   select(rowname, OR, OR_LL, OR_UL, Estimate, LL, UL, everything()) %>%
   kable(digits = 3)
 ```
@@ -411,7 +415,7 @@ coef(summary(mm.3)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-emmeans(mm.3, pairwise ~ delay, type = 'response')$contrasts
+emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts
 ```
 
 # Model 3 plots
@@ -419,20 +423,20 @@ emmeans(mm.3, pairwise ~ delay, type = 'response')$contrasts
 ## Fixed effects
 
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
-plot_model(mm.3, title = "Fixed Effects", order.terms = c(6, 4, 3:1, 8:7, 5), width = .3,
-           show.values = T, value.size = 2.5, value.offset = .3) +
+plot_model(mm.3, title = "Fixed Effects", order.terms = c(6, 4, 3:1, 8:7, 5),
+           width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
   geom_hline(yintercept = 1, lty = 2) +
   ylim(.05, 3)
 ```
 
 ```{r}
-ggsave('../graphs/05_forestplot.png', width = 4, height = 2.5, scale = 2)
+ggsave("../graphs/05_forestplot.png", width = 4, height = 2.5, scale = 2)
 ```
 
 ## Random effects
 
 ```{r}
-ranef.plots2 = plot_model(mm.3, type = 're', sort.est = '(Intercept)')
+ranef.plots2 <- plot_model(mm.3, type = "re", sort.est = "(Intercept)")
 ```
 
 ### Subject/Site
@@ -486,8 +490,8 @@ anova(mm.1, mm.2, mm.3, mm.4)
 Difference
 
 ```{r}
-coef1 = coef(summary(mm.1))[c(2,3,6), 1]
-coef2 = coef(summary(mm.3))[c(2,3,6), 1]
+coef1 <- coef(summary(mm.1))[c(2, 3, 6), 1]
+coef2 <- coef(summary(mm.3))[c(2, 3, 6), 1]
 
 coef2 - coef1
 ```
