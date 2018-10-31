@@ -367,6 +367,13 @@ formula(mm.3)
 glance(mm.3) %>% kable(digits = 2)
 ```
 
+## LRT
+
+```{r}
+drop1(mm.3, test = 'Chisq')
+```
+
+
 ## Random effects
 
 ```{r}
@@ -415,8 +422,13 @@ coef(summary(mm.3)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts
+(emm = emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts)
 ```
+
+```{r, message=FALSE}
+confint(emm)
+```
+
 
 # Model 3 plots
 
