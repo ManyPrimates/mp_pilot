@@ -1,13 +1,13 @@
-species,species_latin,clade,life_expectancy,phylo,phylo4phylo
-ring_tailed_lemur,Lemur_catta,lemur,37.3,1,1
-black_and_white_ruffed_lemur,Varecia_variegata_variegata,lemur,39.4,2,2
-brown_capuchin_monkey,Cebus_apella,new_world_monkey,46,3,3
-black_faced_spider_monkey,Ateles_chamek,new_world_monkey,46,4,
-squirrel_monkey,Saimiri_sciureus,new_world_monkey,30.2,5,4
-rhesus_macaque,Macaca_mulatta,old_world_monkey,40,6,10
-long_tailed_macaque,Macaca_fascicularis,old_world_monkey,39,7,9
-barbary_macaque,Macaca_sylvanus,old_world_monkey,29.1,8,11
-chimpanzee,Pan_troglodytes_verus,ape,59.4,9,7
-bonobo,Pan_paniscus,ape,55,10,6
-gorilla,Gorilla_gorilla_gorilla,ape,60.1,11,5
-orangutan,Pongo_pygmaeus,ape,59,12,8
+species,species_formatted,species_latin,clade,clade_formatted,life_expectancy,phylo,phylo4phylo
+ring_tailed_lemur,Ring-tailed lemur,Lemur_catta,lemur,Lemur,37.3,1,1
+black_and_white_ruffed_lemur,Black-and-white ruffed lemur,Varecia_variegata_variegata,lemur,Lemur,39.4,2,2
+brown_capuchin_monkey,Brown capuchin monkey,Cebus_apella,new_world_monkey,New World monkey,46,3,3
+black_faced_spider_monkey,Black-faced spider monkey,Ateles_chamek,new_world_monkey,New World monkey,46,4,
+squirrel_monkey,Squirrel monkey,Saimiri_sciureus,new_world_monkey,New World monkey,30.2,5,4
+rhesus_macaque,Rhesus macaque,Macaca_mulatta,old_world_monkey,Old World monkey,40,6,10
+long_tailed_macaque,Long-tailed macaque,Macaca_fascicularis,old_world_monkey,Old World monkey,39,7,9
+barbary_macaque,Barbary macaque,Macaca_sylvanus,old_world_monkey,Old World monkey,29.1,8,11
+chimpanzee,Chimpanzee,Pan_troglodytes_verus,ape,Ape,59.4,9,7
+bonobo,Bonobo,Pan_paniscus,ape,Ape,55,10,6
+gorilla,Gorilla,Gorilla_gorilla_gorilla,ape,Ape,60.1,11,5
+orangutan,Orangutan,Pongo_pygmaeus,ape,Ape,59,12,8
