@@ -14,6 +14,7 @@ output:
 library(tidyverse)
 library(knitr)
 library(sjPlot)
+library(gridExtra)
 library(lme4)
 library(emmeans)
 library(car) # for vif
@@ -369,8 +370,24 @@ glance(mm.3) %>% kable(digits = 2)
 
 ## LRT
 
-```{r}
+```{r, eval=FALSE}
 drop1(mm.3, test = 'Chisq')
+```
+
+```
+Single term deletions
+
+Model:
+correct ~ delay * norm_age + task_experience + cup_distance + 
+    trial + (1 + delay | site/subject_site) + (1 + delay | species)
+                Df    AIC     LRT  Pr(Chi)    
+<none>             6836.2                     
+task_experience  1 6834.4  0.1483   0.7001    
+cup_distance     1 6854.5 20.3087 6.59e-06 ***
+trial            1 6835.0  0.7541   0.3852    
+delay:norm_age   2 6832.6  0.3836   0.8255    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 
 
@@ -422,11 +439,19 @@ coef(summary(mm.3)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-(emm = emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts)
+(emm <- emmeans(mm.3, pairwise ~ delay)$contrasts)
+```
+
+```{r}
+confint(emm)
 ```
 
 ```{r, message=FALSE}
-confint(emm)
+(emm.or <- emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts)
+```
+
+```{r, message=FALSE}
+confint(emm.or)
 ```
 
 
@@ -435,14 +460,19 @@ confint(emm)
 ## Fixed effects
 
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
-plot_model(mm.3, title = "Fixed Effects", order.terms = c(6, 4, 3:1, 8:7, 5),
+fe.3 <- plot_model(mm.3, title = "A. Fixed Effects", axis.labels = c("Cup Distance (cm)", "Normed Age x Delay\n(short vs. long)", "Normed Age x Delay\n(short vs. medium)", "Delay (short vs. long)", "Delay (short vs. medium)", "Normed Age", "Task Experience (yes)", "Trial"), wrap.labels = F,
+                  order.terms = c(6, 4, 3:1, 8:7, 5),
            width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
-  geom_hline(yintercept = 1, lty = 2) +
-  ylim(.05, 3)
+  facet_wrap(~ "") +
+  # geom_hline(yintercept = 1, lty = 2) +
+  # annotate("label", label = "A", x = 8, y = .11, size = 5) +
+  scale_y_continuous(trans = "log", limits = c(.1, 5.5), breaks = c(.1, .2, .5, 1, 2, 5))
+
+fe.3 + theme(plot.margin = unit(c(.5, 7, .5, .5), "cm"))
 ```
 
-```{r}
-ggsave("../graphs/05_forestplot.png", width = 4, height = 2.5, scale = 2)
+```{r, eval = FALSE}
+ggsave("../graphs/05_forestplot.png", fe.3, width = 3, height = 2.5, scale = 2)
 ```
 
 ## Random effects
@@ -482,6 +512,55 @@ mm.4 <- glmer(correct ~ delay * norm_age +
               , control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
         )
 ```
+
+## Random effects
+
+```{r, message=FALSE}
+phylo <- read_csv("../data/species_data.csv") %>% 
+  select(species, species_formatted, phylo)
+```
+
+```{r}
+plot.data <- get_model_data(mm.4, type = "re", show.values = T) %>%
+  left_join(phylo, by = c("term" = "species")) %>%
+  rename(species = species_formatted) %>%
+  mutate(
+    facet = fct_rev(facet),
+    facet = fct_recode(facet, "Intercept" = "species (Intercept)",
+                       "Delay (short vs. long)" = "delaylong", 
+                       "Delay (short vs. medium)" = "delaymedium")
+    )
+
+sorted <- filter(plot.data, facet == "Intercept") %>% arrange(estimate) %>% with(species)
+plot.data <- mutate(plot.data, species = factor(species, levels = sorted))
+```
+
+```{r, fig.width=6, fig.height=2.5}
+re.4 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
+  facet_grid(~ facet) +
+  geom_hline(yintercept = 1, col = "grey90", size = 1.125) +
+  # geom_hline(yintercept = 1, lty = 2) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = .3) +
+  geom_point(size = 2.5) +
+  geom_text(aes(label = p.label), nudge_x = .3, size = 2.5, show.legend = F) +
+  scale_y_continuous("Odds Ratios", trans = "log", breaks = c(.1, .2, .5, 1, 2, 5)) +
+  scale_colour_brewer(palette = "Set1") +
+  coord_flip(ylim = c(.1, 5.5)) + xlab("") +
+  guides(col = "none") +
+  ggtitle("B. Species Random Effects")
+```
+
+```{r, fig.width=8, fig.height=3}
+mat <- matrix(c(rep(1, 3), rep(2, 7)), nrow = 1)
+grid.arrange(fe.3, re.4, layout_matrix = mat)
+```
+
+```{r, warning=FALSE}
+ggsave("../graphs/05_forestplot_fe_re.png", arrangeGrob(fe.3, re.4, layout_matrix = mat), width = 8, height = 3, scale = 1.8)
+
+ggsave("../graphs/Fig3.tiff", arrangeGrob(fe.3, re.4, layout_matrix = mat), width = 8, height = 3, scale = 1.8, type = "cairo", compression = "lzw")
+```
+
 
 # Model comparison
 
