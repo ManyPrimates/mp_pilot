@@ -233,7 +233,8 @@ dpz_lem <- dpz_lem_raw %>%
                           "ring-tailed lemurs" = "ring_tailed_lemur"),
          cup_distance = str_sub(cup_distance, 1, -4) %>% as.numeric,
          board_size = str_sub(board_size, 1, 2) %>% as.numeric,
-         date = gsub("-", "", date) %>% as.numeric)
+         date = gsub("-", "", date) %>% as.numeric,
+         cup_distance = 17) # initially measured cup side to side, corrected measure sent via email
 ```
 
 ### Long-tailed Macaques
