@@ -63,7 +63,7 @@ The model below converges. Model output is saved in `06_mp_model_v2.rds`
 ```
 correct ~ delay * norm_age + 
           task_experience + cup_distance + board_size + trial + 
-          (1 + delay + trial | site/subject_site/block) + 
+          (1 + delay + trial | site/subject_site) + 
           (1 + task_experience + cup_distance + board_size + trial + delay | species)
 ```
 
@@ -216,38 +216,29 @@ plot_model(mm.1, title = "Fixed Effects", order.terms = c(7, 4, 3:1, 9:8, 5, 6),
 ranef.plots <- plot_model(mm.1, type = "re", sort.est = "(Intercept)")
 ```
 
-### Block/Subject/Site
-
-In line with the model summary above, there's essentially zero variability in the random effects estimates for this.
+### Subject/Site
 
 ```{r fig.height=20, fig.width=10}
 ranef.plots[[1]]
 ```
 
-### Subject/Site
+### Site
 
 ```{r, fig.width=10, fig.height=8}
 ranef.plots[[2]]
 ```
 
-### Site
+### Species
 
 ```{r, fig.width=10, fig.height=3}
 ranef.plots[[3]]
-```
-
-### Species
-
-```{r ranef species, fig.width=8, fig.height=2}
-ranef.plots[[4]]
 ```
 
 ***
 
 # Pruning the model
 
-- remove `block` from random effects as the estimates in the previous models were essentially 0
-- same for `trial` random slopes within `species`
+- remove `trial` random slopes within `species` as the estimates in the previous models were essentially 0
 
 ```
 correct ~ delay * norm_age + 
@@ -267,16 +258,7 @@ col.mm1 <- glm(correct ~ delay + norm_age +
 vif(col.mm1)
 ```
 
-`board_size` and `cup_distance` show high colinearity
-
-Remove `board_size` as it is highly correlated with `cup_distance`. Cup distance seems to be of more immediate relevance.
-
-```
-correct ~ delay * norm_age + 
-          task_experience + cup_distance + trial +
-          (1 + delay + trial | site/subject_site ) +         
-          (1 + task_experience + cup_distance + delay | species)
-```
+No signs of high colinaearity.
 
 ## Check levels of random effects
 
@@ -285,16 +267,16 @@ Check how many different levels there are within each random effect
 ```{r}
 source("diagnostic_fcns.r")
 
-overview <- fe.re.tab("correct ~ delay + task_experience + cup_distance + trial", "species", data = model.data)
+overview <- fe.re.tab("correct ~ delay + task_experience + board_size + cup_distance + trial", "species", data = model.data)
 
 overview$summary
 ```
 
-This suggests that, within species, random slopes for `task_experience` does not make much sense as most species have only 1 level. Same is true for `cup_distance`. Indeed, the model summary and random effects plot for `species` confirm that there is little variability in these estimates (they're close to zero). Therefore they are removed.
+This suggests that, within species, random slopes for `task_experience` does not make much sense as most species have only 1 level. Same is true for `cup_distance` and `board_size`. Indeed, the model summary and random effects plot for `species` confirm that there is little variability in these estimates (they're close to zero). Therefore they are removed.
 
 ```
 correct ~ delay * norm_age + 
-          task_experience + cup_distance + trial +
+          task_experience + cup_distance + board_size + trial +
           (1 + delay + trial | site/subject_site ) +         
           (1 + delay | species)
 ```
@@ -310,7 +292,7 @@ mm.2 <- readRDS("06_2_mp_model2_v2.rds")
 
 ```{r, eval=FALSE}
 mm.2 <- glmer(correct ~ delay * norm_age +
-              task_experience + cup_distance + trial +
+              task_experience + cup_distance + board_size + trial +
               (1 + trial + delay | site/subject_site) +
               (1 + delay | species)
               , data = model.data
@@ -345,7 +327,7 @@ mm.3 <- readRDS("06_3_mp_model3_v2.rds")
 
 ```{r, eval=FALSE}
 mm.3 <- glmer(correct ~ delay * norm_age +
-              task_experience + cup_distance + trial +
+              task_experience + cup_distance + board_size  + trial +
               (1 + delay | site/subject_site) +
               (1 + delay | species)
               , data = model.data
@@ -460,8 +442,8 @@ confint(emm.or)
 ## Fixed effects
 
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
-fe.3 <- plot_model(mm.3, title = "A. Fixed Effects", axis.labels = c("Cup Distance (cm)", "Normed Age x Delay\n(short vs. long)", "Normed Age x Delay\n(short vs. medium)", "Delay (short vs. long)", "Delay (short vs. medium)", "Normed Age", "Task Experience (yes)", "Trial"), wrap.labels = F,
-                  order.terms = c(6, 4, 3:1, 8:7, 5),
+fe.3 <- plot_model(mm.3, title = "A. Fixed Effects", axis.labels = c("Trial", "Task Experience (yes)","Board Size (cm)", "Cup Distance (cm)", "Normed Age x Delay\n(short vs. medium)", "Normed Age x Delay\n(short vs. long)", "Normed Age", "Delay (short vs. long)", "Delay (short vs. medium)"), wrap.labels = F,
+                  order.terms = c(2:1,3,8:9,5,6,4, 7),
            width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
   facet_wrap(~ "") +
   # geom_hline(yintercept = 1, lty = 2) +
@@ -543,9 +525,9 @@ re.4 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = .3) +
   geom_point(size = 2.5) +
   geom_text(aes(label = p.label), nudge_x = .3, size = 2.5, show.legend = F) +
-  scale_y_continuous("Odds Ratios", trans = "log", breaks = c(.1, .2, .5, 1, 2, 5)) +
+  scale_y_continuous("Odds Ratios", trans = "log", breaks = c(.1, .2, .5, 1, 2, 5,10,20,40)) +
   scale_colour_brewer(palette = "Set1") +
-  coord_flip(ylim = c(.1, 5.5)) + xlab("") +
+  coord_flip(ylim = c(.1, 42.5)) + xlab("") +
   guides(col = "none") +
   ggtitle("B. Species Random Effects")
 ```
