@@ -385,6 +385,10 @@ CIs
 
 <!-- Bootstrap function by Roger Mundry @ MPI EVA -->
 
+```{r}
+mm.3.ci <- readRDS("06_3_mp_model3_ci_v2.rds")
+```
+
 ```{r, eval=FALSE}
 # this is not currently run
 source("boot_glmm.r")
@@ -398,12 +402,12 @@ saveRDS(mm.3.ci, "06_3_mp_model3_ci_v2.rds")
 ```
 
 ```{r}
-mm.3.ci <- confint(mm.3, method = "Wald") %>% # bootstrap these later
-  as.data.frame %>%
-  rownames_to_column %>%
-  filter(complete.cases(.)) %>%
-  rename(LL = `2.5 %`, UL = `97.5 %`) %>%
-  mutate(OR_LL = exp(LL), OR_UL = exp(UL))
+# mm.3.ci <- confint(mm.3, method = "Wald") %>% # bootstrap these later
+#   as.data.frame %>%
+#   rownames_to_column %>%
+#   filter(complete.cases(.)) %>%
+#   rename(LL = `2.5 %`, UL = `97.5 %`) %>%
+#   mutate(OR_LL = exp(LL), OR_UL = exp(UL))
 ```
 
 ```{r, results="asis"}
@@ -411,8 +415,8 @@ coef(summary(mm.3)) %>%
   as.data.frame %>%
   rownames_to_column() %>%
   mutate(OR = exp(Estimate)) %>%
-  left_join(mm.3.ci, by = "rowname") %>%
-  select(rowname, OR, OR_LL, OR_UL, Estimate, LL, UL, everything()) %>%
+  cbind(mm.3.ci$ci.estimates%>%select(X2.5.,X97.5.)) %>%
+  select(rowname, OR, Estimate, X2.5., X97.5., everything()) %>%
   kable(digits = 3)
 ```
 
