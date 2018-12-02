@@ -415,9 +415,9 @@ ggsave("../graphs/02_10_age_by_delay_species.png", width = 4, height = 3.4, scal
 ```
 
 
-# Cup distance
+# Cup distance and board size
 
-(sig. effect in preliminary model)
+(sig. effect in model)
 
 ```{r}
 plot_cup <- mp_data %>%
@@ -427,17 +427,44 @@ plot_cup <- mp_data %>%
 
 ```{r plotting cup distance, fig.width=4, fig.height=2}
 cp <- ggplot(plot_cup, aes(x = cup_distance, y = correct)) +
-  geom_jitter(aes(col = clade), width = .5, height = .15, alpha = .5, size = 2) +
+  geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
   geom_smooth(method = "lm", col = "black") +
   labs(x = "Cup Distance in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
   scale_color_solarized("Clade") +
-  ylim(c(-.05, 1.05))
+  ylim(c(-.05, 1.05))+
+  ggtitle("A. Cup Distance")
 
 cp + theme(plot.margin = unit(c(.5, 5, .5, .5), "cm"))
 ```
 
 ```{r}
-ggsave("../graphs/02_11_cup_distance.png", cp, width = 3, height = 2, scale = 2)
+plot_board <- mp_data %>%
+   group_by(subject_site, board_size, clade, species, delay) %>%
+   summarise(correct = mean(correct))
+```
+
+```{r plotting board size, fig.width=4, fig.height=2}
+bp <- ggplot(plot_board, aes(x = board_size, y = correct)) +
+  geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
+  geom_smooth(method = "lm", col = "black") +
+  labs(x = "Board Size in cm", y = "Proportion Correct") +
+  geom_hline(yintercept = 1/3, lty = 2) +
+  scale_color_solarized("Clade") +
+  ylim(c(-.05, 1.05))+
+  ggtitle("B. Board Size")
+
+bp + theme(plot.margin = unit(c(.5, 5, .5, .5), "cm"))
+
+```
+
+```{r, fig.width=8, fig.height=3}
+library(ggpubr)
+pcb <- ggarrange(cp, bp, common.legend = T, legend = "right")
+```
+
+
+```{r}
+ggsave("../graphs/02_11_cup_distance_board_size.png", pcb, width = 8, height = 3, scale = 1.5)
 ```
 
