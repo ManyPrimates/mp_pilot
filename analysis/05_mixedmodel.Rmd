@@ -1,7 +1,6 @@
 ---
 title: "ManyPrimates pilot mixed modeling"
-author: "Drew Altschul"
-date: "18 Oct 2018"
+author: "Drew Altschul, Manuel Bohn, Julia Watzek"
 output:
   html_notebook:
     css: style.css
@@ -73,7 +72,7 @@ After pruning random effects with little variability and removing `board_size`, 
 
 ```
 correct ~ delay * norm_age + 
-          task_experience + cup_distance + trial + 
+          task_experience + cup_distance + board_size + trial + 
           (1 + delay | site/subject_site) + 
           (1 + delay | species)
 ```
@@ -108,8 +107,7 @@ model.data <- mp_data %>%
 The model takes a while to run. Run next line to load model output from previous run with structure below.
 
 ```{r}
-# mm.1 <- readRDS("06_mp_model.rds")
-mm.1 <- readRDS("06_mp_model_v2.rds")
+mm.1 <- readRDS("06_mp_model1.rds")
 ```
 
 ```{r, eval=FALSE}
@@ -122,7 +120,7 @@ mm.1 <- glmer(correct ~ delay * norm_age +
              , control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
              )
 
-saveRDS(mm.1, "06_mp_model_v2.rds")
+saveRDS(mm.1, "06_mp_model1.rds")
 ```
 
 Some diagnostics
@@ -239,11 +237,12 @@ ranef.plots[[3]]
 # Pruning the model
 
 - remove `trial` random slopes within `species` as the estimates in the previous models were essentially 0
+- remove `trial` from the random slopes for `subject/site` for the same reason
 
 ```
 correct ~ delay * norm_age + 
           task_experience + cup_distance + board_size + trial +
-          (1 + delay + trial | site/subject_site ) +         
+          (1 + delay | site/subject_site ) +         
           (1 + task_experience + cup_distance + board_size + delay | species)
 ```
 
@@ -258,7 +257,7 @@ col.mm1 <- glm(correct ~ delay + norm_age +
 vif(col.mm1)
 ```
 
-No signs of high colinaearity.
+No signs of high colinearity.
 
 ## Check levels of random effects
 
@@ -283,50 +282,12 @@ correct ~ delay * norm_age +
 
 # Model 2
 
-The model takes a while to run. Run next line to load model output from previous run with structure below.
-
 ```{r}
-mm.2 <- readRDS("06_2_mp_model2_v2.rds")
-# mm.2.ci <- readRDS("06_2_mp_model2_ci_v2.rds")
+mm.2 <- readRDS("06_mp_model2.rds")
 ```
 
 ```{r, eval=FALSE}
 mm.2 <- glmer(correct ~ delay * norm_age +
-              task_experience + cup_distance + board_size + trial +
-              (1 + trial + delay | site/subject_site) +
-              (1 + delay | species)
-              , data = model.data
-              , family = binomial
-              , control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
-              )
-
-saveRDS(mm.2, "06_2_mp_model2_v2.rds")
-```
-
-# Model 3
-
-Remove `trial` from the random slopes for subject/site as it's near zero both in `mm.1` and even more so in `mm.2`
-
-```{r}
-VarCorr(mm.2) %>% print(comp = c("Variance", "Std.Dev."), formatter = fmt, digits = 3)
-```
-
-```{r, fig.width=10, fig.height=8}
-plot_model(mm.2, type = "re", sort.est = "(Intercept)")[[1]]
-```
-
-```{r, fig.width=10, fig.height=3}
-plot_model(mm.2, type = "re", sort.est = "(Intercept)")[[2]]
-```
-
-The model takes a while to run. Run next line to load model output from previous run with structure below.
-
-```{r}
-mm.3 <- readRDS("06_3_mp_model3_v2.rds")
-```
-
-```{r, eval=FALSE}
-mm.3 <- glmer(correct ~ delay * norm_age +
               task_experience + cup_distance + board_size  + trial +
               (1 + delay | site/subject_site) +
               (1 + delay | species)
@@ -335,7 +296,7 @@ mm.3 <- glmer(correct ~ delay * norm_age +
               , control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
               )
 
-saveRDS(mm.3, "06_3_mp_model3_v2.rds")
+saveRDS(mm.2, "06_mp_model2.rds")
 ```
 
 ## Model summary
@@ -343,17 +304,17 @@ saveRDS(mm.3, "06_3_mp_model3_v2.rds")
 Confirm model structure
 
 ```{r}
-formula(mm.3)
+formula(mm.2)
 ```
 
 ```{r, results="asis"}
-glance(mm.3) %>% kable(digits = 2)
+glance(mm.2) %>% kable(digits = 2)
 ```
 
 ## LRT
 
 ```{r, eval=FALSE}
-drop1(mm.3, test = 'Chisq')
+drop1(mm.2, test = 'Chisq')
 ```
 
 ```
@@ -361,13 +322,15 @@ Single term deletions
 
 Model:
 correct ~ delay * norm_age + task_experience + cup_distance + 
-    trial + (1 + delay | site/subject_site) + (1 + delay | species)
-                Df    AIC     LRT  Pr(Chi)    
-<none>             6836.2                     
-task_experience  1 6834.4  0.1483   0.7001    
-cup_distance     1 6854.5 20.3087 6.59e-06 ***
-trial            1 6835.0  0.7541   0.3852    
-delay:norm_age   2 6832.6  0.3836   0.8255    
+    board_size + trial + (1 + delay | site/subject_site) + (1 + 
+    delay | species)
+                Df    AIC     LRT   Pr(Chi)    
+<none>             6838.5                      
+task_experience  1 6836.5  0.0074 0.9314327    
+cup_distance     1 6848.6 12.0934 0.0005060 ***
+board_size       1 6847.9 11.3967 0.0007357 ***
+trial            1 6837.1  0.5912 0.4419742    
+delay:norm_age   2 6835.3  0.8225 0.6628194    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
@@ -376,46 +339,35 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ## Random effects
 
 ```{r}
-VarCorr(mm.3) %>% print(comp = c("Variance", "Std.Dev."), formatter = fmt, digits = 3)
+VarCorr(mm.2) %>% print(comp = c("Variance", "Std.Dev."), formatter = fmt, digits = 3)
 ```
 
 ## Fixed effects
 
 CIs
 
-<!-- Bootstrap function by Roger Mundry @ MPI EVA -->
-
 ```{r}
-mm.3.ci <- readRDS("06_3_mp_model3_ci_v2.rds")
+mm.2.ci <- readRDS("06_mp_model2_ci.rds")
 ```
 
 ```{r, eval=FALSE}
-# this is not currently run
+# Bootstrap function by Roger Mundry @ MPI EVA
 source("boot_glmm.r")
 
-mm.3.ci <- boot.glmm.pred(model.res = mm.3, excl.warnings = F, nboots = 1000,
+mm.2.ci <- boot.glmm.pred(model.res = mm.2, excl.warnings = F, nboots = 1000,
                          para = F, resol = 100, level = 0.95, use = NULL,
                          circ.var.name = NULL, circ.var = NULL, use.u = F,
                          n.cores = c("all-1", "all"), save.path = NULL)
 
-saveRDS(mm.3.ci, "06_3_mp_model3_ci_v2.rds")
-```
-
-```{r}
-# mm.3.ci <- confint(mm.3, method = "Wald") %>% # bootstrap these later
-#   as.data.frame %>%
-#   rownames_to_column %>%
-#   filter(complete.cases(.)) %>%
-#   rename(LL = `2.5 %`, UL = `97.5 %`) %>%
-#   mutate(OR_LL = exp(LL), OR_UL = exp(UL))
+saveRDS(mm.2.ci, "06_mp_model2_ci.rds")
 ```
 
 ```{r, results="asis"}
-coef(summary(mm.3)) %>%
+coef(summary(mm.2)) %>%
   as.data.frame %>%
   rownames_to_column() %>%
   mutate(OR = exp(Estimate)) %>%
-  cbind(mm.3.ci$ci.estimates%>%select(X2.5.,X97.5.)) %>%
+  cbind(mm.2.ci$ci.estimates[, 2:3]) %>%
   select(rowname, OR, Estimate, X2.5., X97.5., everything()) %>%
   kable(digits = 3)
 ```
@@ -425,7 +377,7 @@ coef(summary(mm.3)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-(emm <- emmeans(mm.3, pairwise ~ delay)$contrasts)
+(emm <- emmeans(mm.2, pairwise ~ delay)$contrasts)
 ```
 
 ```{r}
@@ -433,7 +385,7 @@ confint(emm)
 ```
 
 ```{r, message=FALSE}
-(emm.or <- emmeans(mm.3, pairwise ~ delay, type = "response")$contrasts)
+(emm.or <- emmeans(mm.2, pairwise ~ delay, type = "response")$contrasts)
 ```
 
 ```{r, message=FALSE}
@@ -441,30 +393,33 @@ confint(emm.or)
 ```
 
 
-# Model 3 plots
+# Model 2 plots
 
 ## Fixed effects
 
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
-fe.3 <- plot_model(mm.3, title = "A. Fixed Effects", axis.labels = c("Trial", "Task Experience (yes)","Board Size (cm)", "Cup Distance (cm)", "Normed Age x Delay\n(short vs. medium)", "Normed Age x Delay\n(short vs. long)", "Normed Age", "Delay (short vs. long)", "Delay (short vs. medium)"), wrap.labels = F,
-                  order.terms = c(2:1,3,8:9,5,6,4, 7),
-           width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
+fe.2 <- plot_model(mm.2, title = "A. Fixed Effects", 
+                   axis.labels = c("Trial", "Task Experience (yes)","Board Size (cm)", 
+                                   "Cup Distance (cm)", "Normed Age x Delay\n(short vs. long)",
+                                   "Normed Age x Delay\n(short vs. medium)", "Normed Age", 
+                                   "Delay (short vs. long)", "Delay (short vs. medium)"), 
+                   order.terms = c(2:1, 3, 9:8, 5, 6, 4, 7), wrap.labels = F,
+                   width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
   facet_wrap(~ "") +
   # geom_hline(yintercept = 1, lty = 2) +
-  # annotate("label", label = "A", x = 8, y = .11, size = 5) +
   scale_y_continuous(trans = "log", limits = c(.1, 5.5), breaks = c(.1, .2, .5, 1, 2, 5))
 
-fe.3 + theme(plot.margin = unit(c(.5, 7, .5, .5), "cm"))
+fe.2 + theme(plot.margin = unit(c(.5, 7, .5, .5), "cm"))
 ```
 
 ```{r, eval = FALSE}
-ggsave("../graphs/05_forestplot.png", fe.3, width = 3, height = 2.5, scale = 2)
+ggsave("../graphs/05_forestplot.png", fe.2, width = 3, height = 2.5, scale = 2)
 ```
 
 ## Random effects
 
 ```{r}
-ranef.plots2 <- plot_model(mm.3, type = "re", sort.est = "(Intercept)")
+ranef.plots2 <- plot_model(mm.2, type = "re", sort.est = "(Intercept)")
 ```
 
 ### Subject/Site
@@ -485,12 +440,12 @@ ranef.plots2[[2]]
 ranef.plots2[[3]]
 ```
 
-# Model 4
+# Model 3
 
 - further remove subject/site random effects to look at species differences (from preregistration)
 
 ```{r}
-mm.4 <- glmer(correct ~ delay * norm_age +
+mm.3 <- glmer(correct ~ delay * norm_age +
                 task_experience + cup_distance + trial +
                 (1 + delay | species)
               , data = model.data
@@ -502,12 +457,11 @@ mm.4 <- glmer(correct ~ delay * norm_age +
 ## Random effects
 
 ```{r, message=FALSE}
-phylo <- read_csv("../data/species_data.csv") %>% 
-  select(species, species_formatted, phylo)
+phylo <- read_csv("../data/species_data.csv") %>% select(species, species_formatted, phylo)
 ```
 
 ```{r}
-plot.data <- get_model_data(mm.4, type = "re", show.values = T) %>%
+plot.data <- get_model_data(mm.3, type = "re", show.values = T) %>%
   left_join(phylo, by = c("term" = "species")) %>%
   rename(species = species_formatted) %>%
   mutate(
@@ -522,7 +476,7 @@ plot.data <- mutate(plot.data, species = factor(species, levels = sorted))
 ```
 
 ```{r, fig.width=6, fig.height=2.5}
-re.4 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
+re.3 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
   facet_grid(~ facet) +
   geom_hline(yintercept = 1, col = "grey90", size = 1.125) +
   # geom_hline(yintercept = 1, lty = 2) +
@@ -538,13 +492,13 @@ re.4 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
 
 ```{r, fig.width=8, fig.height=3}
 mat <- matrix(c(rep(1, 3), rep(2, 7)), nrow = 1)
-grid.arrange(fe.3, re.4, layout_matrix = mat)
+grid.arrange(fe.2, re.3, layout_matrix = mat)
 ```
 
 ```{r, warning=FALSE}
-ggsave("../graphs/05_forestplot_fe_re.png", arrangeGrob(fe.3, re.4, layout_matrix = mat), width = 8, height = 3, scale = 1.8)
+ggsave("../graphs/05_forestplot_fe_re.png", arrangeGrob(fe.2, re.3, layout_matrix = mat), width = 8, height = 3, scale = 1.8)
 
-ggsave("../graphs/Fig3.tiff", arrangeGrob(fe.3, re.4, layout_matrix = mat), width = 8, height = 3, scale = 1.8, type = "cairo", compression = "lzw")
+ggsave("../graphs/Fig3.tiff", arrangeGrob(fe.2, re.3, layout_matrix = mat), width = 8, height = 3, scale = 1.8, type = "cairo", compression = "lzw")
 ```
 
 
@@ -555,11 +509,11 @@ We're looking for the lowest AIC(c) as the model with the 'best fit' with a reas
 Indeed, the reduced model seems to do a better job of striking that balance between fitting the data with fewer parameters.
 
 ```{r}
-AICctab(mm.1, mm.2, mm.3, mm.4, logLik = T, weights = T)
+AICctab(mm.1, mm.2, mm.3, logLik = T, weights = T)
 ```
 
 ```{r}
-anova(mm.1, mm.2, mm.3, mm.4)
+anova(mm.1, mm.2, mm.3)
 ```
 
 ## Difference in regression coefficients
@@ -568,7 +522,7 @@ Difference
 
 ```{r}
 coef1 <- coef(summary(mm.1))[c(2, 3, 6), 1]
-coef2 <- coef(summary(mm.3))[c(2, 3, 6), 1]
+coef2 <- coef(summary(mm.2))[c(2, 3, 6), 1]
 
 coef2 - coef1
 ```
