@@ -377,21 +377,47 @@ coef(summary(mm.2)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-(emm <- emmeans(mm.2, pairwise ~ delay)$contrasts)
+# Wald CIs
+emmeans(mm.2, pairwise ~ delay)$contrasts %>% confint
+```
+
+code to bootstrap these CIs instead
+
+```{r}
+boot.pairs <- function(m) suppressMessages(summary(pairs(emmeans(m, "delay")))$estimate)
+
+boot.emm <- function(m, n = 1000) {
+  boo <- bootMer(m, FUN = boot.pairs, nsim = n, parallel = "multicore", ncpus = 4)
+  ci <- sapply(1:3, function(j) quantile(boo$t[,j], prob = c(.025, .975), na.rm = T))
+  ci <- t(rbind(boo$t0, ci))
+  rownames(ci) <- c("short vs. long", "short vs. medium", "medium vs. long")
+
+  return(ci)
+}
+```
+
+This took ~13 hours to run on 4 cores on my machine (jw). Skip this chunk and run the next one to load CIs from previous run.
+
+```{r, eval=FALSE}
+system.time(mm2.emm.ci <- boot.emm(mm.2, n = 1000))
+saveRDS(mm2.emm.ci, "06_mp_model2_emm_ci.rds")
+```
+
+```
+      user     system    elapsed 
+130648.652   1127.768  47989.548
 ```
 
 ```{r}
-confint(emm)
+mm2.emm.ci <- readRDS("06_mp_model2_emm_ci.rds")
+round(mm2.emm.ci, 2)
 ```
 
-```{r, message=FALSE}
-(emm.or <- emmeans(mm.2, pairwise ~ delay, type = "response")$contrasts)
-```
+odds ratios
 
-```{r, message=FALSE}
-confint(emm.or)
+```{r}
+round(exp(mm2.emm.ci), 2)
 ```
-
 
 # Model 2 plots
 
