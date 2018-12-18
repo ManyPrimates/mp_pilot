@@ -377,11 +377,10 @@ coef(summary(mm.2)) %>%
 based on estimated marginal means
 
 ```{r, message=FALSE}
-# Wald CIs
-emmeans(mm.2, pairwise ~ delay)$contrasts %>% confint
+emmeans(mm.2, pairwise ~ delay)$contrasts
 ```
 
-code to bootstrap these CIs instead
+code to bootstrap these CIs (`confint(emmeans(...)` gets Wald CIs)
 
 ```{r}
 boot.pairs <- function(m) suppressMessages(summary(pairs(emmeans(m, "delay")))$estimate)
