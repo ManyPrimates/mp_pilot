@@ -56,6 +56,15 @@ phylo.df.all <- mp_data %>%
   summarise(M = mean(correct), SD = sd(correct))
 ```
 
+Aggregate only across medium and long delays
+
+```{r}
+phylo.df.all <- mp_data %>%
+  filter(delay != "short")%>%
+  group_by(species) %>%
+  summarise(M = mean(correct), SD = sd(correct))
+```
+
 ```{r}
 ## uncomment these to run it for specific delay levels
 # phylo.df.all <- filter(phylo.df, delay == "short")
