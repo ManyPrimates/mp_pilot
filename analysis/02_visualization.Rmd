@@ -17,7 +17,7 @@ library(ggthemes)
 library(gridExtra)
 library(ggpubr) # for ggarrange
 library(langcog) # for multi_boot_standard
-  
+
 theme_set(theme_few())
 
 # langcog package is installed by running
@@ -472,11 +472,12 @@ bp <- ggplot(plot_board, aes(x = board_size, y = correct)) +
 pcb <- ggarrange(cp, bp, common.legend = T, legend = "right")
 ```
 
-```{r, fig.width=8, fig.height=3}
+```{r, fig.width=6, fig.height=2.3}
 pcb
 ```
 
 ```{r}
-ggsave("../graphs/02_11_cup_distance_board_size.png", pcb, width = 8, height = 3, scale = 1.5)
+ggsave("../graphs/02_11_cup_distance_board_size.png", pcb, width = 6, height = 2.3, scale = 2)
+ggsave("../graphs/FigS1.tiff", pcb, width = 6, height = 2.3, scale = 2, type = "cairo", compression = "lzw")
 ```
 
