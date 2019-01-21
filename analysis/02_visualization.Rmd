@@ -164,7 +164,7 @@ ch <- p2 + aes(x = delay, y = correct, col = delay) +
   geom_text(data = filter(ns, species == "Chimpanzee"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
   facet_grid(site ~ ., switch = "y") +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized(breaks = c("short", "medium", "long")) +
+  scale_colour_solarized("Delay", breaks = c("short", "medium", "long")) +
   ggtitle("Chimpanzees") +
   coord_flip()
 
@@ -219,7 +219,7 @@ cap <- p2 + aes(x = delay, y = correct, col = delay) +
   geom_text(data = filter(ns, species == "Brown capuchin monkey"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
   facet_grid(site ~ ., switch = "y") +
   theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized(breaks = c("short", "medium", "long")) +
+  scale_colour_solarized("Delay", breaks = c("short", "medium", "long")) +
   ggtitle("Capuchin Monkeys") +
   coord_flip()
 ```
