@@ -15,6 +15,7 @@ output:
 library(tidyverse)
 library(ggthemes)
 library(gridExtra)
+library(ggpubr) # for ggarrange
 library(langcog) # for multi_boot_standard
   
 theme_set(theme_few())
@@ -50,7 +51,16 @@ mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.cs
          species = reorder(species, phylo),
          clade = clade_formatted,
          clade = fct_relevel(clade, "Lemur", "New World monkey", "Old World monkey", "Ape"),
-         delay = factor(delay))
+         delay = factor(delay),
+         site = fct_recode(site, 
+                           "Edinburgh Zoo" = "edinburgh", 
+                           "Kumamoto Sanctuary" = "kumamoto sanctuary",
+                           "Wolfgang Köhler Primate\nResearch Center" = "Leipzig Zoo",
+                           "Sweetwaters Chimpanzee   \nSanctuary Group 1" = "sweetwaters",
+                           "Sweetwaters Chimpanzee\nSanctuary Group 2" = "sweetwaters_group2",
+                           "Language Research Center" = "LRC"
+                           )
+)
 ```
 
 # Overview by species
@@ -148,7 +158,7 @@ chimp_plot_group <- chimp_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=2.5}
-p2 + aes(x = delay, y = correct, col = delay) +
+ch <- p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = chimp_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = chimp_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == "Chimpanzee"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
@@ -157,13 +167,9 @@ p2 + aes(x = delay, y = correct, col = delay) +
   scale_colour_solarized(breaks = c("short", "medium", "long")) +
   ggtitle("Chimpanzees") +
   coord_flip()
-```
 
-```{r}
-# ggsave("../graphs/02_03_chimp_by_site.png", width = 4, height = 2.5, scale = 2, type = "cairo", compression = "lzw")
-ggsave("../graphs/02_03_chimp_by_site.png", width = 4, height = 2.5, scale = 2)
+ch
 ```
-
 
 ## Ring-tailed lemurs
 
@@ -207,7 +213,7 @@ cap_plot_group <- cap_plot_individual %>%
 ```
 
 ```{r, fig.width=4, fig.height=1.2}
-p2 + aes(x = delay, y = correct, col = delay) +
+cap <- p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = cap_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
   geom_pointrange(data = cap_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
   geom_text(data = filter(ns, species == "Brown capuchin monkey"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
@@ -219,7 +225,16 @@ p2 + aes(x = delay, y = correct, col = delay) +
 ```
 
 ```{r}
-ggsave("../graphs/02_05_capuchin_by_site.png", width = 4, height = 1.2, scale = 2)
+lay <- matrix(c(1, 1, 2))
+```
+
+```{r, fig.width=4, fig.height=4}
+grid.arrange(ch, cap, layout_matrix = lay)
+```
+
+```{r}
+ggsave("../graphs/02_05_chimp_capuchin_by_site.png", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2)
+ggsave("../graphs/Fig5.tiff", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2, type = "cairo", compression = "lzw")
 ```
 
 ## Bonobos
@@ -383,7 +398,7 @@ plot_age <- mp_data %>%
 ```{r, fig.width=4, fig.height=1.3}
 ggplot(plot_age, aes(x = norm_age, y = correct)) +
   geom_jitter(aes(col = clade), width = .05, height = .05, alpha = .5, size = 2.5) +
-  geom_smooth(method = "lm", col = "black") +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   # geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
   facet_grid(~ delay) +
@@ -400,7 +415,7 @@ ggsave("../graphs/Fig4.tiff", width = 4, height = 1.3, scale = 2, type = "cairo"
 ```{r, fig.width=4, fig.height=3.4}
 ggplot(plot_age, aes(x = norm_age, y = correct)) +
   geom_jitter(aes(fill = species), width = .05, height = .05, alpha = .5, size = 2.5, shape = 21, stroke = 0) +
-  geom_smooth(aes(col = delay), method = "lm", show.legend = F) +
+  geom_smooth(aes(col = delay), method = "glm", method.args = list(family = "binomial"), show.legend = F) +
   geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
   facet_grid(delay ~ clade, scales = "free_x") +
@@ -425,17 +440,15 @@ plot_cup <- mp_data %>%
    summarise(correct = mean(correct))
 ```
 
-```{r plotting cup distance, fig.width=4, fig.height=2}
+```{r plotting cup distance}
 cp <- ggplot(plot_cup, aes(x = cup_distance, y = correct)) +
   geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
-  geom_smooth(method = "lm", col = "black") +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   labs(x = "Cup Distance in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
   scale_color_solarized("Clade") +
-  ylim(c(-.05, 1.05))+
+  ylim(c(-.05, 1.05)) +
   ggtitle("A. Cup Distance")
-
-cp + theme(plot.margin = unit(c(.5, 5, .5, .5), "cm"))
 ```
 
 ```{r}
@@ -444,25 +457,24 @@ plot_board <- mp_data %>%
    summarise(correct = mean(correct))
 ```
 
-```{r plotting board size, fig.width=4, fig.height=2}
+```{r plotting board size}
 bp <- ggplot(plot_board, aes(x = board_size, y = correct)) +
   geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
-  geom_smooth(method = "lm", col = "black") +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   labs(x = "Board Size in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
   scale_color_solarized("Clade") +
-  ylim(c(-.05, 1.05))+
+  ylim(c(-.05, 1.05)) +
   ggtitle("B. Board Size")
-
-bp + theme(plot.margin = unit(c(.5, 5, .5, .5), "cm"))
-
 ```
 
-```{r, fig.width=8, fig.height=3}
-library(ggpubr)
+```{r}
 pcb <- ggarrange(cp, bp, common.legend = T, legend = "right")
 ```
 
+```{r, fig.width=8, fig.height=3}
+pcb
+```
 
 ```{r}
 ggsave("../graphs/02_11_cup_distance_board_size.png", pcb, width = 8, height = 3, scale = 1.5)

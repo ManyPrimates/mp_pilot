@@ -172,4 +172,15 @@ errorbar.contMap(obj)
 dev.off()
 ```
 
+```{r}
+tiff("../graphs/Fig6.tiff", width = 10, height = 6, unit = "in", res = 300, type = "cairo", compression = "lzw")
+
+obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
+obj <- setMap(obj, pal)
+plot(obj, mar = c(1, 4.1, 2, 1)) #bltr
+errorbar.contMap(obj)
+
+dev.off()
+```
+
 ![](../graphs/07_ancestral_state.png)
