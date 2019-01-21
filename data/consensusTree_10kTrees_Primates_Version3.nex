@@ -1,0 +1,17 @@
+#NEXUS
+[created by the 10kTree Website - http://10kTrees.fas.harvard.edu]
+BEGIN TREES;
+translate
+1 Lemur_catta,
+2 Varecia_variegata_variegata,
+3 Cebus_apella,
+4 Saimiri_sciureus,
+5 Gorilla_gorilla_gorilla,
+6 Pan_paniscus,
+7 Pan_troglodytes_verus,
+8 Pongo_abelii,
+9 Macaca_fascicularis,
+10 Macaca_mulatta,
+11 Macaca_sylvanus;
+tree consensus_11species = (((((9:0.026909,10:0.022634):0.020741,11:0.043875):0.176551,((5:0.041841,(6:0.012528,7:0.012299):0.034609):0.036137,8:0.084649):0.091866):0.094920,(3:0.100147,4:0.132533):0.203544):0.187179,(1:0.083031,2:0.095389):0.200503);
+END;
