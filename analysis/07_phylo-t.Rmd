@@ -165,7 +165,7 @@ png("../graphs/07_ancestral_state.png", width = 10, height = 6, unit = "in", res
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
-plot(obj, mar = c(1, 4.1, 2, 1)) #bltr
+plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.05, .8)) #bltr
 errorbar.contMap(obj)
 
 dev.off()
@@ -176,10 +176,11 @@ tiff("../graphs/Fig6.tiff", width = 10, height = 6, unit = "in", res = 300, type
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
-plot(obj, mar = c(1, 4.1, 2, 1)) #bltr
+plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.05, .8)) #bltr
 errorbar.contMap(obj)
 
 dev.off()
 ```
 
 ![](../graphs/07_ancestral_state.png)
+
