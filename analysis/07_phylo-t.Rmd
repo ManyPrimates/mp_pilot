@@ -20,8 +20,7 @@ exclude the lone spider monkey
 
 ```{r,message=FALSE}
 species_data <- read_csv("../data/species_data.csv")
-mp.tree <- read.nexus("../data/TreeBlock_10kTrees_Primates_Version3.nex")[[1]]
-# mp.tree <- read.nexus("../data/consensusTree_10kTrees_Primates_Version3.nex")
+mp.tree <- read.nexus("../data/consensusTree_10kTrees_Primates_Version3.nex")
 mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.csv") %>%
   filter(species != "black_faced_spider_monkey")
 ```
