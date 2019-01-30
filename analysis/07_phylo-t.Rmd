@@ -26,6 +26,15 @@ mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.cs
 ```
 
 ```{r}
+temp <- tibble(label = mp.tree$tip.label) %>%
+  left_join(species_data, by = c("label" = "species_latin"))
+```
+
+```{r}
+mp.tree$tip.label <- temp$species_formatted
+```
+
+```{r}
 # summary(mp.tree)
 # head(mp.tree)
 ```
@@ -75,12 +84,12 @@ phylo.df.all <- mp_data %>%
 
 ```{r, warning=FALSE}
 phylo.df.all2 <- species_data %>%
-  select(species, species_latin, phylo4phylo) %>%
+  select(species, species_formatted, phylo4phylo) %>%
   left_join(phylo.df.all, ., by = "species") %>%
   arrange(phylo4phylo) %>%
   ungroup %>%
-  select(species_latin, everything(), -species, -phylo4phylo) %>%
-  rename(species = species_latin)
+  select(species_formatted, everything(), -species, -phylo4phylo) %>%
+  rename(species = species_formatted)
 ```
 
 # Estimate lambda starting value in advance
@@ -161,11 +170,15 @@ pal[1:8] <- pal[4]
 ```
 
 ```{r}
+plot.contMap
+```
+
+```{r}
 png("../graphs/07_ancestral_state.png", width = 10, height = 6, unit = "in", res = 300)
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
-plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.05, .8)) #bltr
+plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.02, .75), ftype = "reg") #bltr
 errorbar.contMap(obj)
 
 dev.off()
@@ -176,7 +189,7 @@ tiff("../graphs/Fig6.tiff", width = 10, height = 6, unit = "in", res = 300, type
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
-plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.05, .8)) #bltr
+plot(obj, mar = c(1, 2.1, 2, 0), xlim = c(-.02, .75), ftype = "reg") #bltr
 errorbar.contMap(obj)
 
 dev.off()
