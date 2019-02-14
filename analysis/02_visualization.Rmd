@@ -101,7 +101,7 @@ p2 + aes(x = delay, y = correct, col = delay) +
 
 ```{r}
 ggsave("../graphs/02_01_overview.png", width = 4, height = 4.5, scale = 2)
-ggsave("../graphs/Fig2.tiff", width = 4, height = 4.5, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/Fig1.tiff", width = 4, height = 4.5, scale = 2, type = "cairo", compression = "lzw")
 ```
 
 # Overview by species across delays
@@ -234,7 +234,7 @@ grid.arrange(ch, cap, layout_matrix = lay)
 
 ```{r}
 ggsave("../graphs/02_05_chimp_capuchin_by_site.png", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2)
-ggsave("../graphs/Fig5.tiff", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/Fig4.tiff", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2, type = "cairo", compression = "lzw")
 ```
 
 ## Bonobos
@@ -409,7 +409,7 @@ ggplot(plot_age, aes(x = norm_age, y = correct)) +
 
 ```{r}
 ggsave("../graphs/02_09_age_by_delay.png", width = 4, height = 1.3, scale = 2)
-ggsave("../graphs/Fig4.tiff", width = 4, height = 1.3, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/Fig3.tiff", width = 4, height = 1.3, scale = 2, type = "cairo", compression = "lzw")
 ```
 
 ```{r, fig.width=4, fig.height=3.4}
