@@ -325,12 +325,12 @@ correct ~ delay * norm_age + task_experience + cup_distance +
     board_size + trial + (1 + delay | site/subject_site) + (1 + 
     delay | species)
                 Df    AIC     LRT   Pr(Chi)    
-<none>             6838.5                      
-task_experience  1 6836.5  0.0074 0.9314327    
-cup_distance     1 6848.6 12.0934 0.0005060 ***
-board_size       1 6847.9 11.3967 0.0007357 ***
-trial            1 6837.1  0.5912 0.4419742    
-delay:norm_age   2 6835.3  0.8225 0.6628194    
+<none>             6358.0                      
+task_experience  1 6356.0  0.0329 0.8559916    
+cup_distance     1 6368.3 12.3344 0.0004447 ***
+board_size       1 6366.8 10.7913 0.0010198 ** 
+trial            1 6356.1  0.1034 0.7477443    
+delay:norm_age   2 6355.6  1.5711 0.4558613    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
@@ -355,7 +355,7 @@ mm.2.ci <- readRDS("06_mp_model2_ci.rds")
 source("boot_glmm.r")
 
 mm.2.ci <- boot.glmm.pred(model.res = mm.2, excl.warnings = F, nboots = 1000,
-                         para = F, resol = 100, level = 0.95, use = NULL,
+                         para = T, resol = 100, level = 0.95, use = NULL,
                          circ.var.name = NULL, circ.var = NULL, use.u = F,
                          n.cores = c("all-1", "all"), save.path = NULL)
 
