@@ -191,11 +191,7 @@ dev.off()
 ```
 
 ```{r}
-<<<<<<< HEAD
 tiff("../graphs/Fig4.tiff", width = 10, height = 6, unit = "in", res = 300, type = "cairo", compression = "lzw")
-=======
-tiff("../graphs/Fig5.tiff", width = 10, height = 6, unit = "in", res = 300, type = "cairo", compression = "lzw")
->>>>>>> refs/remotes/origin/master
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
