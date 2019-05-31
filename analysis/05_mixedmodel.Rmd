@@ -13,7 +13,10 @@ output:
 library(tidyverse)
 library(knitr)
 library(sjPlot)
+library(viridis)
+library(colorblindr)
 library(gridExtra)
+library(ggpubr) # for ggarrange
 library(lme4)
 library(emmeans)
 library(car) # for vif
@@ -422,14 +425,18 @@ round(exp(mm2.emm.ci), 2)
 
 ## Fixed effects
 
+```{r}
+cols = viridis(7)[c(1, 5)]
+```
+
 ```{r, fig.width=4, fig.height=2.5, message=FALSE}
 fe.2 <- plot_model(mm.2, title = "A. Fixed Effects", 
                    axis.labels = c("Trial", "Task Experience (yes)","Board Size (cm)", 
-                                   "Cup Distance (cm)", "Normed Age x Delay\n(short vs. long)",
-                                   "Normed Age x Delay\n(short vs. medium)", "Normed Age", 
-                                   "Delay (short vs. long)", "Delay (short vs. medium)"), 
+                                   "Cup Distance (cm)", "Normed Age x Delay\n(0 vs. 30 seconds)",
+                                   "Normed Age x Delay\n(0 vs. 15 seconds)", "Normed Age", 
+                                   "Delay (0 vs. 30 seconds)", "Delay (0 vs. 15 seconds)"), 
                    order.terms = c(2:1, 3, 9:8, 5, 6, 4, 7), wrap.labels = F,
-                   width = .3, show.values = T, value.size = 2.5, value.offset = .3) +
+                   width = .3, show.values = T, value.size = 2.5, value.offset = .3, colors = cols) +
   facet_wrap(~ "") +
   # geom_hline(yintercept = 1, lty = 2) +
   scale_y_continuous(trans = "log", limits = c(.1, 5.5), breaks = c(.1, .2, .5, 1, 2, 5))
@@ -439,6 +446,10 @@ fe.2 + theme(plot.margin = unit(c(.5, 7, .5, .5), "cm"))
 
 ```{r, eval = FALSE}
 ggsave("../graphs/05_forestplot.png", fe.2, width = 3, height = 2.5, scale = 2)
+```
+
+```{r, fig.width=8, fig.height=5}
+cvd_grid(fe.2)
 ```
 
 ## Random effects
@@ -509,21 +520,24 @@ re.3 <- ggplot(plot.data, aes(x = species, y = estimate, col = group)) +
   geom_point(size = 2.5) +
   geom_text(aes(label = p.label), nudge_x = .3, size = 2.5, show.legend = F) +
   scale_y_continuous("Odds Ratios", trans = "log", breaks = c(.1, .2, .5, 1, 2, 5,10,20,40)) +
-  scale_colour_brewer(palette = "Set1") +
+  scale_colour_manual(values = cols) +
   coord_flip(ylim = c(.1, 42.5)) + xlab("") +
   guides(col = "none") +
   ggtitle("B. Species Random Effects")
 ```
 
 ```{r, fig.width=8, fig.height=3}
-mat <- matrix(c(rep(1, 3), rep(2, 7)), nrow = 1)
-grid.arrange(fe.2, re.3, layout_matrix = mat)
+ggarrange(fe.2, re.3, widths = c(3, 7))
 ```
 
 ```{r, warning=FALSE}
 ggsave("../graphs/05_forestplot_fe_re.png", arrangeGrob(fe.2, re.3, layout_matrix = mat), width = 8, height = 3, scale = 1.8)
 
 ggsave("../graphs/Fig3.tiff", arrangeGrob(fe.2, re.3, layout_matrix = mat), width = 8, height = 3, scale = 1.8, type = "cairo", compression = "lzw")
+```
+
+```{r, fig.width=16, fig.height=6}
+cvd_grid()
 ```
 
 

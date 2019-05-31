@@ -12,6 +12,8 @@ output:
 ```{r, message=FALSE}
 library(phytools)
 library(tidyverse)
+library(viridis)
+library(colorspace) # for cvd_emulator
 ```
 
 # Load pilot data and phylogenetic tree
@@ -165,12 +167,16 @@ nodelabels(bg = "white", cex = .8)
 
 ```{r}
 # make the color palette for the full range, then make the entire bottom 1/3 a uniform red
-pal <- colorRampPalette(RColorBrewer::brewer.pal(11, "RdYlGn"))(24)
-pal[1:8] <- pal[4]
+# pal <- colorRampPalette(RColorBrewer::brewer.pal(11, "RdYlGn"))(24)
+# pal[1:8] <- pal[4]
+
+# bottom 1/3 = uniform yellow
+pal <- rev(viridis(32))[1:24]
+pal[1:8] <- pal[1]
 ```
 
 ```{r}
-plot.contMap
+# plot.contMap
 ```
 
 ```{r}
@@ -185,7 +191,7 @@ dev.off()
 ```
 
 ```{r}
-tiff("../graphs/Fig6.tiff", width = 10, height = 6, unit = "in", res = 300, type = "cairo", compression = "lzw")
+tiff("../graphs/Fig4.tiff", width = 10, height = 6, unit = "in", res = 300, type = "cairo", compression = "lzw")
 
 obj <- contMap(mp.tree, phylo.table.all[, "Ha"], plot = F, lims = c(0, 1), sig = 2)
 obj <- setMap(obj, pal)
@@ -196,4 +202,9 @@ dev.off()
 ```
 
 ![](../graphs/07_ancestral_state.png)
+
+
+```{r}
+cvd_emulator("../graphs/07_ancestral_state.png")
+```
 

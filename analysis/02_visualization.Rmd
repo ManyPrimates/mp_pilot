@@ -1,7 +1,6 @@
 ---
 title: "ManyPrimates plots"
-author: "Manuel Bohn"
-date: "Oct 31 2018"
+date: "May 31 2019"
 output:
   html_notebook:
     code_folding: hide
@@ -15,6 +14,8 @@ output:
 library(tidyverse)
 library(ggthemes)
 library(gridExtra)
+library(viridis)
+library(colorblindr)
 library(ggpubr) # for ggarrange
 library(langcog) # for multi_boot_standard
 
@@ -34,6 +35,9 @@ p1 <- ggplot() +
   theme(axis.title.y = element_blank(), axis.ticks.y = element_blank())
 
 p2 <- p1 + theme(axis.text.y = element_blank())
+
+cols = viridis(11)[c(1, 5, 9)]
+cols4 = viridis(15)[c(1, 5, 9, 13)]
 ```
 
 # Intro
@@ -51,7 +55,9 @@ mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.cs
          species = reorder(species, phylo),
          clade = clade_formatted,
          clade = fct_relevel(clade, "Lemur", "New World monkey", "Old World monkey", "Ape"),
+         clade = fct_recode(clade, "New World Monkey" = "New World monkey", "Old World Monkey" = "Old World monkey"),
          delay = factor(delay),
+         delay = fct_recode(delay, "0 seconds" = "short", "15 seconds" = "medium", "30 seconds" = "long"),
          site = fct_recode(site, 
                            "Edinburgh Zoo" = "edinburgh", 
                            "Kumamoto Sanctuary" = "kumamoto sanctuary",
@@ -89,19 +95,24 @@ ns <- mp_data %>%
 ```{r, fig.width=4, fig.height=4.5}
 p2 + aes(x = delay, y = correct, col = delay) +
   geom_jitter(data = plot_individual, aes(size = nr_trials), width = .1, height = .015, alpha = .15) +
-  geom_point(data = plot_group, aes(y = mean), shape = 1, size = 3, stroke = 1.5) +
-  geom_linerange(data = plot_group, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2) +
-  # geom_text(data = ns, aes(label = n), y = -.05, x = 2, col = "black", size = 3) +
+  geom_point(data = plot_group, aes(y = mean, shape = delay), size = 3, stroke = 1.5) +
+  geom_linerange(data = plot_group, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2, show.legend = FALSE) +
+  geom_text(data = ns, aes(label = str_c("n = ", n)), y = -.11, x = 2, col = "black", size = 3, hjust = 0) +
   facet_grid(species ~ ., switch = "y") +
   theme(strip.text.y = element_text(angle = 180, hjust = 0)) +
   scale_size_area("Number of Trials", max_size = 3, breaks = c(12, 24, 36)) +
-  scale_colour_solarized("Delay", breaks = c("short", "medium", "long")) +
-  coord_flip(ylim = 0:1)
+  scale_shape_manual("Delay", values = c(1, 2, 5), breaks = c("0 seconds", "15 seconds", "30 seconds")) +
+  scale_color_manual("Delay", values = cols, breaks = c("0 seconds", "15 seconds", "30 seconds")) +
+  coord_flip(ylim = c(-.08, 1))
 ```
-
 ```{r}
 ggsave("../graphs/02_01_overview.png", width = 4, height = 4.5, scale = 2)
 ggsave("../graphs/Fig2.tiff", width = 4, height = 4.5, scale = 2, type = "cairo", compression = "lzw")
+```
+
+```{r, fig.width=8, fig.height=9}
+# simulate color vision deficiencies
+cvd_grid()
 ```
 
 # Overview by species across delays
@@ -122,7 +133,7 @@ p1 + aes(x = fct_rev(species), y = correct, col = clade) +
   geom_linerange(data = plot_group2, aes(y = NULL, ymin = ci_lower, ymax = ci_upper), lwd = 1.2) +
   geom_text(data = ns, aes(label = n), y = -.05, col = "black", size = 3) +
   facet_grid(clade ~ ., scales = "free_y", space = "free_y") +
-  theme(strip.text.y = element_blank()) +
+  theme(strip.text.y = element_blank()) + 
   scale_colour_solarized() +
   coord_flip()
 ```
@@ -151,7 +162,7 @@ mp_data %>%
 chimp_plot_individual <- mp_data %>%
   filter(species == "Chimpanzee") %>%
   group_by(site, delay, subject_site) %>%
-  summarise(correct = mean(correct))
+  summarise(nr_trials = max(trial), correct = mean(correct))
 
 chimp_plot_group <- chimp_plot_individual %>%
    multi_boot_standard(col = "correct")
@@ -159,14 +170,16 @@ chimp_plot_group <- chimp_plot_individual %>%
 
 ```{r, fig.width=4, fig.height=2.5}
 ch <- p2 + aes(x = delay, y = correct, col = delay) +
-  geom_jitter(data = chimp_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
-  geom_pointrange(data = chimp_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
-  geom_text(data = filter(ns, species == "Chimpanzee"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
+  geom_jitter(data = chimp_plot_individual, aes(size = nr_trials), width = .1, height = .015, alpha = .3) +
+  geom_pointrange(data = chimp_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = delay), size = .8, stroke = 1.5) +
+  geom_text(data = filter(ns, species == "Chimpanzee"), aes(label = str_c("n = ", n_by_site)), y = -.11, x = 2, col = "black", size = 3, hjust = 0) +
   facet_grid(site ~ ., switch = "y") +
-  theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("Delay", breaks = c("short", "medium", "long")) +
+  theme(strip.text.y = element_text(angle = 180, hjust = 0)) +
+  scale_size_area("Number of Trials", max_size = 3, breaks = c(12, 24, 36)) +
+  scale_shape_manual("Delay", values = c(1, 2, 5), breaks = c("0 seconds", "15 seconds", "30 seconds")) +
+  scale_color_manual("Delay", values = cols, breaks = c("0 seconds", "15 seconds", "30 seconds")) +
   ggtitle("Chimpanzees") +
-  coord_flip()
+  coord_flip(ylim = c(-.08, 1))
 
 ch
 ```
@@ -206,7 +219,7 @@ ggsave("../graphs/02_04_rtlemur_by_site.png", width = 4, height = 1.2, scale = 2
 cap_plot_individual <- mp_data %>%
   filter(species == "Brown capuchin monkey") %>%
   group_by(site, delay, subject_site) %>%
-  summarise(correct = mean(correct))
+  summarise(nr_trials = max(trial), correct = mean(correct))
 
 cap_plot_group <- cap_plot_individual %>%
    multi_boot_standard(col = "correct")
@@ -214,27 +227,34 @@ cap_plot_group <- cap_plot_individual %>%
 
 ```{r, fig.width=4, fig.height=1.2}
 cap <- p2 + aes(x = delay, y = correct, col = delay) +
-  geom_jitter(data = cap_plot_individual, width = .1, height = .015, alpha = .3, size = 3) +
-  geom_pointrange(data = cap_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper), size = .8, shape = 1, stroke = 1.5) +
-  geom_text(data = filter(ns, species == "Brown capuchin monkey"), aes(label = n_by_site), y = -.05, x = 2, col = "black", size = 3) +
+  geom_jitter(data = cap_plot_individual, aes(size = nr_trials), width = .1, height = .015, alpha = .3) +
+  geom_pointrange(data = cap_plot_group, aes(y = mean, ymin = ci_lower, ymax = ci_upper, shape = delay), size = .8, stroke = 1.5) +
+  geom_text(data = filter(ns, species == "Brown capuchin monkey"), aes(label = str_c("n = ", n_by_site)), y = -.11, x = 2, col = "black", size = 3, hjust = 0) +
   facet_grid(site ~ ., switch = "y") +
-  theme(strip.text.y = element_text(angle = 180)) +
-  scale_colour_solarized("Delay", breaks = c("short", "medium", "long")) +
+  theme(strip.text.y = element_text(angle = 180, hjust = 0)) +
+  scale_size_area("Number of Trials", max_size = 3, breaks = c(12, 24, 36)) +
+  scale_shape_manual("Delay", values = c(1, 2, 5), breaks = c("0 seconds", "15 seconds", "30 seconds")) +
+  scale_color_manual("Delay", values = cols, breaks = c("0 seconds", "15 seconds", "30 seconds")) +
   ggtitle("Capuchin Monkeys") +
-  coord_flip()
+  coord_flip(ylim = c(-.08, 1))
 ```
 
 ```{r}
-lay <- matrix(c(1, 1, 2))
+fig5 <- ggarrange(ch, cap, ncol = 1, nrow = 2, heights = c(2, 1), common.legend = T, legend = "right")
 ```
 
 ```{r, fig.width=4, fig.height=4}
-grid.arrange(ch, cap, layout_matrix = lay)
+fig5
 ```
 
 ```{r}
-ggsave("../graphs/02_05_chimp_capuchin_by_site.png", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2)
-ggsave("../graphs/Fig5.tiff", arrangeGrob(ch, cap, layout_matrix = lay), width = 4, height = 4, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/02_05_chimp_capuchin_by_site.png", fig5, width = 4, height = 4, scale = 2)
+ggsave("../graphs/FigS3.tiff", fig5, width = 4, height = 4, scale = 2, type = "cairo", compression = "lzw")
+```
+
+```{r, fig.width=8, fig.height=6}
+# simulate color vision deficiencies
+cvd_grid(fig5)
 ```
 
 ## Bonobos
@@ -397,20 +417,27 @@ plot_age <- mp_data %>%
 
 ```{r, fig.width=4, fig.height=1.3}
 ggplot(plot_age, aes(x = norm_age, y = correct)) +
-  geom_jitter(aes(col = clade), width = .05, height = .05, alpha = .5, size = 2.5) +
+  geom_jitter(aes(col = clade, fill = clade, shape = clade), width = .05, height = .05, alpha = .5, size = 2.5) +
   geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   # geom_vline(xintercept = 0, lty = 2) +
   geom_hline(yintercept = 1/3, lty = 2) +
   facet_grid(~ delay) +
   labs(x = "Normed Age (relative to species longevity)", y = "Proportion Correct") +
-  scale_color_solarized("Clade") +
+  scale_shape_manual("Clade", values = 21:24) +
+  scale_color_manual("Clade", values = cols4) +
+  scale_fill_manual("Clade", values = cols4) +
   ylim(c(-.05, 1.05))
 ```
 
 ```{r}
 ggsave("../graphs/02_09_age_by_delay.png", width = 4, height = 1.3, scale = 2)
-ggsave("../graphs/Fig4.tiff", width = 4, height = 1.3, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/FigS1.tiff", width = 4, height = 1.3, scale = 2, type = "cairo", compression = "lzw")
 ```
+
+```{r, fig.width=8, fig.height=2.6}
+cvd_grid()
+```
+
 
 ```{r, fig.width=4, fig.height=3.4}
 ggplot(plot_age, aes(x = norm_age, y = correct)) +
@@ -442,11 +469,13 @@ plot_cup <- mp_data %>%
 
 ```{r plotting cup distance}
 cp <- ggplot(plot_cup, aes(x = cup_distance, y = correct)) +
-  geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
+  geom_jitter(aes(col = clade, fill = clade, shape = clade), width = .5, height = .05, alpha = .5, size = 2.5) +
   geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   labs(x = "Cup Distance in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
-  scale_color_solarized("Clade") +
+  scale_shape_manual("Clade", values = 21:24) +
+  scale_color_manual("Clade", values = cols4) +
+  scale_fill_manual("Clade", values = cols4) +
   ylim(c(-.05, 1.05)) +
   ggtitle("A. Cup Distance")
 ```
@@ -459,11 +488,13 @@ plot_board <- mp_data %>%
 
 ```{r plotting board size}
 bp <- ggplot(plot_board, aes(x = board_size, y = correct)) +
-  geom_jitter(aes(col = clade), width = .5, height = .05, alpha = .5, size = 2) +
+  geom_jitter(aes(col = clade, fill = clade, shape = clade), width = .5, height = .05, alpha = .5, size = 2.5) +
   geom_smooth(method = "glm", method.args = list(family = "binomial"), col = "black") +
   labs(x = "Board Size in cm", y = "Proportion Correct") +
   geom_hline(yintercept = 1/3, lty = 2) +
-  scale_color_solarized("Clade") +
+  scale_shape_manual("Clade", values = 21:24) +
+  scale_color_manual("Clade", values = cols4) +
+  scale_fill_manual("Clade", values = cols4) +
   ylim(c(-.05, 1.05)) +
   ggtitle("B. Board Size")
 ```
@@ -472,12 +503,16 @@ bp <- ggplot(plot_board, aes(x = board_size, y = correct)) +
 pcb <- ggarrange(cp, bp, common.legend = T, legend = "right")
 ```
 
-```{r, fig.width=6, fig.height=2.3}
+```{r, fig.width=4, fig.height=1.5}
 pcb
 ```
 
 ```{r}
 ggsave("../graphs/02_11_cup_distance_board_size.png", pcb, width = 6, height = 2.3, scale = 2)
-ggsave("../graphs/FigS1.tiff", pcb, width = 6, height = 2.3, scale = 2, type = "cairo", compression = "lzw")
+ggsave("../graphs/FigS2.tiff", pcb, width = 6, height = 2.3, scale = 2, type = "cairo", compression = "lzw")
+```
+
+```{r, fig.width=8, fig.height=3}
+cvd_grid(pcb)
 ```
 
