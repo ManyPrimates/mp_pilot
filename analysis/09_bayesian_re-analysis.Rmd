@@ -1,0 +1,193 @@
+---
+title: "Bayesian analysis MPP"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(brms)
+library(emmeans)
+library(car)
+```
+```{r loading data}
+mp_data <- read.csv("../data/merged_data/01_manyprimates_pilot_merged_data_v2.csv")
+```
+
+```{r}
+model.data <- mp_data %>%
+  filter(species != "black_faced_spider_monkey") %>%
+  mutate_at(vars(cup_distance, board_size, trial), funs(scale(.)[, 1])) %>%
+  mutate(hiding_location = factor(hiding_location),
+         delay = fct_relevel(delay, "short"))
+```
+
+We will include random slopes for those predictors that have vary in more than 50% of the respective intercept term. Here we chech for `cup_distance`, `board_size` and `task_experience` within species. 
+
+```{r}
+mp_data %>%
+  group_by(species)%>%
+  summarise(levels_cup = length(unique(cup_distance)),
+            levels_board = length(unique(board_size)),
+            levles_task = length(unique(task_experience)))%>%
+  summarise(cup = sum(levels_cup > 1) /length(levels_cup),
+            board = sum(levels_board > 1) /length(levels_board),
+            task = sum(levles_task > 1) /length(levles_task))
+  
+```
+
+They vary less and so we will not include those random slopes within species. 
+
+Next we check collinearity between predictors - tehre is no bayesian version for that so we just run a `glm`
+```{r}
+vif_model <- glm(correct ~ delay + norm_age +
+                 task_experience + cup_distance + board_size + trial
+               , data = model.data
+               , family = binomial)
+
+vif(vif_model)
+```
+
+looks fine, so we include all predictors. 
+
+```{r}
+get_prior(
+  correct ~ delay + 
+    task_experience + norm_age + cup_distance + board_size + trial +
+    (1 + delay + trial | site/subject_site ) +
+    (1 + trial + delay | species),
+  family = bernoulli(),
+  data = model.data
+)
+```
+
+Set priors for the model
+
+```{r}
+prior <- c(
+    prior(normal(0, 2), class = Intercept),
+    prior(normal(0, 2), class = b),
+    prior(lognormal(0, 1), class = sd, group = site),
+    prior(lognormal(0, 1), class = sd, group = `site:subject_site`),
+    prior(lognormal(0, 2), class = sd, group = species),
+    prior(lkj(2), class = cor)
+    )
+```
+
+check if the priors made it into the model
+
+```{r}
+make_stancode(correct ~ delay + 
+    task_experience + norm_age + cup_distance + board_size + trial +
+    (1 + delay + trial | site/subject_site ) +
+    (1 + trial + delay | species),
+  family = bernoulli(),
+  data = model.data,
+  prior = prior)
+```
+
+run the model
+
+```{r}
+bm <- brm(
+  correct ~ delay + 
+    task_experience + norm_age + cup_distance + board_size + trial +
+    (1 + trial + delay | site/subject_site ) +
+    (1 + trial + delay | species),
+  family = bernoulli(),
+  data = model.data,
+  prior = prior,
+  iter = 5000,
+  warmup = 2000,
+  cores = 4,
+  chains = 4,
+  save_all_pars = T, 
+  sample_prior = TRUE
+)
+
+```
+
+ Links: mu = logit 
+Formula: correct ~ delay + task_experience + norm_age + cup_distance + board_size + trial + (1 + trial + delay | site/subject_site) + (1 + trial + delay | species) 
+   Data: model.data (Number of observations: 5850) 
+Samples: 4 chains, each with iter = 5000; warmup = 2000; thin = 1;
+         total post-warmup samples = 12000
+
+Group-Level Effects: 
+~site (Number of levels: 12) 
+                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                  0.75      0.24     0.37     1.31 1.00     3825     5731
+sd(trial)                      0.09      0.07     0.00     0.24 1.00     4053     5385
+sd(delaylong)                  0.20      0.16     0.01     0.61 1.00     3320     4899
+sd(delaymedium)                0.32      0.18     0.02     0.74 1.00     2910     2495
+cor(Intercept,trial)           0.16      0.37    -0.61     0.78 1.00    11700     8384
+cor(Intercept,delaylong)      -0.15      0.38    -0.81     0.61 1.00     6484     8338
+cor(trial,delaylong)           0.02      0.38    -0.69     0.71 1.00    10347     9242
+cor(Intercept,delaymedium)    -0.31      0.33    -0.84     0.42 1.00     8146     7976
+cor(trial,delaymedium)        -0.03      0.37    -0.70     0.67 1.00     8277     9065
+cor(delaylong,delaymedium)     0.17      0.38    -0.61     0.82 1.00     5582     8536
+
+~site:subject_site (Number of levels: 175) 
+                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                  0.62      0.09     0.47     0.83 1.00     1893     3410
+sd(trial)                      0.07      0.05     0.00     0.18 1.00     3471     5007
+sd(delaylong)                  0.30      0.16     0.02     0.63 1.00      992     2242
+sd(delaymedium)                0.20      0.14     0.01     0.52 1.00     1091     1814
+cor(Intercept,trial)          -0.02      0.34    -0.67     0.66 1.00    13230     8838
+cor(Intercept,delaylong)      -0.53      0.28    -0.89     0.20 1.00     3018     4047
+cor(trial,delaylong)           0.04      0.37    -0.67     0.72 1.00     4076     6828
+cor(Intercept,delaymedium)    -0.21      0.36    -0.79     0.56 1.00     2617     6217
+cor(trial,delaymedium)         0.03      0.38    -0.69     0.72 1.00     3991     7439
+cor(delaylong,delaymedium)     0.30      0.40    -0.57     0.88 1.00     1555     3776
+
+~species (Number of levels: 11) 
+                           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                  0.60      0.22     0.27     1.14 1.00     4089     5185
+sd(trial)                      0.06      0.05     0.00     0.20 1.00     4825     4610
+sd(delaylong)                  0.32      0.16     0.05     0.68 1.00     3503     2789
+sd(delaymedium)                0.24      0.15     0.01     0.59 1.00     3913     3565
+cor(Intercept,trial)          -0.02      0.37    -0.71     0.67 1.00    13397     9400
+cor(Intercept,delaylong)      -0.41      0.32    -0.88     0.32 1.00     6195     7630
+cor(trial,delaylong)           0.10      0.37    -0.63     0.75 1.00     7293     9108
+cor(Intercept,delaymedium)    -0.31      0.35    -0.86     0.45 1.00     8503     8491
+cor(trial,delaymedium)         0.03      0.37    -0.69     0.71 1.00    10872     9985
+cor(delaylong,delaymedium)     0.32      0.35    -0.47     0.87 1.00     7156     7202
+
+Population-Level Effects: 
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              1.27      0.40     0.44     2.04 1.00     4042     5468
+delaylong             -1.21      0.19    -1.59    -0.84 1.00     5033     6030
+delaymedium           -0.93      0.19    -1.30    -0.55 1.00     5567     7054
+task_experienceyes     0.36      0.31    -0.23     1.01 1.00     4498     5695
+norm_age               0.04      0.07    -0.09     0.18 1.00     6272     7893
+cup_distance           0.49      0.24     0.02     0.99 1.00     4521     5368
+board_size             0.46      0.21     0.04     0.88 1.00     4456     5902
+trial                  0.01      0.06    -0.11     0.12 1.00     6485     7010
+
+Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+
+
+compare the different delay conditions
+
+```{r}
+emmeans(bm, pairwise ~ delay)$contrasts%>%
+  as_tibble()%>%
+  ggplot(., aes(x = contrast, y = estimate))+
+  geom_hline(yintercept = 0, lty = 2, alpha = .5)+
+  geom_pointrange(aes(ymin = lower.HPD, ymax = upper.HPD))+
+  coord_flip()+
+  ylim(-2,2)+
+  theme_minimal()
+```
+
+```{r}
+x<-seq(-10,10,by=0.1)
+plot(x, dnorm(x, mean = 0, sd = 1),type="l", ylim=c(0, 0.8))
+#lines(x, dcauchy(x, location = 0, scale = 1),col="red")
+#lines(x, dstudent_t(x, 3, 0, 2.5),col="green")
+lines(x, dlnorm(x, 0,1),col="firebrick")
+```
+
+
+
