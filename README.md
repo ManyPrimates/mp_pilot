@@ -1,16 +1,21 @@
 # ManyPrimates Pilot
 
-Project repository for the ManyPrimates Pilot study. For more information about ManyPrimates visit: https://manyprimates.github.io
+Pilot project to assess primates' short-term memory abilities and to build an infrastructure for collaboration
+
+> **ManyPrimates** et al. (2019) Establishing an infrastructure for collaboration in primate cognition research. _PLOS ONE 14_(10), e0223675. [doi:10.1371/journal.pone.0223675](https://doi.org/10.1371/journal.pone.0223675)
 
 
 ## Structure
 
-Raw data files, as submitted from each lab, are stored in `data/raw_data/`. 
+```
+.
+├── data
+│   ├── raw_data      <-- data as submitted from each lab
+│   └── merged_data   <-- combined & cleaned data
+├── analysis          <-- numbered analysis scripts
+└── graphs            <-- figures/plots
+```
 
-The merged dataset is stored in `data/merged_data`. The code for data pre-processing prior to merging the datasets can be found in `analysis/01_data_processing.Rmd`. In this files, we also insert life expectancy for each species and calculate the normed age per subject. 
+## More information
 
-The file `analysis/02_visualization.Rmd` contains code for some preliminary visualizations. 
-
-In `analysis/04_inference.Rmd` we are running simple inferential statistics. 
-
-The code for the model we use to analyse the combined data set is in `analysis/05_mixedmodel.Rmd`. 
+[https://manyprimates.github.io/pilot/](https://manyprimates.github.io/pilot/)
